@@ -3,6 +3,9 @@ import "./styles.css";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import RightArrowP from "../../../../../Assets/RightArrowP.png";
 import LeftArrowP from "../../../../../Assets/LeftArrowP.png";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const BookingTable = () => { 
@@ -36,46 +39,11 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
+
       
       <div class="dropdown">
   <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <td><u>View Details</u></td>
-  </button>
-  <ul class="dropdown-menu bt-view-details-info-bg" aria-labelledby="dropdownMenu2">
-    <li><div class="dropdown-item-text container-fluid cntnr-drpdwn">
-        
-        <div className="row bt-drdwn-rw-1">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package Name:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>Trip To Goa(4d/5N)</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Phone:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>+91 8647282929</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Booking Date:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>21/05/21</p>
-            </div>
-        </div>
-
-        <div className="row bt-drdwn-rw-2">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package ID:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>1234566</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Email:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>serty@yahoo.com</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Payment Receipt:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}><u>View</u></p>
-            </div>
-        </div>
-        
-        </div></li>
-  </ul>
+  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
 </div>
 
     </tr>
@@ -88,43 +56,7 @@ const BookingTable = () => {
       <td>21/3/21</td>
       <div class="dropdown">
   <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <td ><u>View Details</u></td>
-  </button>
-  <ul class="dropdown-menu bt-view-details-info-bg" aria-labelledby="dropdownMenu2">
-    <li><div class="dropdown-item-text container-fluid cntnr-drpdwn">
-        
-        <div className="row bt-drdwn-rw-1">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package Name:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>Trip To Goa(4d/5N)</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Phone:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>+91 8647282929</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Booking Date:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>21/05/21</p>
-            </div>
-        </div>
-
-        <div className="row bt-drdwn-rw-2">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package ID:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>1234566</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Email:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>serty@yahoo.com</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Payment Receipt:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}><u>View</u></p>
-            </div>
-        </div>
-        
-        </div></li>
-  </ul>
+  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
 </div>
     </tr>
     <tr className="bt-row">
@@ -136,43 +68,7 @@ const BookingTable = () => {
       <td>21/3/21</td>
       <div class="dropdown">
   <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <td ><u>View Details</u></td>
-  </button>
-  <ul class="dropdown-menu bt-view-details-info-bg" aria-labelledby="dropdownMenu2">
-    <li><div class="dropdown-item-text container-fluid cntnr-drpdwn">
-        
-        <div className="row bt-drdwn-rw-1">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package Name:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>Trip To Goa(4d/5N)</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Phone:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>+91 8647282929</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Booking Date:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>21/05/21</p>
-            </div>
-        </div>
-
-        <div className="row bt-drdwn-rw-2">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package ID:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>1234566</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Email:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>serty@yahoo.com</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Payment Receipt:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}><u>View</u></p>
-            </div>
-        </div>
-        
-        </div></li>
-  </ul>
+  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
 </div>
     </tr>
     <tr className="bt-row">
@@ -184,43 +80,7 @@ const BookingTable = () => {
       <td>21/3/21</td>
       <div class="dropdown">
   <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <td ><u>View Details</u></td>
-  </button>
-  <ul class="dropdown-menu bt-view-details-info-bg" aria-labelledby="dropdownMenu2">
-    <li><div class="dropdown-item-text container-fluid cntnr-drpdwn">
-        
-        <div className="row bt-drdwn-rw-1">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package Name:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>Trip To Goa(4d/5N)</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Phone:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>+91 8647282929</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Booking Date:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>21/05/21</p>
-            </div>
-        </div>
-
-        <div className="row bt-drdwn-rw-2">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package ID:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>1234566</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Email:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>serty@yahoo.com</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Payment Receipt:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}><u>View</u></p>
-            </div>
-        </div>
-        
-        </div></li>
-  </ul>
+  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
 </div>
     </tr>
     <tr className="bt-row">
@@ -232,43 +92,7 @@ const BookingTable = () => {
       <td>21/3/21</td>
       <div class="dropdown">
   <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <td ><u>View Details</u></td>
-  </button>
-  <ul class="dropdown-menu bt-view-details-info-bg" aria-labelledby="dropdownMenu2">
-    <li><div class="dropdown-item-text container-fluid cntnr-drpdwn">
-        
-        <div className="row bt-drdwn-rw-1">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package Name:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>Trip To Goa(4d/5N)</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Phone:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>+91 8647282929</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Booking Date:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>21/05/21</p>
-            </div>
-        </div>
-
-        <div className="row bt-drdwn-rw-2">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package ID:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>1234566</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Email:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>serty@yahoo.com</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Payment Receipt:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}><u>View</u></p>
-            </div>
-        </div>
-        
-        </div></li>
-  </ul>
+  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
 </div>
     </tr>
 
@@ -281,43 +105,7 @@ const BookingTable = () => {
       <td>21/3/21</td>
       <div class="dropdown">
   <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <td ><u>View Details</u></td>
-  </button>
-  <ul class="dropdown-menu bt-view-details-info-bg" aria-labelledby="dropdownMenu2">
-    <li><div class="dropdown-item-text container-fluid cntnr-drpdwn">
-        
-        <div className="row bt-drdwn-rw-1">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package Name:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>Trip To Goa(4d/5N)</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Phone:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>+91 8647282929</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-1-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Booking Date:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>21/05/21</p>
-            </div>
-        </div>
-
-        <div className="row bt-drdwn-rw-2">
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-1">
-                <p style={{color: "gray", fontSize: "14px"}}>Package ID:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>1234566</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-2">
-                <p style={{color: "gray", fontSize: "14px"}}>Email:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}>serty@yahoo.com</p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12 bt-drdwn-rw-2-col-3">
-                <p style={{color: "gray", fontSize: "14px"}}>Payment Receipt:</p>
-                <p style={{fontSize: "15px", marginLeft: "2rem"}}><u>View</u></p>
-            </div>
-        </div>
-        
-        </div></li>
-  </ul>
+  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
 </div>
     </tr>
   </tbody>

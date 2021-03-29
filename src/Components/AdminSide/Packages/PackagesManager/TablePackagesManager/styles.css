@@ -9,3 +9,8 @@
 .pm-t-row > td {
   margin-top: 3rem !important;
 }
+
+.icon-text-deconone {
+  text-decoration: none;
+  border: none !important;
+}

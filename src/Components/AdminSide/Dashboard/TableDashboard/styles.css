@@ -18,4 +18,10 @@
   padding: 12px;
   font-size: 13px;
   font-weight: 500;
+  border: none;
+  text-decoration: none;
+}
+
+.d-tble-icons > span > .MuiSvgIcon-root {
+  font-size: 18px;
 }

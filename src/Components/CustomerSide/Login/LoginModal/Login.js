@@ -34,7 +34,7 @@ export default function MaxWidthDialog() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [fullWidth, setFullWidth] = React.useState(true);
-  const [maxWidth, setMaxWidth] = React.useState('lg');
+  const [maxWidth, setMaxWidth] = React.useState('md');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -54,9 +54,9 @@ export default function MaxWidthDialog() {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open max-width dialog
-      </Button>
+      <a variant="outlined" color="primary" onClick={handleClickOpen}>
+        Login
+      </a>
       <Dialog
         fullWidth={fullWidth}
         maxWidth={maxWidth}
@@ -70,10 +70,12 @@ export default function MaxWidthDialog() {
           <DialogContentText>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-3 col-md-6 col-sm-12 col-left-img">
+                    <div className="col-lg-4 col-md-6 col-sm-12 col-left-img">
                         <h1><span className="title-span title-color-white">PLAN YOUR <br/></span><span className="title-span title-color-red">DREAM <br/></span><span className="title-span title-color-red">HOLIDAY <br/></span><span className="title-span title-color-white">NOW!!!</span> </h1>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 col-right-content"></div>
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-right-content">
+                        <button>To Admin Dashboard</button>
+                    </div>
                 </div>
             </div>
           </DialogContentText>

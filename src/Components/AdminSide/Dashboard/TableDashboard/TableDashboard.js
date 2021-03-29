@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import "./styles.css";
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const TableDashboard = () => {
 
@@ -11,7 +13,7 @@ const TableDashboard = () => {
         type: "Inquiry",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
         },
     
     {
@@ -19,7 +21,7 @@ const TableDashboard = () => {
         type: "Inquiry",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     },
     
     {
@@ -27,7 +29,7 @@ const TableDashboard = () => {
         type: "Booking",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     },
     
     {
@@ -35,7 +37,7 @@ const TableDashboard = () => {
         type: "Booking",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     },
     
     {
@@ -43,7 +45,7 @@ const TableDashboard = () => {
         type: "Inquiry",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     },
 
     {
@@ -51,7 +53,7 @@ const TableDashboard = () => {
         type: "Inquiry",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     },
 
     {
@@ -59,7 +61,7 @@ const TableDashboard = () => {
         type: "Inquiry",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     },
 
     {
@@ -67,7 +69,7 @@ const TableDashboard = () => {
         type: "Inquiry",
         details: "Ram Singh",
         date: "21/05/19",
-        heading:<span style={{cursor: "pointer"}}><u>View</u></span>
+        heading:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
     }
     
     

@@ -33,11 +33,16 @@
   font-size: 14px;
 }
 
+.noLine {
+  display: none;
+}
+
 .highlight-line {
   width: 50px;
   height: 3px;
   background: #ff4f4f;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .blog-rw-1-col-3 {
@@ -128,7 +133,7 @@
 
 .blg-lst-col-vertical-img {
   width: 200px;
-  height: 532px;
+  height: 967px;
   margin-top: 3.5rem;
   margin-left: 2rem;
 }
@@ -146,8 +151,8 @@
   font-weight: 600;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
   transform: translate(-50%, -50%);
-  right: 60%;
-  top: 70%;
+  right: 43%;
+  top: 90%;
 }
 
 .blg-ftr-divder {

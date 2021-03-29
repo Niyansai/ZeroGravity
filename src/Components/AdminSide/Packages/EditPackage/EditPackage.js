@@ -266,20 +266,20 @@ const EditPackage = () => {
                     <div className="col-lg-6 col-md-6 col-sm-12 ed-row-3-col-2">
 
                         <div className="row er3c2-srws er3c2-srw-1 row-title-GTrip">
-                            <div className="col-lg-5 col-md-4 col-sm-12 row-title-GTrip-col-only">
+                            <div className="col-lg-12 col-md-12 col-sm-12 row-title-GTrip-col-only">
                             <h3>Gokharna Trip <span><EditIcon/></span></h3><hr/>
                             </div>
 
                         </div>
 
                         <div className="row er3c2-srws er3c2-srw-2">
-                            <div className="col-lg-2 col-md-4 col-sm-12 three-dlts-txt-row-cAll three-dlts-txt-row-c1">
+                            <div className="col-lg-4 col-md-4 col-sm-12 three-dlts-txt-row-cAll three-dlts-txt-row-c1">
                                 <p>Adventure<soan><DeleteForeverIcon/></soan></p>
                             </div>
-                            <div className="col-lg-2 col-md-4 col-sm-12 three-dlts-txt-row-cAll three-dlts-txt-row-c2">
+                            <div className="col-lg-4 col-md-4 col-sm-12 three-dlts-txt-row-cAll three-dlts-txt-row-c2">
                             <p>Hills<soan><DeleteForeverIcon/></soan></p>
                             </div>
-                            <div className="col-lg-2 col-md-4 col-sm-12 three-dlts-txt-row-cAll three-dlts-txt-row-c3">
+                            <div className="col-lg-4 col-md-4 col-sm-12 three-dlts-txt-row-cAll three-dlts-txt-row-c3">
                             <p>Hiking<soan><DeleteForeverIcon/></soan></p>
                             </div>
                         </div>
@@ -294,7 +294,7 @@ const EditPackage = () => {
                         </div>
 
                         <div className="row er3c2-srws er3c2-srw-3">
-                            <div className="col-lg-3 col-md-3 col-sm-12 er3c2-srw-3-col-only">
+                            <div className="col-lg-6 col-md-6 col-sm-6 er3c2-srw-3-col-only">
                             <p>From</p>
                             <input className="number-txt-inpt" placeholder="15,000" type="text"/><span><EditIcon/></span>
                             </div>                       
@@ -303,7 +303,7 @@ const EditPackage = () => {
 
                         <div className="row er3c2-srws er3c2-srw-4">
 
-                            <div className="col-lg-8 col-md-12 col-sm-12 er3c2-srw-4-col-only">
+                            <div className="col-lg-12 col-md-12 col-sm-12 er3c2-srw-4-col-only">
                                 <h5>Overview</h5>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt pariatur eveniet aliquid sint unde totam officiis voluptas. Ea minus similique quisquam cum libero aut velit illo numquam tenetur! Nostrum, cupiditate.
                                 istinctio. Dolores, tinctio Dolores architecto!</p>
@@ -313,7 +313,7 @@ const EditPackage = () => {
 
                         <div className="row er3c2-srws er3c2-srw-5">
 
-                            <div className="col-lg-8 col-md-12 col-sm-12 er3c2-srw-5-col-only">
+                            <div className="col-lg-12 col-md-12 col-sm-12 er3c2-srw-5-col-only">
                                 <h5>How It Works</h5>
                                 <ol className="olist-font-size">
                                 <li>Lorem ipsum dolor sit amet consectetur adipisicing elit tenetur dolorum earum t aperiam laborum?
@@ -348,7 +348,7 @@ const EditPackage = () => {
                         </div>
                         </div>
 
-                        <hr style={{ height: "3px", color: "black"}}/>
+                        <hr style={{ height: "2px", color: "black"}}/>
 
                         <div className="row er3c2-srws er3c2-srw-8">
                         <div className="col er3c2-srw-7-col-only">

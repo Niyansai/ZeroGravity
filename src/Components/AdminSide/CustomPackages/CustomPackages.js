@@ -8,6 +8,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CustomPackagesTable from './CustomPackagesTable/CustomPackagesTable';
 import SidebarAdmin from '../SideBarAdmin/SidebarAdmin';
+import { Link } from 'react-router-dom';
 
 
 const CustomPackages = () => {
@@ -16,7 +17,7 @@ const CustomPackages = () => {
         <div className="container admin-dshbrd-top">
             <div className="row ad-rw-1">
                 <div className="col-lg-3 col-md-3 col-sm-12 ad-rw1-col-1">
-                <img className="dshbr-logo" src={GravityLogo} alt=""/>
+               <Link to="/home"> <img className="dshbr-logo" src={GravityLogo} alt=""/> </Link>
                 </div>
                 <div className="col-lg-3 col-md-3 col-sm-12 ad-rw1-col-2 cp-title">
                     <p className="ad-rw1-col-2-p">Custom Packages</p>

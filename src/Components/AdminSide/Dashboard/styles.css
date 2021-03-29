@@ -1,14 +1,17 @@
 .d-container {
   padding-top: 2rem;
+  padding: 2rem;
 }
 
 .dshbrd-logo {
   height: 60px;
+  margin-left: 2rem;
 }
 
 .d-row-header-col-2 {
   justify-content: flex-end;
   display: flex;
+  margin-left: -2rem;
 }
 
 .d-row-2-main {
@@ -70,6 +73,7 @@
   border: none;
   border-bottom: 2px solid gray;
   height: 25px;
+  outline: none;
 }
 
 .d-row-2-sbrw-3-col-4 > .MuiSvgIcon-root {
@@ -120,7 +124,7 @@
   border: 1px solid gray;
   border-radius: none;
   align-items: center;
-  width: 120px;
+  width: 90%;
   margin-left: -2rem;
 }
 

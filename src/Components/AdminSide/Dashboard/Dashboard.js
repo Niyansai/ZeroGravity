@@ -12,7 +12,7 @@ import SmallTableDashboard from './TableDashboard/SmallTableDashboard/SmallTable
 const Dashboard = () => {
 
     return (
-        <div className="container d-container">
+        <div className="container-fluid d-container">
 
             {/* ################# ROW-1 Header ################## */}
 
@@ -38,7 +38,7 @@ const Dashboard = () => {
 
                 </div>
 
-                <div className="col-lg-6 col-md-12 col-sm-12 d-row-2-col-2-middle">
+                <div className="col-lg-6 col-md-6 col-sm-12 d-row-2-col-2-middle">
 
                     <div className="row d-row-2-sbrw-1">
 
@@ -105,7 +105,7 @@ const Dashboard = () => {
 
                     <div className="row d-row-2-c3-subrow1">
 
-                        <div className="col d-row-2-c3-subrow1-col-1">
+                        <div className="col-lg-5 col-md-5 col-sm-12 d-row-2-c3-subrow1-col-1">
                             <div className="row d-row-2-c3-subrow1-col-1-rw1">
                                 <div className="col">
                                     <div className="d-row-2-c3-subrow1-col-1-rw-cl-1-rectangle1">
@@ -121,7 +121,7 @@ const Dashboard = () => {
                             </div>
 
                         </div>
-                        <div className="col d-row-2-c3-subrow1-col-2">
+                        <div className="col-lg-6 col-md-5 col-sm-12 d-row-2-c3-subrow1-col-2">
 
                         <div class="card d-row-2-c3-subrow1-col-2-card">
                             <div class="card-body d-row-2-c3-subrow1-col-2-card-content">

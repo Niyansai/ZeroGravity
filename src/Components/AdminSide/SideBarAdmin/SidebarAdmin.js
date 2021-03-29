@@ -11,8 +11,8 @@ const SidebarAdmin = () => {
              <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link>
             <Link to="/packagesmanager" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
             <Link to="/editpackage" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
-            <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
-            <Link to="/" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
+            <Link to="/dashboard" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
+            <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
             <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs"/></Link>
             <button className="btn-sidebar">Logout</button>
         </div>

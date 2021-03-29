@@ -2,6 +2,9 @@ import React from 'react';
 import "./styles.css";
 import LeftArrowP from "../../../../../Assets/LeftArrowP.png";
 import RightArrowP from "../../../../../Assets/RightArrowP.png";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const TablePackagesManager   = () => {
@@ -16,8 +19,7 @@ const TablePackagesManager   = () => {
                         cost_person:"15000",
                         rating: "4.5/5",
                         total_bookings: '10',
-                        action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                        },
+                        action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                         },
 
                         {
                             id: "0123",
@@ -27,8 +29,7 @@ const TablePackagesManager   = () => {
                             cost_person:"15000",
                             rating: "4.5/5",
                             total_bookings: '10',
-                            action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                            },
+                            action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                             },
 
                             {
                                 id: "0123",
@@ -38,8 +39,7 @@ const TablePackagesManager   = () => {
                                 cost_person:"15000",
                                 rating: "4.5/5",
                                 total_bookings: '10',
-                                action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                                },
+                                action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                 },
 
                                 {
                                     id: "0123",
@@ -49,8 +49,7 @@ const TablePackagesManager   = () => {
                                     cost_person:"15000",
                                     rating: "4.5/5",
                                     total_bookings: '10',
-                                    action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                                    },
+                                    action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                     },
 
                                     {
                                         id: "0123",
@@ -60,8 +59,7 @@ const TablePackagesManager   = () => {
                                         cost_person:"15000",
                                         rating: "4.5/5",
                                         total_bookings: '10',
-                                        action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                                        },
+                                        action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                         },
 
                                         {
                                             id: "0123",
@@ -71,8 +69,7 @@ const TablePackagesManager   = () => {
                                             cost_person:"15000",
                                             rating: "4.5/5",
                                             total_bookings: '10',
-                                            action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                                            },
+                                            action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                             },
 
                                             {
                                                 id: "0123",
@@ -82,8 +79,7 @@ const TablePackagesManager   = () => {
                                                 cost_person:"15000",
                                                 rating: "4.5/5",
                                                 total_bookings: '10',
-                                                action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                                                },
+                                                action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                                 },
 
                                                 {
                                                     id: "0123",
@@ -93,8 +89,7 @@ const TablePackagesManager   = () => {
                                                     cost_person:"15000",
                                                     rating: "4.5/5",
                                                     total_bookings: '10',
-                                                    action:<span style={{cursor: "pointer"}}><u>Edit</u></span>
-                                                    },
+                                                    action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                                     },
 
                                                     
     
@@ -129,11 +124,9 @@ const TablePackagesManager   = () => {
                <td>{item.cost_person}</td>
                <td>{item.rating}</td>
                <td>{item.total_bookings}</td>
-               <td>{item.action}</td>
+               <td className="icon-text-deconone">{item.action}</td>
           </tr>
-          
-         
-
+                
           )
           
           }

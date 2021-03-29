@@ -212,7 +212,7 @@
 }
 
 .ed-row-3-col-2 {
-  margin-left: -10rem;
+  margin-left: -2rem;
 }
 
 .row-title-GTrip > h3 > span > .MuiSvgIcon-root {
@@ -376,6 +376,15 @@
 .er3c2-srw-13-col-only > .MuiSvgIcon-root {
   color: #ff4f4f;
   margin-left: -1rem;
+}
+
+.er3c2-srws {
+}
+
+@media (max-width: 1200px) {
+  .ed-row-3-col-2 {
+    margin-left: 0rem;
+  }
 }
 
 @media (max-width: 512px) {

@@ -12,6 +12,7 @@ import CustomPackageRequest from './Components/AdminSide/CustomPackages/CustomPa
 import PackagesManager from './Components/AdminSide/Packages/PackagesManager/PackagesManager';
 import EditPackage from './Components/AdminSide/Packages/EditPackage/EditPackage';
 import Login from './Components/CustomerSide/Login/LoginModal/Login';
+import PageNotFound from './Components/PageNotFound/PageNotFound';
 
 
 
@@ -46,11 +47,12 @@ const App = ( {selected} ) => {
           <Route exact path='/dashboard'>
             <Dashboard/>
           </Route>
-          <Route path='/'>
+          <Route path='/home'>
            <Navbar/>
             <HomeAfterLogin/>
             <Footer/>
           </Route>
+          
         </Switch>
       </Router>
       
