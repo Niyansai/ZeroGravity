@@ -16,6 +16,11 @@
 .dream {
   color: rgba(255, 79, 79, 0.9);
 }
+
+.nav-items-nb {
+  margin-right: 3rem;
+}
+
 .nav-btn-1 {
   background: rgba(255, 79, 79, 0.9);
   border: none;
@@ -24,14 +29,11 @@
   color: white !important;
   border-radius: none !important;
   padding: 10px;
+  white-space: nowrap;
 }
 
 .profile-nav > .MuiAvatar-root {
   margin-top: -5px;
-}
-
-.nav-items-nb {
-  margin-right: 4rem;
 }
 
 .logo-G {
@@ -57,12 +59,32 @@
   background: url("img2.png");
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1260px) {
+  .btn-form-nav {
+  }
+
   .nav-btn-1 {
     background: rgba(255, 79, 79, 0.9);
     border: none;
     outline: none;
-    width: 250px;
+    padding: 10px;
+    width: 100px;
+    color: white !important;
+    border-radius: none !important;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav-items-nb {
+    margin-right: 1rem;
+  }
+
+  .nav-btn-1 {
+    background: rgba(255, 79, 79, 0.9);
+    border: none;
+    outline: none;
+    width: 150px;
     color: white !important;
     border-radius: none !important;
   }

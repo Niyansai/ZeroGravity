@@ -25,7 +25,7 @@ const HomeAfterLogin = () => {
                 <div class="verticalLine">
                         </div>
                 </div>
-                <div className="col-lg-10 col-md-10 col-sm-12 hm-rw1-col2-img-bg">
+                <div className="col-lg-10 col-md-12 col-sm-12 hm-rw1-col2-img-bg">
                    <div className="hm-heading">
                        <p>Welcome</p>
                        <h2>START <span style={{color: "#ff4f4f"}}>YOUR</span><br/> 
@@ -50,7 +50,7 @@ const HomeAfterLogin = () => {
             {/* ############################## ROW-2 ############################ */}
 
             <div className="row hm-rw-2">
-                <div className="col hm-rw1-col">
+                <div className="col-lg-12 col-md-6 col-sm-12 hm-rw1-col">
                     <Grid container className="rw-2-grid-cntnr">
                         <Grid className="rw2-circle-1">
                             <div className="circle-hm-1">

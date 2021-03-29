@@ -54,9 +54,9 @@ export default function MaxWidthDialog() {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open max-width dialog
-      </Button>
+      <a variant="outlined" color="primary" onClick={handleClickOpen}>
+        Login
+      </a>
       <Dialog
         fullWidth={fullWidth}
         maxWidth={maxWidth}
