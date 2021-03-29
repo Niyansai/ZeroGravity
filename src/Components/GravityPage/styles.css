@@ -1,0 +1,31 @@
+.line-divider {
+  width: 93%;
+  height: 2px;
+  color: black;
+  background: black;
+  margin-left: 6rem;
+  margin-top: -4rem;
+  z-index: 1;
+}
+.gravty-img {
+  height: 350px;
+}
+
+.gravity-cntnr {
+  padding: 5rem;
+}
+
+.txtflex-disc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grvty-rw2 {
+  margin-top: -8rem;
+}
+
+@media (max-width: 1080px) {
+  .line-divider {
+    display: none;
+  }
+}

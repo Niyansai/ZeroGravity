@@ -1,0 +1,11 @@
+.pm-t-header {
+  border-bottom: 2px solid gray;
+  margin: 1rem;
+  font-size: 12px;
+  padding: 2rem !important;
+  height: 50px;
+}
+
+.pm-t-row > td {
+  margin-top: 3rem !important;
+}

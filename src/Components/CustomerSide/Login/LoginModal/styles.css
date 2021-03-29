@@ -1,0 +1,25 @@
+.modal-size {
+}
+.modal-bg {
+  background: red;
+}
+
+.col-left-img {
+  background: url("img2.png");
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  padding-left: 4rem;
+}
+
+.title-span {
+  font-weight: 500;
+}
+
+.title-color-red {
+  color: #ff4f4f;
+}
+
+.title-color-white {
+  color: #ffff;
+}

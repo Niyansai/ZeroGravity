@@ -1,0 +1,12 @@
+.d-st-header {
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+  text-align: center;
+}
+
+.d-st-data-row > td {
+  text-align: center;
+  font-size: 13px;
+  padding-bottom: 1rem;
+}

@@ -1,0 +1,166 @@
+.d-container {
+  padding-top: 2rem;
+}
+
+.dshbrd-logo {
+  height: 60px;
+}
+
+.d-row-header-col-2 {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.d-row-2-main {
+  padding-top: 2rem;
+}
+
+.d-row-2-col-2-middle {
+  padding-left: 2rem;
+}
+
+.d-row-2-sbrw-1-col {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.d-row-2-sbrw-2-btn-1 {
+  border: 1px solid gray;
+  background: none;
+  outline: none;
+  padding: 5px;
+  width: 150px;
+  color: #ff4f4f;
+  font-weight: 600;
+  margin-top: 1rem;
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  height: 50px;
+}
+
+.d-row-2-sbrw-2-btn-2 {
+  border: 1px solid gray;
+  background: none;
+  outline: none;
+  padding: 5px;
+  width: 90%;
+  color: black;
+  font-weight: 600;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  padding-top: 10px;
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  margin-left: 12px;
+}
+
+.d-row-2-sbrw-3 {
+  font-size: 13px;
+  padding-top: 2rem;
+  font-weight: 600;
+}
+
+.d-row-2-sbrw-3-col-4 {
+  display: flex;
+  margin-left: -3rem;
+}
+
+.d-row-2-sbrw-3-col-4 > input {
+  border: none;
+  border-bottom: 2px solid gray;
+  height: 25px;
+}
+
+.d-row-2-sbrw-3-col-4 > .MuiSvgIcon-root {
+  color: gray;
+  margin-left: -1.5rem;
+  cursor: pointer;
+}
+
+.d-row-2-sbrw-3-col-1-hglht-line {
+  height: 2px;
+  width: 10px;
+  background: #ff4f4f;
+  margin-top: -10px;
+  margin-left: 2rem;
+}
+
+.d-row-2-sbrw-4 {
+  background: #f0f0f0;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* ##################COL-3################################ */
+
+.d-row-2-col-3-last {
+  padding-top: 4.5rem;
+  padding-left: 2rem;
+}
+
+.d-row-2-c3-subrow1-col-1-rw-cl-1-rectangle1 {
+  width: 85%;
+  height: 100px;
+  background: #000;
+}
+
+.d-row-2-c3-subrow1-col-1-rw-cl-2-rectangle2 {
+  height: 85px;
+  background: #ff4f4f;
+  width: 85%;
+}
+
+.d-row-2-c3-subrow1-col-1-rw2 {
+  margin-top: 15px;
+}
+
+.d-row-2-c3-subrow1-col-2-card {
+  height: 200px;
+  border: 1px solid gray;
+  border-radius: none;
+  align-items: center;
+  width: 120px;
+  margin-left: -2rem;
+}
+
+.d-card-avatar {
+  display: none;
+}
+
+.d-card-btn {
+  border: 1px solid gray;
+  background: none;
+  outline: none;
+  padding: 5px;
+  width: 80px;
+  color: black;
+  font-size: 12px;
+  margin-top: 5px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.d-row-2-c3-subrow1-col-2-card-content > .MuiAvatar-root {
+  height: 70px;
+  width: 70px;
+}
+
+.d-row-2-c3-subrow1-col-2-card-content > p {
+  color: red;
+  margin-left: 20px;
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.d-row-2-c3-subrow2 {
+  margin-top: 1rem;
+  border: 1px solid rgba(211, 211, 211, 0.9);
+  margin-left: 3px;
+  width: 80%;
+}
+
+.d-row-2-c3-subrow2 > p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+}

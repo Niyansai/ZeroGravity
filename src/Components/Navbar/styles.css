@@ -1,0 +1,69 @@
+.nav-top-links {
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+.nav-link-deco {
+  text-decoration: none;
+  color: black;
+}
+
+.modal-ku {
+  width: 750px;
+  margin: auto;
+}
+
+.dream {
+  color: rgba(255, 79, 79, 0.9);
+}
+.nav-btn-1 {
+  background: rgba(255, 79, 79, 0.9);
+  border: none;
+  outline: none;
+  width: 200px;
+  color: white !important;
+  border-radius: none !important;
+  padding: 10px;
+}
+
+.profile-nav > .MuiAvatar-root {
+  margin-top: -5px;
+}
+
+.nav-items-nb {
+  margin-right: 4rem;
+}
+
+.logo-G {
+  height: 80px;
+  margin-left: 4rem;
+}
+
+.profile-nav {
+  display: flex;
+}
+
+.profile-nav > span {
+  margin-left: 1rem;
+}
+
+.navbar-heads {
+  margin-right: 2rem;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.lgn-img-column {
+  background: url("img2.png");
+}
+
+@media (max-width: 1080px) {
+  .nav-btn-1 {
+    background: rgba(255, 79, 79, 0.9);
+    border: none;
+    outline: none;
+    width: 250px;
+    color: white !important;
+    border-radius: none !important;
+  }
+}

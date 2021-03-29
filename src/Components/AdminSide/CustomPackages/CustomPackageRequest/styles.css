@@ -1,0 +1,96 @@
+.cpr-cntnr {
+  padding-top: 2rem;
+}
+
+.cpr-rw1-col-1-logo {
+  height: 70px;
+}
+
+.cpr-rw1-col-2 {
+  display: flex;
+}
+
+.cpr-rw-2 {
+  padding-left: 4rem;
+  padding-top: 2rem;
+}
+
+.cpr-back-arrow > .MuiSvgIcon-root {
+  margin-left: 10px;
+}
+
+.cpr-rw-2-col-2 > p {
+  margin-left: 8px;
+}
+
+.cpr-rw3-col-1-sub-row-1-col-only,
+.cpr-rw3-col-2-sub-row-1-col-only,
+.col-3-sr > h6 {
+  color: #707070;
+  font-size: 13px;
+}
+
+.cpr-rw-3 {
+  padding-left: 4rem;
+  padding-top: 2rem;
+}
+
+.cpr-inputs {
+  border: none;
+  height: 40px;
+  border-bottom: 2px solid #707070;
+  outline: none;
+}
+
+.cpr-inputs::placeholder {
+  font-size: 13px;
+}
+
+.cpr-rw3-col-1-sub-rows-all,
+.cpr-rw3-col-2-sub-rows-all,
+.cpr-rw3-col-3-sub-rows-all {
+  margin-bottom: 1.5rem;
+}
+
+.cpr-rw3-col-2 {
+  margin-top: -1.5rem;
+}
+
+.cpr-rw3-col-3 {
+  margin-top: -2.5rem;
+}
+
+.cpr-rw3-col-2-sub-row-1,
+.cpr-rw3-col-2-sub-row-2 {
+  display: flex;
+  font-size: 12px;
+  color: #707070;
+}
+
+.col-3-sr > p {
+  font-size: 12px;
+}
+
+.cpr-approve-btn {
+  border: none;
+  background: #ff4f4f;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  color: white;
+  margin-top: 1rem;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.cpr-cancel-btn {
+  border: none;
+  background: #f0f0f0;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  color: black;
+  margin-top: 1rem;
+  font-size: 13px;
+  border-radius: 4px;
+}

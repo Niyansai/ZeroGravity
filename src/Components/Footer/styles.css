@@ -1,0 +1,120 @@
+.ftr-rw-tp {
+  margin-top: 2rem;
+}
+
+.ftr-rw-tp-col-1 > p {
+  margin-left: 6rem;
+}
+
+.ftr-rw-tp-col-2 > ul {
+  list-style: none;
+  margin-left: 3rem;
+}
+
+.ftr-rw-tp-col-2 > ul > li {
+  margin-bottom: 1rem;
+}
+.social-icons {
+  display: flex;
+  padding: 1rem;
+}
+
+.social-icons > .MuiSvgIcon-root {
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.enquiry-btn-felx {
+  display: flex;
+  justify-content: space-between;
+}
+
+.enquiry-btn-felx > button {
+  background: none;
+  outline: none;
+  border: 1px solid black;
+  padding: 4px;
+  width: 60px;
+}
+
+.dash-desc {
+  margin-bottom: 1rem;
+}
+
+.row-btm {
+  background: black;
+}
+
+.ftr-btm-flex {
+  display: flex;
+  color: white;
+}
+
+.row-btm {
+  padding: 1rem;
+  text-align: center;
+}
+
+.ftr-btm-flex > p {
+  text-align: center;
+  margin: auto;
+}
+
+.ftr-rw-tp-col-1 {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.logo-G-ft {
+  height: 80px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 65%;
+}
+
+.ftr-cntanr {
+  padding: 3rem 4rem 2rem 4rem;
+}
+
+.logo-img-btm {
+  margin: 3rem 0rem 0rem 6rem;
+}
+
+.ftr-col-1-img-data {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.ftr-col-2-items {
+  font-weight: 600;
+  text-align-last: center;
+}
+.ftr-rw-tp-col-2 {
+  margin-left: -4rem;
+}
+
+.ftr-col-3-p {
+  line-height: 16px;
+}
+
+.dash-desc > p {
+  color: #707070;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.dash-desc > input {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-top: -1rem;
+  outline: none;
+}
+
+.ftr-rw-tp-col-3 {
+}
+
+@media (max-width: 412px) {
+  .logo-img-btm {
+    margin: 3rem 0rem 1rem 0rem;
+  }
+}
