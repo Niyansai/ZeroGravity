@@ -14,6 +14,9 @@ import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 import "./styles.css";
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import axios from 'axios';
+import API from '../../../../Utils/Utils';
+import { useHistory } from 'react-router';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,10 +36,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MaxWidthDialog() {
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState('md');
+
+ const [userName, setUserName] = useState('');
+ const [password, setPassword] = useState('');
+
+ const history = useHistory();
+
+
+ const loginCall = async (e) => {
+
+
+  axios.post("http://139.59.4.68:8001/admin/login",
+      {
+          "userName": userName,
+          "password": password
+      })
+      .then((resp) => {
+          console.log(resp.data)
+      })
+      .catch((err) => {
+          alert("Server error occurred");
+      });
+}
+
+const formSubmit = (e) => {
+  loginCall();
+}
 
 
 
@@ -52,9 +82,6 @@ export default function MaxWidthDialog() {
     setMaxWidth(event.target.value);
   };
 
-  const handleFullWidthChange = (event) => {
-   
-  };
 
   return (
     <React.Fragment>
@@ -83,19 +110,19 @@ export default function MaxWidthDialog() {
                       <div className="row lgn-content-rw">
                         <div className="col lgn-content-col">
                         <p>Login</p>
-                        <form className="lgn-col-form">
+                        <form className="lgn-col-form" onSubmit={loginCall}>
                             <div className="Input-wraper-lgn">
-                          <h6>Username/Email/Phone</h6>
-                          <input placeholder="Sharmz1234" type="text" className="login-inputs"/>
+                          <h6>Username/userName/Phone</h6>
+                          <input placeholder="Sharmz1234" type="text" name="userName" value={userName} className="login-inputs" onChange={(e) => {setUserName(e.target.value)}} required/>
                           </div>
                           <div className="Input-wraper-lgn">
                           <h6>Password</h6>
-                          <input placeholder="**********" type="password" className="login-inputs"/>
+                          <input placeholder="**********" type="password" value={password} name="password" className="login-inputs" onChange={(e) => setPassword(e.target.value)} required/>
                           </div>
 
                          <div className="radio-btn-text"><RadioButtonUncheckedIcon /> <span>Keep me Signed in</span></div>
 
-                         <button className="lgn-submit-btn">
+                         <button type="submit" onClick={formSubmit} className="lgn-submit-btn">
                            Confirm
                          </button>
                         </form>
