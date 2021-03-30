@@ -18,6 +18,8 @@ import axios from 'axios';
 import API from '../../../../Utils/Utils';
 import { useHistory } from 'react-router';
 
+import API from '../../../../Utils/Utils';
+
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -42,33 +44,32 @@ export default function MaxWidthDialog() {
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState('md');
 
- const [userName, setUserName] = useState('');
- const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
 
- const history = useHistory();
-
-
- const loginCall = async (e) => {
+  const history = useHistory();
 
 
-  axios.post("http://139.59.4.68:8001/admin/login",
+  const loginCall = async (e) => {
+
+    axios.post(API.LOGIN,
       {
-          "userName": userName,
-          "password": password
+        username: userName,
+        password: password
       })
       .then((resp) => {
-          console.log(resp.data)
+        console.log(resp.data)
       })
       .catch((err) => {
-          alert("Server error occurred");
+        console.log(err.response.status)
+        console.log(err.response.message)
+        console.log(err.response)
       });
-}
+  }
 
-const formSubmit = (e) => {
-  loginCall();
-}
-
-
+  const formSubmit = (e) => {
+    loginCall();
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -96,45 +97,45 @@ const formSubmit = (e) => {
         aria-labelledby="max-width-dialog-title"
         className="modal-size"
       >
-        
+
         <DialogContent className="modal-bg">
           <DialogContentText>
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-12 col-left-img img-fluid">
-                        <h1><span className="title-span title-color-white">PLAN YOUR <br/></span><span className="title-span title-color-red">DREAM <br/></span><span className="title-span title-color-red">HOLIDAY <br/></span><span className="title-span title-color-white">NOW!!!</span> </h1>
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 col-right-content">
+              <div className="row">
+                <div className="col-lg-6 col-md-6 col-sm-12 col-left-img img-fluid">
+                  <h1><span className="title-span title-color-white">PLAN YOUR <br /></span><span className="title-span title-color-red">DREAM <br /></span><span className="title-span title-color-red">HOLIDAY <br /></span><span className="title-span title-color-white">NOW!!!</span> </h1>
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12 col-right-content">
 
-                      <div className="container lgn-content-cntnr">
-                      <div className="row lgn-content-rw">
-                        <div className="col lgn-content-col">
+                  <div className="container lgn-content-cntnr">
+                    <div className="row lgn-content-rw">
+                      <div className="col lgn-content-col">
                         <p>Login</p>
                         <form className="lgn-col-form" onSubmit={loginCall}>
-                            <div className="Input-wraper-lgn">
-                          <h6>Username/userName/Phone</h6>
-                          <input placeholder="Sharmz1234" type="text" name="userName" value={userName} className="login-inputs" onChange={(e) => {setUserName(e.target.value)}} required/>
+                          <div className="Input-wraper-lgn">
+                            <h6>Username/userName/Phone</h6>
+                            <input placeholder="Sharmz1234" type="text" name="userName" value={userName} className="login-inputs" onChange={(e) => { setUserName(e.target.value) }} required />
                           </div>
                           <div className="Input-wraper-lgn">
-                          <h6>Password</h6>
-                          <input placeholder="**********" type="password" value={password} name="password" className="login-inputs" onChange={(e) => setPassword(e.target.value)} required/>
+                            <h6>Password</h6>
+                            <input placeholder="**********" type="password" value={password} name="password" className="login-inputs" onChange={(e) => setPassword(e.target.value)} required />
                           </div>
 
-                         <div className="radio-btn-text"><RadioButtonUncheckedIcon /> <span>Keep me Signed in</span></div>
+                          <div className="radio-btn-text"><RadioButtonUncheckedIcon /> <span>Keep me Signed in</span></div>
 
-                         <button type="submit" onClick={formSubmit} className="lgn-submit-btn">
-                           Confirm
+                          <button type="submit" onClick={formSubmit} className="lgn-submit-btn">
+                            Confirm
                          </button>
                         </form>
-                        </div>
                       </div>
-                      </div>
-                        
                     </div>
+                  </div>
+
                 </div>
+              </div>
             </div>
           </DialogContentText>
-          
+
         </DialogContent>
       </Dialog>
     </React.Fragment>
