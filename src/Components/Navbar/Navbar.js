@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ProfileReal from "../../Assets/ProfileReal.jpeg";
 import { Link } from 'react-router-dom';
 import Login from '../CustomerSide/Login/LoginModal/Login';
+import SignUp from '../CustomerSide/SignUps/SignUpModal/SignUp';
 
 const Navbar = () => {
     return (
@@ -26,8 +27,13 @@ const Navbar = () => {
             <Link className="nav-link-deco" to="/"> <li class="nav-item nav-items-nb">
                 <p class="nav-link">Blogs</p>
               </li>  </Link>
-            <Link className="nav-link-deco" to="/"> <li class="nav-item nav-items-nb">
-                <p class="nav-link">SignUp</p>
+              <Link className="nav-link-deco" to="/home"> <li class="nav-item nav-items-nb">
+                <p class="nav-link" >
+        <li type="button" class="login-text" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <SignUp/>
+        </li>
+       
+                </p>
               </li>  </Link>
             <Link className="nav-link-deco" to="/home"> <li class="nav-item nav-items-nb">
                 <p class="nav-link" >

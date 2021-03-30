@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -13,6 +13,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 import "./styles.css";
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -35,6 +37,21 @@ export default function MaxWidthDialog() {
   const [open, setOpen] = React.useState(false);
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState('md');
+
+  useEffect(() => {
+
+  
+
+  }, [])
+
+
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+
+const [singIn, setSignIn] = useState('');
+
+
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -70,11 +87,35 @@ export default function MaxWidthDialog() {
           <DialogContentText>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-4 col-md-6 col-sm-12 col-left-img">
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-left-img img-fluid">
                         <h1><span className="title-span title-color-white">PLAN YOUR <br/></span><span className="title-span title-color-red">DREAM <br/></span><span className="title-span title-color-red">HOLIDAY <br/></span><span className="title-span title-color-white">NOW!!!</span> </h1>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 col-right-content">
-                        <button>To Admin Dashboard</button>
+
+                      <div className="container lgn-content-cntnr">
+                      <div className="row lgn-content-rw">
+                        <div className="col lgn-content-col">
+                        <p>Login</p>
+                        <form className="lgn-col-form">
+                            <div className="Input-wraper-lgn">
+                          <h6>Username/Email/Phone</h6>
+                          <input placeholder="Sharmz1234" type="text" className="login-inputs" value={email}/>
+                          </div>
+                          <div className="Input-wraper-lgn">
+                          <h6>Password</h6>
+                          <input placeholder="**********" type="password" className="login-inputs"/>
+                          </div>
+
+                         <div className="radio-btn-text"><RadioButtonUncheckedIcon /> <span>Keep me Signed in</span></div>
+
+                         <button className="lgn-submit-btn">
+                           Confirm
+                         </button>
+                        </form>
+                        </div>
+                      </div>
+                      </div>
+                        
                     </div>
                 </div>
             </div>

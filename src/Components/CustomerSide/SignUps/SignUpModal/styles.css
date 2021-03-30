@@ -37,39 +37,44 @@
   justify-content: center;
 }
 
-.lgn-content-col {
-  padding-top: 5rem;
-  padding-left: 8rem;
+.signup-content-col {
+  padding-top: 1rem;
+  padding-left: 4rem;
   color: black;
   font-weight: 600;
   font-size: 18px;
 }
 
-.lgn-content-cntnr {
+.signup-content-cntnr {
   color: black;
 }
 
-.lgn-content-col > p {
-  margin-top: -1rem;
-  margin-bottom: 1.5rem;
-}
-
-.Input-wraper-lgn {
+.signup-content-col > p {
+  margin-top: 0rem;
   margin-bottom: 2rem;
 }
 
-.Input-wraper-lgn > h6 {
+.signup-rw-1-col-2 {
+  margin-top: 2rem;
+}
+
+.Input-wraper-signup {
+  margin-bottom: 1rem;
+}
+
+.Input-wraper-signup > h6 {
   font-size: 12px;
 }
 
-.login-inputs {
+.signup-inputs {
   border: none;
   border-bottom: 3px solid gray;
   height: 30px;
   outline: none;
+  width: 150px;
 }
 
-.login-inputs::placeholder {
+.signup-inputs::placeholder {
   font-size: 13px;
 }
 
@@ -82,16 +87,34 @@
   margin-right: 5px;
 }
 
-.lgn-submit-btn {
+.singup-submit-btn {
   border: none;
   background: #ff4f4f;
   outline: none;
-  padding: 8px;
-  width: 140px;
+  padding: 12px;
+  width: 150px;
   color: white;
-  margin-top: 2.5rem;
+  margin-top: 0rem;
   font-size: 13px;
-  margin-left: 2rem;
+  margin-left: 1.3em;
+}
+
+.signup-row-2 {
+  margin-top: 10px;
+}
+
+.signup-row-2-col-1 > p {
+  font-size: 9px;
+  color: color;
+  margin-left: 3.3rem;
+}
+
+.input-dob {
+  font-size: 12px;
+}
+
+.repeat-p-input {
+  font-size: 11px !important;
 }
 
 @media (max-width: 768px) {
@@ -121,7 +144,7 @@
     opacity: 0.9;
   }
 
-  .lgn-content-col {
+  .signup-content-col {
     padding-top: 5rem;
     padding-left: 0rem;
     color: black;
