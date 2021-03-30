@@ -14,7 +14,7 @@ import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 import "./styles.css";
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import axios from 'axios';
+
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -37,19 +37,6 @@ export default function MaxWidthDialog() {
   const [open, setOpen] = React.useState(false);
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState('md');
-
-  useEffect(() => {
-
-  
-
-  }, [])
-
-
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-
-const [singIn, setSignIn] = useState('');
-
 
 
 
@@ -99,7 +86,7 @@ const [singIn, setSignIn] = useState('');
                         <form className="lgn-col-form">
                             <div className="Input-wraper-lgn">
                           <h6>Username/Email/Phone</h6>
-                          <input placeholder="Sharmz1234" type="text" className="login-inputs" value={email}/>
+                          <input placeholder="Sharmz1234" type="text" className="login-inputs"/>
                           </div>
                           <div className="Input-wraper-lgn">
                           <h6>Password</h6>
