@@ -1,0 +1,27 @@
+.d-table-top {
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.d-t-header {
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+  text-align: center;
+}
+
+.d-t-data-row {
+  text-align: center;
+}
+
+.d-t-data-row > td {
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  text-decoration: none;
+}
+
+.d-tble-icons > span > .MuiSvgIcon-root {
+  font-size: 18px;
+}

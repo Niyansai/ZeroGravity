@@ -1,10 +1,10 @@
 import React from 'react';
-import "./styles.css";
+
 
 const EditBooking = () => {
     return (
-        <div>
-            
+        <div className="container-fluid text-center">
+            <h1>EDIT BOOKING PAGE</h1>
         </div>
     )
 }

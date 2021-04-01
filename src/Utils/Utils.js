@@ -2,20 +2,26 @@ const HOST = "http://139.59.4.68:8001";
 // const HOST = "http://localhost:8000";
 
 const ADMIN_HOST = HOST + "/admin";
+const PACKAGES_HOST = HOST + "/package";
 const USER_HOST = HOST + "/api/v1/user";
 const CATEGORY_HOST = HOST + "/api/v1/category";
 const IMAGE_HOST = HOST + "/api/v1/image/getImage";
 const SERVICE_HOST = HOST + "/api/v1/service";
 
+
 const API = {
     LOGIN: ADMIN_HOST + "/login",
     REGISTER: ADMIN_HOST + "/register",
+
     ADDUSER: ADMIN_HOST + "/addUser",
     LISTUSERS: USER_HOST + "/listUsers",
     DELETEUSER: ADMIN_HOST + "/deleteUser",
     SEARCH_USER: USER_HOST + "/searchUser",
     UPLOAD_USER_IMAGE: USER_HOST + "/uploadUserImage",
 
+    ADD_PACKAGE: PACKAGES_HOST + "/addPackage",
+
+    
     CATEGORY_LIST: CATEGORY_HOST + "/getAllCategories",
     SUB_CATEGORY_LIST: CATEGORY_HOST + "/getAllSubCategories",
     DELETE_CATEGORY: CATEGORY_HOST + "/deleteCategory",

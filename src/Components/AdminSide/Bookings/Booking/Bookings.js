@@ -9,11 +9,12 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import DeleteIcon from '@material-ui/icons/Delete';
 import BookingTable from './BookingTable/BookingTable';
 import { Link } from 'react-router-dom';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const Bookings = () => {
     return (
-        <div className="container admin-dshbrd-top">
+        <div className="container-fluid admin-dshbrd-top">
             <div className="row ad-rw-1">
                 <div className="col-lg-2 col-md-3 col-sm-12 ad-rw1-col-1">
              <Link to="/home"> <img className="dshbr-logo" src={GravityLogo} alt=""/></Link>
@@ -43,7 +44,10 @@ const Bookings = () => {
                         <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3">
                         <h6>Sort By <ArrowDropDownIcon/></h6>
                         </div>
-                        <div className="col-lg-6 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
+                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4 b-add-bkng">
+                        <Link to="/bookings/add"><button className="btn-delete-adb pm-add-btn"> <AddIcon /><span>ADD BOOKING</span></button> </Link> 
+                        </div>
+                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
                         <button className="btn-delete-adb"> <DeleteIcon /> Cancel Booking</button>
                         </div>
                     </div>

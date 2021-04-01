@@ -38,9 +38,8 @@ const Navbar = () => {
             <Link className="nav-link-deco" to="/home"> <li class="nav-item nav-items-nb">
                 <p class="nav-link" >
         <li type="button" class="login-text" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <Login/>
-        </li>
-       
+            <Login/>
+        </li>    
                 </p>
               </li>  </Link>
             

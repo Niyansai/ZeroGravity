@@ -8,12 +8,14 @@ import RealProfilePic from "../../../../Assets/ProfileReal.jpeg";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TablePackagesManager from './TablePackagesManager/TablePackagesManager';
+import AddIcon from '@material-ui/icons/Add';
+import { Link } from 'react-router-dom';
 
 
 const PackagesManager = () => {
 
     return (
-        <div className="container admin-dshbrd-top">
+        <div className="container-fluid admin-dshbrd-top">
             <div className="row ad-rw-1">
                 <div className="col-lg-3 col-md-3 col-sm-12 ad-rw1-col-1">
                 <img className="dshbr-logo" src={GravityLogo} alt=""/>
@@ -42,11 +44,14 @@ const PackagesManager = () => {
                                 
                             </div>
                         </div>
-                        <div className="col-lg-8 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
+                        <div className="col-lg-4 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
                         <h6>Sort By <ArrowDropDownIcon/></h6>
                         </div>
                         <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-                        <button className="btn-delete-adb pm-rp-btn"> <DeleteIcon /> <span>Remove Package</span></button>
+                   <Link to="/packages/add"><button className="btn-delete-adb pm-add-btn"> <AddIcon /><span>ADD PACKAGE</span></button> </Link> 
+                        </div>
+                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
+                        <button className="btn-delete-adb pm-rp-btn"> <DeleteIcon /> <span>REMOVE PACKAGE</span></button>
                         </div>
                     </div>
 

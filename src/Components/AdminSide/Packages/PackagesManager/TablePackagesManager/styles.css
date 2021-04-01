@@ -14,3 +14,7 @@
   text-decoration: none;
   border: none !important;
 }
+
+.edit-icon-pm {
+  cursor: pointer;
+}

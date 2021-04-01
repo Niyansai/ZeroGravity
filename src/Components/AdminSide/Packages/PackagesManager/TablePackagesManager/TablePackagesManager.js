@@ -5,9 +5,24 @@ import RightArrowP from "../../../../../Assets/RightArrowP.png";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { useHistory } from 'react-router';
 
 
 const TablePackagesManager   = () => {
+
+    const history = useHistory();
+
+    const toEditPageClick = () => {
+        history.push('/packages/edit')
+    }
+
+
+    const toViewPackages = () => {
+
+        history.push('/packages/view')
+
+    }
+
 
     const users = [
 
@@ -19,7 +34,7 @@ const TablePackagesManager   = () => {
                         cost_person:"15000",
                         rating: "4.5/5",
                         total_bookings: '10',
-                        action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                         },
+                        action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                         },
 
                         {
                             id: "0123",
@@ -29,7 +44,8 @@ const TablePackagesManager   = () => {
                             cost_person:"15000",
                             rating: "4.5/5",
                             total_bookings: '10',
-                            action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                             },
+                            action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>
+                                                     },
 
                             {
                                 id: "0123",
@@ -39,7 +55,8 @@ const TablePackagesManager   = () => {
                                 cost_person:"15000",
                                 rating: "4.5/5",
                                 total_bookings: '10',
-                                action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                 },
+                                action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>
+                                                             },
 
                                 {
                                     id: "0123",
@@ -49,7 +66,8 @@ const TablePackagesManager   = () => {
                                     cost_person:"15000",
                                     rating: "4.5/5",
                                     total_bookings: '10',
-                                    action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                     },
+                                    action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>
+                                                                     },
 
                                     {
                                         id: "0123",
@@ -59,7 +77,8 @@ const TablePackagesManager   = () => {
                                         cost_person:"15000",
                                         rating: "4.5/5",
                                         total_bookings: '10',
-                                        action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                         },
+                                        action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>
+                                                                            },
 
                                         {
                                             id: "0123",
@@ -69,7 +88,8 @@ const TablePackagesManager   = () => {
                                             cost_person:"15000",
                                             rating: "4.5/5",
                                             total_bookings: '10',
-                                            action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                             },
+                                            action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>
+                                                                                     },
 
                                             {
                                                 id: "0123",
@@ -79,7 +99,8 @@ const TablePackagesManager   = () => {
                                                 cost_person:"15000",
                                                 rating: "4.5/5",
                                                 total_bookings: '10',
-                                                action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                                 },
+                                                action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
+                                                                                            },
 
                                                 {
                                                     id: "0123",
@@ -89,11 +110,8 @@ const TablePackagesManager   = () => {
                                                     cost_person:"15000",
                                                     rating: "4.5/5",
                                                     total_bookings: '10',
-                                                    action:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>                                                     },
-
-                                                    
-    
-    
+                                                    action:<div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditPageClick} className="edit-icon-pm"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
+                                                                                                    }, 
     
     ]
 

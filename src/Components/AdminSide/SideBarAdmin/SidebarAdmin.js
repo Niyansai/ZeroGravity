@@ -4,14 +4,15 @@ import SideBarDynamic from './SiderBarDynamic/SideBarDynamic';
 import "./styles.css";
 
 const SidebarAdmin = () => {
+
     return (
         <div className="admin-sidebar-top">
            <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard"/></Link>
           <Link to="/bookings" className="links-decoraton"> <SideBarDynamic title="Bookings"/></Link>
              <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link>
-            <Link to="/packagesmanager" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
-            <Link to="/editpackage" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
-            <Link to="/dashboard" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
+            <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
+            <Link to="/packages/edit" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
+            <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
             <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
             <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs"/></Link>
             <button className="btn-sidebar">Logout</button>
@@ -19,4 +20,4 @@ const SidebarAdmin = () => {
     )
 }
 
-export default SidebarAdmin
+export default SidebarAdmin;

@@ -6,6 +6,8 @@ import LeftArrowP from "../../../../../Assets/LeftArrowP.png";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { useHistory } from 'react-router';
+
 
 
 const BookingTable = () => { 
@@ -15,6 +17,15 @@ const BookingTable = () => {
 // const changeBackground = () => {
 //     setChangeRowBg(false)
 // }
+const history = useHistory();
+
+const toEditBooking = () => {
+  history.push('/bookings/edit')
+}
+
+const toViewBooking = () => {
+  history.push('/bookings/view')
+}
 
     return (
         <div class="table-responsive">
@@ -39,12 +50,8 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
+  <td><div className="d-tble-icons"><span onClick={toViewBooking}  className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditBooking} className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div></td>
 
-      
-      <div class="dropdown">
-  <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
-</div>
 
     </tr>
     <tr className="bt-row">
@@ -54,10 +61,7 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
-      <div class="dropdown">
-  <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
-</div>
+      <td><div className="d-tble-icons"><span onClick={toViewBooking}  className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditBooking} className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div></td>
     </tr>
     <tr className="bt-row">
       <td>0123</td>
@@ -66,10 +70,7 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
-      <div class="dropdown">
-  <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
-</div>
+      <td><div className="d-tble-icons"><span onClick={toViewBooking}  className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditBooking} className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div></td>
     </tr>
     <tr className="bt-row">
       <td>0123</td>
@@ -78,10 +79,7 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
-      <div class="dropdown">
-  <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
-</div>
+      <td><div className="d-tble-icons"><span onClick={toViewBooking}  className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditBooking} className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div></td>
     </tr>
     <tr className="bt-row">
       <td>0123</td>
@@ -90,10 +88,7 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
-      <div class="dropdown">
-  <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
-</div>
+      <td><div className="d-tble-icons"><span onClick={toViewBooking}  className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditBooking} className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div></td>
     </tr>
 
     <tr className="bt-row">
@@ -103,10 +98,7 @@ const BookingTable = () => {
       <td>Hyderabad</td>
       <td>2</td>
       <td>21/3/21</td>
-      <div class="dropdown">
-  <button class="btn btn-secondary btn-toggle-view-details" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>   </button>
-</div>
+      <td><div className="d-tble-icons"><span onClick={toViewBooking}  className="view-icon"><VisibilityIcon/></span> &nbsp;<span onClick={toEditBooking} className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div></td>
     </tr>
   </tbody>
 </table>

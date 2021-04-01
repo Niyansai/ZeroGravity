@@ -18,7 +18,6 @@ import axios from 'axios';
 import API from '../../../../Utils/Utils';
 import { useHistory } from 'react-router';
 
-import API from '../../../../Utils/Utils';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +58,9 @@ export default function MaxWidthDialog() {
       })
       .then((resp) => {
         console.log(resp.data)
+        if(resp.data){
+          history.push('/dashboard')
+        }
       })
       .catch((err) => {
         console.log(err.response.status)
