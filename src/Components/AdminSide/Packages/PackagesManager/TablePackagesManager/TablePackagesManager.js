@@ -194,8 +194,8 @@ const TablePackagesManager   = ({ }) => {
             }
         })
             .then((response) => {
-               
-             setPackagesOf(response.data.data.filter(item => {
+               console.log(response.data.data)
+             setPackagesOf(response.data.data.filter((item, index) => {
                     return item.name.startsWith(key);
                 }));
             })
