@@ -15,13 +15,16 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import RoomRoundedIcon from '@material-ui/icons/RoomRounded';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router-dom';
 
 
 
 const EditPackage = () => {
 
     const history = useHistory();
+    const { id } = useParams();
+
+    const packagesEdit = { id }
 
     const handleMoveBack = (e) => {
 

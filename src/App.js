@@ -10,21 +10,20 @@ import Dashboard from './Components/AdminSide/Dashboard/Dashboard';
 import CustomPackages from './Components/AdminSide/CustomPackages/CustomPackages';
 import CustomPackageRequest from './Components/AdminSide/CustomPackages/CustomPackageRequest/CustomPackageRequest';
 import PackagesManager from './Components/AdminSide/Packages/PackagesManager/PackagesManager';
-
 import Login from './Components/CustomerSide/Login/LoginModal/Login';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
-
 import AddPackage from './Components/AdminSide/Packages/AddPackage/AddPackage';
-import EditPackage from './Components/AdminSide/Packages/EditPackage/EditPackage';
 import ViewPackage from './Components/AdminSide/Packages/ViewPackage/ViewPackage';
 import CustomerDatabase from './Components/AdminSide/CustomerDataBase/CustomerDatabase/CustomerDatabase';
 import VIewBookings from './Components/AdminSide/Bookings/ViewBooking/VIewBooking';
 import EditBooking from './Components/AdminSide/Bookings/EditBooking/EditBooking';
 import AddBooking from './Components/AdminSide/Bookings/AddBooking/AddBooking';
+import EditPackages from './Components/AdminSide/Packages/EditPackages/EditPackages';
 
 
 
-const App = ( {selected} ) => {
+
+const App = ( { selected } ) => {
 
 
 
@@ -45,15 +44,15 @@ const App = ( {selected} ) => {
   };
 
 
-  const Packages = ({match}) => {
+  const Packages = ({match, item}) => {
 
     return(
       <Fragment>
       <Switch>
-        <Route path={match.url} exact={true} component={PackagesManager} />
+        <Route path={`${match.url}`} exact={true} component={PackagesManager} />
         <Route path={`${match.url}/add`} exact={true} component={AddPackage} />
-        <Route path={`${match.url}/view`} exact={true} component={ViewPackage} />
-        <Route path={`${match.url}/edit`} exact={true} component={EditPackage} />
+        <Route path={`${match.url}/view/:id`} exact={true} component={ViewPackage} />
+        <Route path={`${match.url}/edit/:id`} exact={true} component={EditPackages} />
       </Switch>
       </Fragment>
     );

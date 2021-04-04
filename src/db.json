@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+        "name": "Sample package",
+        "description": "Some decription",
+        "starting_price": 100,
+        "ending_price": 100000,
+        "address": "Some address",
+        "rating": 4,
+        "capacity": 10,
+        "duration": "1 Month 2 Days",
+        "loc_lat": "1.11111"
+    },
+    {
+        "name": "Sample package",
+        "description": "Some decription",
+        "starting_price": 100,
+        "ending_price": 100000,
+        "address": "Some address",
+        "rating": 4,
+        "capacity": 10,
+        "duration": "1 Month 2 Days",
+        "loc_lat": "1.11111"
+    }
+  ]
+}

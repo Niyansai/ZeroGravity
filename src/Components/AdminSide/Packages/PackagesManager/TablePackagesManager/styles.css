@@ -18,3 +18,54 @@
 .edit-icon-pm {
   cursor: pointer;
 }
+
+.pack-table-header {
+  border-bottom: 2px solid gray;
+  margin: 1rem;
+  font-size: 12px;
+  padding: 2rem;
+  height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.pack-table-row-details {
+  font-size: 12px;
+  padding: 1rem;
+}
+
+.p-table-footer {
+}
+
+.paper-container-p-table {
+  overflow-x: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.table-details-pm > .MuiTableCell-root {
+  font-size: 12px;
+  border: none;
+}
+
+.table-head-pm {
+  border: none;
+  background: none;
+}
+
+.pm-table-search > span {
+  display: flex;
+  margin-left: -3rem;
+}
+
+.pm-table-search > span > .MuiSvgIcon-root {
+  margin-left: -14px;
+  color: gray;
+}
+
+.pm-search-input {
+  border-bottom: 2px solid lightgray;
+}

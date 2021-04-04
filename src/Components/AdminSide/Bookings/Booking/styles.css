@@ -80,12 +80,16 @@
   margin-top: 1rem;
 }
 
-@media (max-width: 512px) {
+@media (max-width: 580px) {
   .ad-rw1-col-2-p {
     font-size: 12px;
     margin: auto;
   }
   .ad-rw1-col-2-input {
     width: 100px;
+  }
+
+  .ad-rw1-col-3 {
+    display: block;
   }
 }

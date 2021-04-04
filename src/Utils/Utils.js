@@ -12,14 +12,19 @@ const SERVICE_HOST = HOST + "/api/v1/service";
 const API = {
     LOGIN: ADMIN_HOST + "/login",
     REGISTER: ADMIN_HOST + "/register",
-
     ADDUSER: ADMIN_HOST + "/addUser",
     LISTUSERS: USER_HOST + "/listUsers",
     DELETEUSER: ADMIN_HOST + "/deleteUser",
     SEARCH_USER: USER_HOST + "/searchUser",
     UPLOAD_USER_IMAGE: USER_HOST + "/uploadUserImage",
 
+
     ADD_PACKAGE: PACKAGES_HOST + "/addPackage",
+    LIST_PACKAGES: PACKAGES_HOST + "/listPackage",
+    ADD_PACKAGE_IMG: PACKAGES_HOST + "/addPackageImage",
+    SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackageById",
+    UPDATE_PACKAGE: PACKAGES_HOST + "/updatePackage",
+
 
     
     CATEGORY_LIST: CATEGORY_HOST + "/getAllCategories",

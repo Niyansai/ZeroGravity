@@ -16,3 +16,12 @@
 .pm-add-btn {
   text-align-last: center;
 }
+
+.pm-search-input {
+  outline: none;
+}
+
+@media (max-width: 580px) {
+  .custom-avatar {
+  }
+}
