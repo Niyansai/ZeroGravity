@@ -85,7 +85,7 @@ const App = ( { selected } ) => {
           <Route exact path='/dashboard'>
             <Dashboard/>
           </Route>
-          <Route path='/home'>
+          <Route path={["/home", "/"]}  >
            <Navbar/>
             <HomeAfterLogin/>
             <Footer/>

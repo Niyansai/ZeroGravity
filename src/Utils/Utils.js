@@ -19,6 +19,7 @@ const API = {
     ADD_PACKAGE_IMG: PACKAGES_HOST + "/addPackageImage",
     SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackageById",
     UPDATE_PACKAGE: PACKAGES_HOST + "/updatePackage",
+    DELETE_PACKAGE: PACKAGES_HOST +"/deletePackage"
 
 
     

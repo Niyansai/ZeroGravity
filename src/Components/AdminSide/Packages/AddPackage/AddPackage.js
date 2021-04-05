@@ -36,7 +36,7 @@ const AddPackage = () => {
     const history = useHistory();
 
     const handleMoveback = () => {
-        history.push('/dashboard')
+        history.push('/packages')
     }
 
     // uploading Images ########################

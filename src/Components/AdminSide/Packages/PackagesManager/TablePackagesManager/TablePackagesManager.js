@@ -126,7 +126,7 @@ const useStyles1 = makeStyles((theme) => ({
 
   //   ################# MAIN-TABLE FUNCTION ###################
 
-const TablePackagesManager   = ({ }) => {
+const TablePackagesManager   = () => {
 
     const[packagesOf, setPackagesOf] = useState([]);
     const [page, setPage] = useState(0);
@@ -145,12 +145,6 @@ const TablePackagesManager   = ({ }) => {
         history.push('/packages/add')
     }
 
-    const toEditPageClick = () => {
-
-     
-
-    }
-    
 
     const toViewPackages = () => {
 
@@ -222,7 +216,7 @@ const TablePackagesManager   = ({ }) => {
         })
             .then((response) => {
                 console.log(response.data.data)
-                setPackagesOf(response.data.data);
+                setPackagesOf(response.data.data.reverse());
             })
             .catch((err) => {
                 console.log(err)
@@ -230,6 +224,36 @@ const TablePackagesManager   = ({ }) => {
     }
 
 
+    // ######################## DELETE PACKAGE FUNCTION #########################
+
+
+    const deletePackage = async (id) => {
+      const token = sessionStorage.getItem("token");
+      if (token == null) {
+          history.push("/home");
+          return;
+      }
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      }
+
+      packagesOf.id = id;
+
+      await axios.delete(API.DELETE_PACKAGE, 
+        packagesOf, {
+          headers: headers
+        }       
+      )
+      .then((resp) => {
+              console.log(resp)
+            if('data' in resp.data && resp.data.status === 1)
+            alert(resp.data.message);
+      })
+       .catch((err) => {
+        console.log(err)
+       })
+  }
 
 
             // ####################### TABLE UI SECTION #######################
@@ -239,26 +263,23 @@ const TablePackagesManager   = ({ }) => {
         <Fragment>
              <div className="container-fluid pm-table-search">
                  <div className="row pm-table-row-1">
-                        <div className="col-lg-2 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
+                        <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
                             <h6>All</h6>
                             <div className="all-highlight">
                             
                             </div>
                         </div>
-                        <div className="col-lg-2 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search">
+                        <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search">
                         <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text"  onChange={(e) => { search(e.target.value) }}/>
                              <SearchIcon /></span>
                         </div>
                         <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
                         <h6>Sort By <ArrowDropDownIcon/></h6>
                         </div>
-                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
+                        <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
                         <Link to="/packages/add"><button onClick={addPackPage} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD PACKAGE</span></button></Link> 
                         </div>
-                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-                        <button className="btn-delete-adb pm-rp-btn"> <DeleteIcon /> <span>REMOVE PACKAGE</span></button>
-                        </div>
-                  
+                       
                  </div>
                    
                     </div>
@@ -301,7 +322,7 @@ const TablePackagesManager   = ({ }) => {
                 {item.address}
               </TableCell>
               <TableCell style={{ width: 160 }} align="center">
-              <div className="d-tble-icons"><span onClick={toViewPackages} className="view-icon"><VisibilityIcon/></span> &nbsp;<Link to={`/packages/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon/></span> </Link> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div> 
+              <div className="d-tble-icons"><Link to={`/packages/view/${item._id}`}><span className="view-icon"><VisibilityIcon/></span></Link> &nbsp;<Link className="edit-icon-link-pm" to={`/packages/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon/></span> </Link> &nbsp;<span onClick={(id) => deletePackage(item._id)} className="delete-icon"><DeleteIcon/></span></div> 
               </TableCell>
             </TableRow>
           ))}

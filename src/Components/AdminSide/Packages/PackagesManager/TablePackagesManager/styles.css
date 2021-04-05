@@ -69,3 +69,11 @@
 .pm-search-input {
   border-bottom: 2px solid lightgray;
 }
+
+.delete-icon {
+  cursor: pointer;
+}
+
+.edit-icon-link-pm {
+  text-decoration: none;
+}

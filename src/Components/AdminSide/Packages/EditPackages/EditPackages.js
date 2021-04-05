@@ -47,10 +47,6 @@ const EditPackages = () => {
       setUserPackages({ ...userPackages, [e.target.name]: e.target.value });
     };
 
-    const onSubmit = async e => {
-
-
-    };
 
     
     useEffect(() => {
@@ -75,17 +71,16 @@ const EditPackages = () => {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
         }
+
+        userPackages.id = id;
     
         axios.post(API.UPDATE_PACKAGE,
             userPackages, {     
           headers: headers
-        ,
-        params: {
-            "id": id
-        }
-    }
+            }
         )
-          .then((resp) => console.log(resp.data.data))
+          .then((resp) => setUserPackages(resp.data.data))
+          .then(history.push('/packages'))
           .catch((err) => {
             if (err.response.status === 500) {
               alert("Package information is already available.");
@@ -124,9 +119,10 @@ const EditPackages = () => {
       setUserPackages(result.data.data)
     }
 
+// ############################# OnClick Handlers ###############################
 
     const handleMoveback = () => {
-        history.push('/dashboard')
+        history.push('/packages')
     }
 
   
@@ -405,8 +401,8 @@ const EditPackages = () => {
 
                             <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                                 <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                                <button 
-                                className="cpr-cancel-btn">Cancel</button>
+                                <button onClick={() => history.push('/packages')} type="cancel" className="cpr-cancel-btn">Cancel</button>
+                                        
                                 </div>
 
     </div>               
