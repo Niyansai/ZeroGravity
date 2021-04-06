@@ -31,11 +31,13 @@ import { Link, useParams } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
 
 
+
+
+
 const useStyles1 = makeStyles((theme) => ({
     root: {
         flexShrink: 0,
         marginLeft: theme.spacing(2.5),
-        paddingTop: "20px",
     },
 }));
 
@@ -124,29 +126,26 @@ TablePaginationActions.propTypes = {
 
 //   ################# MAIN-TABLE FUNCTION ###################
 
-const TableUsersManager = () => {
+const TableInquiry = () => {
 
-    const [users, setUsers] = useState([]);
+    const [inquiries, setInquiries] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(8);
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, inquiries.length - page * rowsPerPage);
 
     const history = useHistory();
-
-    const { id } = useParams();
-
 
     // ################## EVENT HANDLERS ######################
 
 
-    const addUser = () => {
-        history.push('/customerdatabase/add')
+    const addInquiry = () => {
+        history.push('/inquiry/add')
     }
 
 
-    const toViewUsers = () => {
+    const toViewInquiry = () => {
 
-        history.push('/customerdatabase/view')
+        history.push('/inquiry/view')
 
     }
 
@@ -165,7 +164,7 @@ const TableUsersManager = () => {
 
 
     useEffect(() => {
-        loadUsers();
+        loadInquiries();
     }, [])
 
 
@@ -180,19 +179,16 @@ const TableUsersManager = () => {
         }
 
         // token exists 
-        axios.get(API.LIST_USERS, {
+        axios.get(API.LIST_INQUIRIES, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
             .then((response) => {
-                console.log(response.data.data)
-                setUsers(response.data.data.filter((item, index) => {
+                setInquiries(response.data.data.filter((item, index) => {
                     return (item.name.startsWith(key) ||
-                        item.username.startsWith(key) ||
-                        item.city.startsWith(key) ||
-                        item.mobile.startsWith(key)
-                    );
+                        item.mobile.startsWith(key) ||
+                        item.email.startsWith(key));
                 }));
             })
             .catch((err) => {
@@ -201,22 +197,20 @@ const TableUsersManager = () => {
     }
 
 
-    const loadUsers = async () => {
+    const loadInquiries = async () => {
         const token = sessionStorage.getItem("token");
         if (token == null) {
             history.push("/home");
             return;
         }
 
-        await axios.get(API.LIST_USERS, {
+        await axios.get(API.LIST_INQUIRIES, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
             .then((response) => {
-                console.log(response.data)
-                console.log(response.data.data)
-                setUsers(response.data.data.reverse());
+                setInquiries(response.data.data.reverse());
             })
             .catch((err) => {
                 console.log(err)
@@ -227,7 +221,7 @@ const TableUsersManager = () => {
     // ######################## DELETE PACKAGE FUNCTION #########################
 
 
-    const deleteUser = async (id) => {
+    const deletePackage = async (id) => {
         const token = sessionStorage.getItem("token");
 
         if (token == null) {
@@ -239,9 +233,9 @@ const TableUsersManager = () => {
             'Authorization': 'Bearer ' + token
         }
 
-        users.id = id;
+        inquiries.id = id;
 
-        await axios.get(API.DELETE_USER, {
+        await axios.get(API.DELETE_INQUIRY, {
             headers: headers,
             params: {
                 id: id
@@ -249,15 +243,13 @@ const TableUsersManager = () => {
         }
         )
             .then((resp) => {
-                console.log(resp)
-                if ('data' in resp.data) {
+                if ('data' in resp.data && resp.data.status === 1){
                     alert(resp.data.message);
-                    if (resp.data.status == 1)
-                        loadUsers();
+                    loadInquiries();
                 }
             })
             .catch((err) => {
-                console.log(err)
+                alert("Something went wrong");
             })
     }
 
@@ -283,7 +275,7 @@ const TableUsersManager = () => {
                         <h6>Sort By <ArrowDropDownIcon /></h6>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-                        <Link to="/customerdatabase/add"><button onClick={addUser} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD USER</span></button></Link>
+                        <Link to="/inquiry/add"><button onClick={addInquiry} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD PACKAGE</span></button></Link>
                     </div>
 
                 </div>
@@ -296,42 +288,35 @@ const TableUsersManager = () => {
                             <TableRow>
                                 <StyledTableCell align="center">ID</StyledTableCell>
                                 <StyledTableCell align="center">Name</StyledTableCell>
-                                <StyledTableCell align="center">Username</StyledTableCell>
+                                <StyledTableCell align="center">Email</StyledTableCell>
                                 <StyledTableCell align="center">Mobile</StyledTableCell>
-                                <StyledTableCell align="center">City</StyledTableCell>
-                                <StyledTableCell align="center">DOB</StyledTableCell>
+                                <StyledTableCell align="center">Message</StyledTableCell>
                                 <StyledTableCell align="center">Actions</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {(rowsPerPage > 0
-                                ? users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                : users
+                                ? inquiries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                : inquiries
                             ).map((item, index) => (
                                 <TableRow className="table-details-pm" key={index}>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.id}
+                                        {item._id}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
                                         {item.name}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.username}
+                                        {item.email}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
                                         {item.mobile}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.city}
+                                        {item.message}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.dob}
-                                    </TableCell>
-                                    <TableCell style={{ width: 160 }} align="center">
-                                        <div className="d-tble-icons">
-                                            <Link to={`/customerdatabase/view/${item.id}`}><span className="view-icon"><VisibilityIcon /></span>
-                                            </Link> &nbsp;<Link className="edit-icon-link-pm" to={`/customerdatabase/edit/${item.id}`}><span className="edit-icon-pm"><EditIcon /></span>
-                                            </Link> &nbsp;<span onClick={(id) => deleteUser(item.id)} className="delete-icon"><DeleteIcon /></span></div>
+                                        <div className="d-tble-icons"><Link to={`/inquiry/view/${item._id}`}><span className="view-icon"><VisibilityIcon /></span></Link> &nbsp;<Link className="edit-icon-link-pm" to={`/inquiry/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon /></span> </Link> &nbsp;<span onClick={(id) => deletePackage(item._id)} className="delete-icon"><DeleteIcon /></span></div>
                                     </TableCell>
                                 </TableRow>
                             ))}
@@ -347,7 +332,7 @@ const TableUsersManager = () => {
                                 <TablePagination
                                     rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                                     colSpan={12}
-                                    count={users.length}
+                                    count={inquiries.length}
                                     rowsPerPage={rowsPerPage}
                                     page={page}
                                     SelectProps={{
@@ -369,4 +354,4 @@ const TableUsersManager = () => {
     )
 }
 
-export default TableUsersManager
+export default TableInquiry

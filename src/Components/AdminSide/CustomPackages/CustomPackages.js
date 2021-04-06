@@ -41,7 +41,7 @@ const CustomPackages = () => {
             <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings"/></Link>
              {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>} selected={true}/></Link> */}
             <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
-            <Link to="/packages/edit" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
+            <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
             <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
             <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
             <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs"/></Link>
