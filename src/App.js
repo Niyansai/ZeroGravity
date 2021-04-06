@@ -14,6 +14,9 @@ import Login from './Components/CustomerSide/Login/LoginModal/Login';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import AddPackage from './Components/AdminSide/Packages/AddPackage/AddPackage';
 import ViewPackage from './Components/AdminSide/Packages/ViewPackage/ViewPackage';
+import AddUser from './Components/AdminSide/CustomerDataBase/AddUser/AddUser';
+import ViewUser from './Components/AdminSide/CustomerDataBase/ViewUser/ViewUser';
+import EditUser from './Components/AdminSide/CustomerDataBase/EditUser/EditUser';
 import CustomerDatabase from './Components/AdminSide/CustomerDataBase/CustomerDatabase/CustomerDatabase';
 import VIewBookings from './Components/AdminSide/Bookings/ViewBooking/VIewBooking';
 import EditBooking from './Components/AdminSide/Bookings/EditBooking/EditBooking';
@@ -23,37 +26,51 @@ import EditPackages from './Components/AdminSide/Packages/EditPackages/EditPacka
 
 
 
-const App = ( { selected } ) => {
+const App = ({ selected }) => {
 
 
 
 
 
-  const Booking = ({match}) => {
+  const Booking = ({ match }) => {
 
-    return(
+    return (
       <Fragment>
-      <Switch>
-        <Route path={match.url} exact={true} component={Bookings} />
-        <Route path={`${match.url}/add`} exact={true} component={AddBooking} />
-        <Route path={`${match.url}/view`} exact={true} component={VIewBookings} />
-        <Route path={`${match.url}/edit`} exact={true} component={EditBooking} />
-      </Switch>
+        <Switch>
+          <Route path={match.url} exact={true} component={Bookings} />
+          <Route path={`${match.url}/add`} exact={true} component={AddBooking} />
+          <Route path={`${match.url}/view`} exact={true} component={VIewBookings} />
+          <Route path={`${match.url}/edit`} exact={true} component={EditBooking} />
+        </Switch>
       </Fragment>
     );
   };
 
 
-  const Packages = ({match, item}) => {
+  const Packages = ({ match, item }) => {
 
-    return(
+    return (
       <Fragment>
-      <Switch>
-        <Route path={`${match.url}`} exact={true} component={PackagesManager} />
-        <Route path={`${match.url}/add`} exact={true} component={AddPackage} />
-        <Route path={`${match.url}/view/:id`} exact={true} component={ViewPackage} />
-        <Route path={`${match.url}/edit/:id`} exact={true} component={EditPackages} />
-      </Switch>
+        <Switch>
+          <Route path={`${match.url}`} exact={true} component={PackagesManager} />
+          <Route path={`${match.url}/add`} exact={true} component={AddPackage} />
+          <Route path={`${match.url}/view/:id`} exact={true} component={ViewPackage} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditPackages} />
+        </Switch>
+      </Fragment>
+    );
+  };
+
+  const Users = ({ match, item }) => {
+
+    return (
+      <Fragment>
+        <Switch>
+          <Route path={`${match.url}`} exact={true} component={CustomerDatabase} />
+          <Route path={`${match.url}/add`} exact={true} component={AddUser} />
+          <Route path={`${match.url}/view/:id`} exact={true} component={ViewUser} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditUser} />
+        </Switch>
       </Fragment>
     );
   };
@@ -64,36 +81,34 @@ const App = ( { selected } ) => {
     <div className="app">
       <Router>
         <Switch>
-        <Route exact path='/blog'>
-        <NavBeforeLog/>
-            <BlogPage/>
-            <Footer/>
+          <Route exact path='/blog'>
+            <NavBeforeLog />
+            <BlogPage />
+            <Footer />
           </Route>
-          <Route path="/packages" component={Packages}/>
-          <Route path="/bookings" component={Booking}/>
+          <Route path="/packages" component={Packages} />
+          <Route path="/bookings" component={Booking} />
+          <Route path="/customerdatabase" component={Users} />
 
-          <Route exact path='/customerdatabase'>
-          <CustomerDatabase/>
-          </Route>
           <Route exact path='/packagerequest'>
-            <CustomPackageRequest/>
+            <CustomPackageRequest />
           </Route>
           <Route exact path='/custompackages'>
-            <CustomPackages/>
+            <CustomPackages />
           </Route>
-          
+
           <Route exact path='/dashboard'>
-            <Dashboard/>
+            <Dashboard />
           </Route>
           <Route path={["/home", "/"]}  >
-           <Navbar/>
-            <HomeAfterLogin/>
-            <Footer/>
+            <Navbar />
+            <HomeAfterLogin />
+            <Footer />
           </Route>
-          
+
         </Switch>
       </Router>
-      
+
     </div>
   )
 }

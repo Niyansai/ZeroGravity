@@ -81,7 +81,7 @@ const CustomerDatabase = () => {
                         </div>
                        
                     </div>
-                    <div className="row d-row-2-sbrw-3">
+                    {/* <div className="row d-row-2-sbrw-3">
 
                         <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-1">
                             <p>Todays Tasks</p>
@@ -102,7 +102,7 @@ const CustomerDatabase = () => {
                         <input placeholder="Search" type="text"/>
                         <SearchIcon/>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* ############## Table ############## */}
 

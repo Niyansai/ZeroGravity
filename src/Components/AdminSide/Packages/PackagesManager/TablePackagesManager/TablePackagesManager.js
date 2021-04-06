@@ -209,9 +209,6 @@ const TablePackagesManager = () => {
     await axios.get(API.LIST_PACKAGES, {
       headers: {
         'Authorization': 'Bearer ' + token
-      },
-      param: {
-        "id": id
       }
     })
       .then((response) => {
