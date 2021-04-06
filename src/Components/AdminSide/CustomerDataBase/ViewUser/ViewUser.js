@@ -45,7 +45,6 @@ const ViewUser = () => {
       }
     });
 
-    console.log(result.data.data)
     setUser(result.data.data)
   }
 

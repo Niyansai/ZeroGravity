@@ -188,7 +188,8 @@ const TableInquiry = () => {
                 setInquiries(response.data.data.filter((item, index) => {
                     return (item.name.startsWith(key) ||
                         item.mobile.startsWith(key) ||
-                        item.email.startsWith(key));
+                        item.email.startsWith(key) || 
+                        item.message.startsWith(key));
                 }));
             })
             .catch((err) => {
@@ -275,7 +276,7 @@ const TableInquiry = () => {
                         <h6>Sort By <ArrowDropDownIcon /></h6>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-                        <Link to="/inquiry/add"><button onClick={addInquiry} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD PACKAGE</span></button></Link>
+                        <Link to="/inquiry/add"><button onClick={addInquiry} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD INQUIRY</span></button></Link>
                     </div>
 
                 </div>

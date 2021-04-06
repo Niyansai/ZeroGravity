@@ -25,8 +25,11 @@ const API = {
 
     ADD_BLOG: BLOG_HOST + "/addBlog",
 
+    ADD_INQUIRY: ADMIN_HOST + "/addInquiry",
     DELETE_INQUIRY: ADMIN_HOST + "/deleteInquiry",
     LIST_INQUIRIES: ADMIN_HOST + "/listInquiry",
+    GET_INQUIRY: ADMIN_HOST + "/getInquiry",
+    UPDATE_INQUIRY: ADMIN_HOST + "/updateInquiry",
 
     // ############### PACKAGES ##################
 
