@@ -1,0 +1,34 @@
+.view-pack-rw3 {
+  margin: 0px;
+  margin-top: -2rem;
+}
+
+.paper-view-pack {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.view-pack-3-col {
+  margin-top: 0px;
+  color: gray;
+}
+
+.view-pack-2-col {
+  margin-top: 0px;
+}
+
+.view-pack-key {
+  font-size: 22px;
+  padding: 10px;
+}
+
+.vw-pack-key {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.view-pack-title > h1 {
+  padding-top: 10rem;
+  padding-left: 2rem;
+  color: gray;
+}

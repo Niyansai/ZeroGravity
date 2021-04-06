@@ -27,6 +27,10 @@ import Inquiry from './Components/AdminSide/Inquiry/Inquiry/Inquiry';
 import AddInquiry from './Components/AdminSide/Inquiry/AddInquiry/AddInquiry';
 import EditInquiry from './Components/AdminSide/Inquiry/EditInquiry/EditInquiry';
 import ViewInquiry from './Components/AdminSide/Inquiry/ViewInquiry/ViewInquiry';
+import Coupon from './Components/AdminSide/Coupon/Coupon/Coupon';
+import AddCoupon from './Components/AdminSide/Coupon/AddCoupon/AddCoupon';
+import EditCoupon from './Components/AdminSide/Coupon/EditCoupon/EditCoupon';
+import ViewCoupon from './Components/AdminSide/Coupon/ViewCoupon/ViewCoupon';
 
 
 
@@ -103,6 +107,20 @@ const App = ({ selected }) => {
     );
   };
 
+  const CouponRoute = ({ match, item }) => {
+
+    return (
+      <Fragment>
+        <Switch>
+          <Route path={`${match.url}`} exact={true} component={Coupon} />
+          <Route path={`${match.url}/add`} exact={true} component={AddCoupon} />
+          <Route path={`${match.url}/view/:id`} exact={true} component={ViewCoupon} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditCoupon} />
+        </Switch>
+      </Fragment>
+    );
+  };
+
 
   return (
     <div className="app">
@@ -114,6 +132,7 @@ const App = ({ selected }) => {
           <Route path="/customerdatabase" component={Users} />
           <Route path="/blog" component={Blog} />
           <Route path="/inquiry" component={InquiryRoute} />
+          <Route path="/coupons" component={CouponRoute} />
 
           <Route exact path='/packagerequest'>
             <CustomPackageRequest />

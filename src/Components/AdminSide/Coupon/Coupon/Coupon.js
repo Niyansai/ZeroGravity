@@ -3,13 +3,13 @@ import "./styles.css"
 import GravityLogo from '../../../../Assets/GravityLogo.png';
 import ProfileReal from '../../../../Assets/ProfileReal.jpeg';
 import { Avatar } from '@material-ui/core';
-import TableInquiry from './TableInquiry/TableInquiry';
+import TableCoupon from './TableCoupon/TableCoupon';
 import { Link } from 'react-router-dom';
 import SideBarDynamic from '../../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 
 
 
-const Inquiry = () => {
+const Coupon = () => {
 
     return (
         <div className="container-fluid d-container">
@@ -39,8 +39,8 @@ const Inquiry = () => {
                         <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
                         {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
-                        <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" /></Link>
-                        <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" selected={true} /></Link>
+                        <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" selected={true} /></Link>
+                        <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
                         <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
                         <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
                         <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs" /></Link>
@@ -53,7 +53,7 @@ const Inquiry = () => {
                 {/* ############## Table ############## */}
 
                 <div className="col-lg-10 col-md-10 col-sm-12 ad-rw2-col-2">
-                    <TableInquiry />
+                    <TableCoupon />
                 </div>
             </div>
 
@@ -62,4 +62,4 @@ const Inquiry = () => {
     )
 }
 
-export default Inquiry;
+export default Coupon;
