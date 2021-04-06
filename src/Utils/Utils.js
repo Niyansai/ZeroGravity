@@ -5,6 +5,7 @@ const ADMIN_HOST = HOST + "/admin";
 const PACKAGES_HOST = HOST + "/package";
 const USER_HOST = HOST + "/user";
 const STORAGE_HOST = HOST + "/storage";
+const BLOG_HOST = HOST + "/blog";
 
 
 const API = {
@@ -21,6 +22,8 @@ const API = {
 
     GET_IMAGE: STORAGE_HOST + "/getImage",
     UPLOAD_IMAGE: STORAGE_HOST + "/uploadImage",
+
+    ADD_BLOG: BLOG_HOST + "/addBlog",
 
     // ############### PACKAGES ##################
 

@@ -22,6 +22,7 @@ import VIewBookings from './Components/AdminSide/Bookings/ViewBooking/VIewBookin
 import EditBooking from './Components/AdminSide/Bookings/EditBooking/EditBooking';
 import AddBooking from './Components/AdminSide/Bookings/AddBooking/AddBooking';
 import EditPackages from './Components/AdminSide/Packages/EditPackages/EditPackages';
+import AddBlog from './Components/AdminSide/Blog/AddBlog/AddBlog';
 
 
 
@@ -75,20 +76,31 @@ const App = ({ selected }) => {
     );
   };
 
+  const Blog = ({ match, item }) => {
+
+    return (
+      <Fragment>
+        <Switch>
+          <Route path={`${match.url}`} exact={true} component={BlogPage} />
+          <Route path={`${match.url}/add`} exact={true} component={AddBlog} />
+          {/* <Route path={`${match.url}/view/:id`} exact={true} component={ViewUser} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditUser} /> */}
+        </Switch>
+      </Fragment>
+    );
+  };
+
 
 
   return (
     <div className="app">
       <Router>
         <Switch>
-          <Route exact path='/blog'>
-            <NavBeforeLog />
-            <BlogPage />
-            <Footer />
-          </Route>
+
           <Route path="/packages" component={Packages} />
           <Route path="/bookings" component={Booking} />
           <Route path="/customerdatabase" component={Users} />
+          <Route path="/blog" component={Blog} />
 
           <Route exact path='/packagerequest'>
             <CustomPackageRequest />
