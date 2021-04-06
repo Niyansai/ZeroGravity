@@ -60,6 +60,7 @@ export default function MaxWidthDialog() {
         console.log(resp.data)
         if(resp.data){
           sessionStorage.setItem('token', resp.data.data.token);
+          sessionStorage.setItem('user', resp.data.data.name);
           history.push('/dashboard')
         }
       })
