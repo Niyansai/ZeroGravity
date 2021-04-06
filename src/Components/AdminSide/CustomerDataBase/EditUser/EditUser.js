@@ -32,7 +32,7 @@ const EditUser = () => {
         avatar: ""
     });
 
-    const { name, role, username, mobile, city, dob, gender, avatar } = user;
+    const { name, role, username, mobile, city, dob, gender, active, avatar } = user;
 
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -247,7 +247,20 @@ const EditUser = () => {
                                                 <input className="cpr-inputs"
                                                     name="role"
                                                     value={role}
-                                                    placeholder="role"
+                                                    placeholder="user/ admin"
+                                                    type="text"
+                                                    onChange={e => onInputChange(e)}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="row cpr-rw3-col-1-sub-row-3 cpr-rw3-col-1-sub-rows-all">
+                                            <div className="col cpr-rw3-col-1-sub-row-1-col-only">
+                                                <h6>Active Status</h6>
+                                                <input className="cpr-inputs"
+                                                    name="active"
+                                                    value={active}
+                                                    placeholder="true/ false"
                                                     type="text"
                                                     onChange={e => onInputChange(e)}
                                                 />
@@ -289,7 +302,7 @@ const EditUser = () => {
                                                 <input className="cpr-inputs"
                                                     name="dob"
                                                     value={dob}
-                                                    placeholder="dob"
+                                                    placeholder="dd/mm/yyyy"
                                                     type="text"
                                                     onChange={e => onInputChange(e)}
                                                 />
