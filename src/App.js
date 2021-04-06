@@ -23,15 +23,14 @@ import EditBooking from './Components/AdminSide/Bookings/EditBooking/EditBooking
 import AddBooking from './Components/AdminSide/Bookings/AddBooking/AddBooking';
 import EditPackages from './Components/AdminSide/Packages/EditPackages/EditPackages';
 import AddBlog from './Components/AdminSide/Blog/AddBlog/AddBlog';
-
+import Inquiry from './Components/AdminSide/Inquiry/Inquiry/Inquiry';
+import AddInquiry from './Components/AdminSide/Inquiry/AddInquiry/AddInquiry';
+import EditInquiry from './Components/AdminSide/Inquiry/EditInquiry/EditInquiry';
+import ViewInquiry from './Components/AdminSide/Inquiry/ViewInquiry/ViewInquiry';
 
 
 
 const App = ({ selected }) => {
-
-
-
-
 
   const Booking = ({ match }) => {
 
@@ -90,6 +89,19 @@ const App = ({ selected }) => {
     );
   };
 
+  const InquiryRoute = ({ match, item }) => {
+
+    return (
+      <Fragment>
+        <Switch>
+          <Route path={`${match.url}`} exact={true} component={Inquiry} />
+          <Route path={`${match.url}/add`} exact={true} component={AddInquiry} />
+          <Route path={`${match.url}/view/:id`} exact={true} component={ViewInquiry} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditInquiry} />
+        </Switch>
+      </Fragment>
+    );
+  };
 
 
   return (
@@ -101,6 +113,7 @@ const App = ({ selected }) => {
           <Route path="/bookings" component={Booking} />
           <Route path="/customerdatabase" component={Users} />
           <Route path="/blog" component={Blog} />
+          <Route path="/inquiry" component={InquiryRoute} />
 
           <Route exact path='/packagerequest'>
             <CustomPackageRequest />

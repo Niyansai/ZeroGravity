@@ -25,6 +25,9 @@ const API = {
 
     ADD_BLOG: BLOG_HOST + "/addBlog",
 
+    DELETE_INQUIRY: ADMIN_HOST + "/deleteInquiry",
+    LIST_INQUIRIES: ADMIN_HOST + "/listInquiry",
+
     // ############### PACKAGES ##################
 
 

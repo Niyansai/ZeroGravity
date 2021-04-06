@@ -13,7 +13,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const Dashboard = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     return (
         <div className="container-fluid d-container">
@@ -23,12 +23,12 @@ const Dashboard = () => {
             <div className="row d-row-header">
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-1">
 
-                    <img className="dshbrd-logo" src={GravityLogo} alt=""/>
+                    <img className="dshbrd-logo" src={GravityLogo} alt="" />
 
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
-                                
-                 <Avatar src={ProfileReal}/> <p style={{marginLeft: "10px", fontSize: "13px"}}>Ram Singh <br/><span><small style={{color:"#959595"}}>Logout</small></span></p>   
+
+                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ color: "#959595" }}>Logout</small></span></p>
                 </div>
             </div>
 
@@ -38,17 +38,18 @@ const Dashboard = () => {
 
                 <div className="col-lg-2 col-md-2 col-sm-12 d-row-2-col-1-sidebar">
 
-                <div className="admin-sidebar-top">
-           <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard" selected={true}/></Link>
-            <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings"/></Link>
-             {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
-            <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
-            <Link to="/packages" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
-            <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
-            <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
-            <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs"/></Link>
-            <button className="btn-sidebar">Logout</button>
-        </div>
+
+                    <div className="admin-sidebar-top">
+                        <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard" selected={true} /></Link>
+                        <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
+                        {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
+                        <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
+                        <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
+                        <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
+                        <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
+                        <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs" /></Link>
+                        <button className="btn-sidebar">Logout</button>
+                    </div>
                 </div>
 
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-2-col-2-middle">
@@ -56,15 +57,15 @@ const Dashboard = () => {
                     <div className="row d-row-2-sbrw-1">
 
                         <div className="col-sm d-row-2-sbrw-1-col">
-                        <p>Registered <br/>Users</p>
+                            <p>Registered <br />Users</p>
                         </div>
                         <div className="col-sm d-row-2-sbrw-1-col">
-                        <p>Total <br/>Bookings</p>
+                            <p>Total <br />Bookings</p>
                         </div>
                         <div className="col-sm d-row-2-sbrw-1-col">
-                        <p>Bookings <br/>Today</p>
+                            <p>Bookings <br />Today</p>
                         </div>
-                        
+
                     </div>
 
 
@@ -76,11 +77,11 @@ const Dashboard = () => {
                             </button>
                         </div>
                         <div className="col-lg-8 col-md-6 col-sm-12 d-row-2-sbrw-2-col-2">
-                        <button className="d-row-2-sbrw-2-btn-2">
-                               <div>2500</div> <div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;10</div>
+                            <button className="d-row-2-sbrw-2-btn-2">
+                                <div>2500</div> <div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;10</div>
                             </button>
                         </div>
-                       
+
                     </div>
                     <div className="row d-row-2-sbrw-3">
 
@@ -92,24 +93,24 @@ const Dashboard = () => {
                         </div>
 
                         <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-2">
-                        <p>Pending</p>
+                            <p>Pending</p>
                         </div>
 
                         <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-3">
-                        <p>Viewed</p>
+                            <p>Viewed</p>
                         </div>
 
                         <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-4">
-                        <input placeholder="Search" type="text"/>
-                        <SearchIcon/>
+                            <input placeholder="Search" type="text" />
+                            <SearchIcon />
                         </div>
                     </div>
 
                     {/* ############## Table ############## */}
 
                     <div className="row d-row-2-sbrw-4">
-                        
-                    <TableDashboard/>
+
+                        <TableDashboard />
 
                     </div>
                 </div>
@@ -127,29 +128,29 @@ const Dashboard = () => {
                             </div>
 
                             <div className="row d-row-2-c3-subrow1-col-1-rw2">
-                            <div className="col">
-                                <div className="col d-row-2-c3-subrow1-col-1-rw-cl-2-rectangle2">
-                                </div>
+                                <div className="col">
+                                    <div className="col d-row-2-c3-subrow1-col-1-rw-cl-2-rectangle2">
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
                         <div className="col-lg-6 col-md-5 col-sm-12 d-row-2-c3-subrow1-col-2">
 
-                        <div class="card d-row-2-c3-subrow1-col-2-card">
-                            <div class="card-body d-row-2-c3-subrow1-col-2-card-content">
-                                <h6>Ram Singh</h6>
-                                <Avatar src={ProfileReal}/>
-                                <p>Admin</p>
-                                <button className="d-card-btn">Edit Profile</button>
-                            </div>
+                            <div class="card d-row-2-c3-subrow1-col-2-card">
+                                <div class="card-body d-row-2-c3-subrow1-col-2-card-content">
+                                    <h6>Ram Singh</h6>
+                                    <Avatar src={ProfileReal} />
+                                    <p>Admin</p>
+                                    <button className="d-card-btn">Edit Profile</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="row d-row-2-c3-subrow2">
                         <p>Popular Packages</p>
-                        <SmallTableDashboard/>
+                        <SmallTableDashboard />
 
                     </div>
 

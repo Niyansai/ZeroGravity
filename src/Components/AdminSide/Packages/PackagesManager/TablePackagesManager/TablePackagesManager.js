@@ -246,12 +246,13 @@ const TablePackagesManager = () => {
     }
     )
       .then((resp) => {
-        console.log(resp)
-        if ('data' in resp.data && resp.data.status === 1)
+        if ('data' in resp.data && resp.data.status === 1) {
           alert(resp.data.message);
+          loadPackage();
+        }
       })
       .catch((err) => {
-        console.log(err)
+        alert("Something went wrong");
       })
   }
 
