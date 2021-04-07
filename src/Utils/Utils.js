@@ -31,6 +31,12 @@ const API = {
     GET_INQUIRY: ADMIN_HOST + "/getInquiry",
     UPDATE_INQUIRY: ADMIN_HOST + "/updateInquiry",
 
+    ADD_COUPON: ADMIN_HOST + "/addCoupon",
+    UPDATE_COUPON: ADMIN_HOST + "/updateCoupon",
+    LIST_COUPON: ADMIN_HOST + "/listCoupon",
+    GET_COUPON: ADMIN_HOST + "/getCoupon",
+    DELETE_COUPON: ADMIN_HOST + "/deleteCoupon",
+
     // ############### PACKAGES ##################
 
 
