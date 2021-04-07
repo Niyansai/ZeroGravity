@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./styles.css";
 import GravityLogo from "../../../../Assets/GravityLogo.png"
-import { Avatar } from '@material-ui/core';
+import { Avatar, Select } from '@material-ui/core';
 import RealProfilePic from "../../../../Assets/ProfileReal.jpeg";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory } from 'react-router';
 import API from '../../../../Utils/Utils';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -26,9 +27,26 @@ const AddBooking = () => {
         extras: ""
 
     });
+    const [users, setUsers] = useState([]);
+    const [packagesOf, setPackagesOf] = useState([]);
+    const [coupons, setCoupons] = useState([]);
 
    
     const { user, packaging, payment_mode, price, coupon, status, transaction, extras } = booking;
+
+
+    // ############### USEEFFECT SECTION ##################
+
+
+    useEffect(() => {
+        loadUsers();
+        loadCoupons();
+        loadPackage();
+    }, [])
+
+
+
+
 
     const onInputChange = e => {
         setBooking({ ...booking, [e.target.name]: e.target.value });
@@ -48,7 +66,7 @@ const AddBooking = () => {
         const token = sessionStorage.getItem("token");
         console.log("token")
         if (token == null) {
-          history.push("/bookings");
+          history.push("/home");
           return;
         }
     
@@ -56,6 +74,8 @@ const AddBooking = () => {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
         }
+
+        booking.package = packaging
     
         axios.post(API.ADD_BOOKING,
           booking, {
@@ -65,7 +85,8 @@ const AddBooking = () => {
             console.log(resp)
             if ('message' in resp.data) {
               alert(resp.data.message);
-              history.push('/packages');
+
+              history.push('/bookings');
             }
             else {
               alert("Something went wrong");
@@ -73,7 +94,7 @@ const AddBooking = () => {
           })
           .catch((err) => {
             if (err.response.status === 500) {
-              alert("Package information is already available.");
+              alert("Booking information is already available.");
             }
             if (err.response.status === 401) {
               history.push("/home");
@@ -82,6 +103,78 @@ const AddBooking = () => {
     
     
       }
+
+
+    //   ######################## DROPDOWN LIST LOADING SECTION ####################################
+
+
+      const loadUsers = async () => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        await axios.get(API.LIST_USERS, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => {
+                console.log(response.data.data)
+                setUsers(response.data.data.reverse());
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    }
+
+
+    const loadPackage = async () => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+          history.push("/home");
+          return;
+        }
+    
+        await axios.get(API.LIST_PACKAGES, {
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        })
+          .then((response) => {
+            console.log(response.data.data)
+            setPackagesOf(response.data.data.reverse());
+          })
+          .catch((err) => {
+            console.log(err)
+          });
+      }
+    
+
+
+    const loadCoupons = async () => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        await axios.get(API.LIST_COUPON, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => {
+                console.log(response.data.data)
+                setCoupons(response.data.data.reverse());
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    }
+
+
     
 
    
@@ -141,24 +234,41 @@ const AddBooking = () => {
 
                         <div className="row cpr-rw3-col-1-sub-row-1 cpr-rw3-col-1-sub-rows-all">
                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                            <h6 >User</h6>
-                            <input className="cpr-inputs add-booking-inputs" name="user" value={user} placeholder="user" type="text" onChange={e => onInputChange(e)}/>
+                            <h6>User</h6>
+                            <select className="cpr-inputs add-booking-inputs form-select" name="user" value={user} placeholder="user" type="text" onChange={e => onInputChange(e)}>
+                          <option selected>select user from below list</option>
+                           {
+                              
+                              users.map((item, index)=> <option key={index} className="booking-options">{item.id}</option> )
+                              
+                               
+                            }
+                                </select>
                             </div>
                         </div>
 
                         <div className="row cpr-rw3-col-1-sub-row-2 cpr-rw3-col-1-sub-rows-all">
                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                             <h6>Package</h6>
-                            <input className="cpr-inputs add-booking-inputs" name="packaging" value={packaging} placeholder="package" type="text" onChange={e => onInputChange(e)}/>
+                            <select className="cpr-inputs add-booking-inputs form-select" name="packaging" value={packaging} placeholder="package" type="text" onChange={e => onInputChange(e)}>
+                            <option selected>select package from below list</option>
+                           {
+                              
+                              packagesOf.map((item, index)=> <option key={index} className="booking-options">{item._id}</option> )
+                              
+                               
+                            }
+                            </select>
                             </div>
                         </div>
 
                         <div className="row cpr-rw3-col-1-sub-row-3 cpr-rw3-col-1-sub-rows-all">
                             <div className="col cpr-rw3-col-1-sub-row-1-col-only mb-3 d-block">
                             <h6>Payment Mode</h6>
-                            <select className="cpr-inputs add-booking-inputs bokng-input-toggle form-select" name="payment_mode" value={payment_mode} placeholder="starting_price" type="text" onChange={e => onInputChange(e)}>
-                            <option selected>Online</option>
-                            <option value="1">Offline</option>
+                            <select className="cpr-inputs add-booking-inputs bokng-input-toggle form-select" name="payment_mode" value={payment_mode} placeholder="Online/Offline" type="text" onChange={e => onInputChange(e)}>
+                            <option selected>select below options</option>
+                            <option>Online</option>
+                            <option>Offline</option>
                                 </select>
                             </div>
                         </div>
@@ -173,7 +283,15 @@ const AddBooking = () => {
                         <div className="row cpr-rw3-col-1-sub-row-5 cpr-rw3-col-1-sub-rows-all">
                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                             <h6>Coupon</h6>
-                            <input className="cpr-inputs add-booking-inputs" name="coupon" value={coupon} placeholder="Coupon" type="text" onChange={e => onInputChange(e)}/>
+                            <select className="cpr-inputs add-booking-inputs form-select" name="coupon" value={coupon} placeholder="Coupon" type="text" onChange={e => onInputChange(e)}>
+                            <option selected>select coupon from below list</option>
+                           {
+                              
+                              coupons.map((item, index)=> <option key={index} className="booking-options">{item._id}</option> )
+                              
+                               
+                            }
+                                </select>
                             </div>
                            
                         </div>
@@ -206,7 +324,7 @@ const AddBooking = () => {
 
                             <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                                 <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                                <button className="cpr-approve-btn">Approve</button>
+                                <button className="cpr-approve-btn">ADD BOOKING</button>
                                 </div>
 
                             </div>

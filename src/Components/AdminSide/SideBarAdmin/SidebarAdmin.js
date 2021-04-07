@@ -13,7 +13,7 @@ const SidebarAdmin = () => {
             <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
             <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
             <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
-            <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
+            <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
             <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs"/></Link>
             <button className="btn-sidebar">Logout</button>
         </div>

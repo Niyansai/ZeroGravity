@@ -8,6 +8,10 @@
   margin-left: 2rem;
 }
 
+.logout-dashboard {
+  cursor: pointer;
+}
+
 .d-row-header-col-2 {
   justify-content: flex-end;
   display: flex;

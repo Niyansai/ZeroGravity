@@ -8,12 +8,26 @@ import SearchIcon from '@material-ui/icons/Search';
 import TableDashboard from './TableDashboard/TableDashboard';
 import SmallTableDashboard from './TableDashboard/SmallTableDashboard/SmallTableDashboard';
 import SideBarDynamic from '../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
+import API from "../../../Utils/Utils";
 
 
 const Dashboard = () => {
 
     const { id } = useParams();
+    const history = useHistory();
+
+    const AdminLogOut = () => {
+        const token = sessionStorage.removeItem("token");
+
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+    }
+
+
 
     return (
         <div className="container-fluid d-container">
@@ -28,7 +42,7 @@ const Dashboard = () => {
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
 
-                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ color: "#959595" }}>Logout</small></span></p>
+                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small className='logout-dashboard' onClick={AdminLogOut} style={{ color: "#959595" }}>Logout</small></span></p>
                 </div>
             </div>
 
@@ -46,7 +60,7 @@ const Dashboard = () => {
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
                         <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
                         <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
-                        <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
+                        <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
                         <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs" /></Link>
                         <button className="btn-sidebar">Logout</button>
                     </div>

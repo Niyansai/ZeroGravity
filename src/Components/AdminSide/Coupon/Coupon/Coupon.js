@@ -4,12 +4,22 @@ import GravityLogo from '../../../../Assets/GravityLogo.png';
 import ProfileReal from '../../../../Assets/ProfileReal.jpeg';
 import { Avatar } from '@material-ui/core';
 import TableCoupon from './TableCoupon/TableCoupon';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import SideBarDynamic from '../../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 
 
 
 const Coupon = () => {
+
+    const history = useHistory();
+    const AdminLogOut = () => {
+        const token = sessionStorage.removeItem("token");
+
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+    }
 
     return (
         <div className="container-fluid d-container">
@@ -24,7 +34,7 @@ const Coupon = () => {
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
 
-                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ color: "#959595" }}>Logout</small></span></p>
+                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ cursor: "pointer"}} onClick={AdminLogOut}>Logout</small></span></p>
                 </div>
             </div>
 
@@ -42,7 +52,7 @@ const Coupon = () => {
                         <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" selected={true} /></Link>
                         <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
                         <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
-                        <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
+                        <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
                         <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs" /></Link>
                         <button className="btn-sidebar">Logout</button>
                     </div>

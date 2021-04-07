@@ -9,12 +9,24 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TablePackagesManager from './TablePackagesManager/TablePackagesManager';
 import AddIcon from '@material-ui/icons/Add';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import SideBarDynamic from '../../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 
 
 
 const PackagesManager = ({ selected }) => {
+
+    const history = useHistory();
+
+    const AdminLogOut = () => {
+        const token = sessionStorage.removeItem("token");
+
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+    }
+
 
     const { id } = useParams();
 
@@ -31,7 +43,7 @@ const PackagesManager = ({ selected }) => {
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 ad-rw1-col-3 custom-avatar">
                     <Avatar src={RealProfilePic} />
-                    <p>Ram Singh <br /><span><small>Logout</small></span></p>
+                    <p>Ram Singh <br /><span><small onClick={AdminLogOut} style={{ color: "#959595", cursor: "pointer" }}>Logout</small></span></p>
                 </div>
             </div>
 
@@ -45,7 +57,7 @@ const PackagesManager = ({ selected }) => {
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} selected={true} /></Link>
                         <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
                         <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
-                        <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
+                        <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
                         <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs" /></Link>
                         <button className="btn-sidebar">Logout</button>
                     </div>

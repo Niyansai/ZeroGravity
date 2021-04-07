@@ -1,0 +1,12 @@
+.r-tble-rw1-col-only {
+  text-align-last: end;
+}
+
+.filter-dropdown {
+  background: rgba(255, 255, 255, 0.8);
+  text-align-last: center;
+}
+
+.table-bg-reports {
+  background: none;
+}

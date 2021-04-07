@@ -18,7 +18,6 @@ import AddUser from './Components/AdminSide/CustomerDataBase/AddUser/AddUser';
 import ViewUser from './Components/AdminSide/CustomerDataBase/ViewUser/ViewUser';
 import EditUser from './Components/AdminSide/CustomerDataBase/EditUser/EditUser';
 import CustomerDatabase from './Components/AdminSide/CustomerDataBase/CustomerDatabase/CustomerDatabase';
-import VIewBookings from './Components/AdminSide/Bookings/ViewBooking/VIewBooking';
 import EditBooking from './Components/AdminSide/Bookings/EditBooking/EditBooking';
 import AddBooking from './Components/AdminSide/Bookings/AddBooking/AddBooking';
 import EditPackages from './Components/AdminSide/Packages/EditPackages/EditPackages';
@@ -31,6 +30,8 @@ import Coupon from './Components/AdminSide/Coupon/Coupon/Coupon';
 import AddCoupon from './Components/AdminSide/Coupon/AddCoupon/AddCoupon';
 import EditCoupon from './Components/AdminSide/Coupon/EditCoupon/EditCoupon';
 import ViewCoupon from './Components/AdminSide/Coupon/ViewCoupon/ViewCoupon';
+import ViewBooking from './Components/AdminSide/Bookings/ViewBooking/VIewBooking';
+import Reports from './Components/AdminSide/Reports/Reports';
 
 
 
@@ -43,8 +44,8 @@ const App = ({ selected }) => {
         <Switch>
           <Route path={match.url} exact={true} component={Bookings} />
           <Route path={`${match.url}/add`} exact={true} component={AddBooking} />
-          <Route path={`${match.url}/view`} exact={true} component={VIewBookings} />
-          <Route path={`${match.url}/edit`} exact={true} component={EditBooking} />
+          <Route path={`${match.url}/view/:id`} exact={true} component={ViewBooking} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditBooking} />
         </Switch>
       </Fragment>
     );
@@ -127,6 +128,7 @@ const App = ({ selected }) => {
       <Router>
         <Switch>
 
+          <Route path="/reports" component={Reports} />
           <Route path="/packages" component={Packages} />
           <Route path="/bookings" component={Booking} />
           <Route path="/customerdatabase" component={Users} />

@@ -15,6 +15,18 @@ import SideBarDynamic from '../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 
 const CustomPackages = () => {
 
+    const history = useHistory();
+
+    const AdminLogOut = () => {
+        const token = sessionStorage.removeItem("token");
+
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+    }
+
+
 
     return (
         <div className="container-fluid admin-dshbrd-top">
@@ -31,7 +43,7 @@ const CustomPackages = () => {
                     </div>
                 <div className="col-lg-3 col-md-3 col-sm-12 ad-rw1-col-3 custom-avatar">
                     <Avatar src={RealProfilePic}/>
-                    <p>Ram Singh <br/><span><small>Logout</small></span></p>
+                    <p>Ram Singh <br/><span><small style={{ cursor: "pointer", color: "#959595"}} onClick={AdminLogOut}>Logout</small></span></p>
                 </div>
             </div>
             <div className="row ad-rw-2 ad-rw-2">
@@ -43,7 +55,7 @@ const CustomPackages = () => {
             <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>
             <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry"/></Link>
             <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Customer<br/><small>Database</small></p>}/></Link>
-            <Link to="/packagerequest" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
+            <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports"/></Link>
             <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs"/></Link>
             <button className="btn-sidebar">Logout</button>
         </div>

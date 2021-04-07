@@ -3,6 +3,12 @@
   outline: none;
 }
 
+.add-booking-inputs:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid gray;
+}
+
 .btn-toggle-booking {
   background: none;
   outline: none;
@@ -12,4 +18,8 @@
 .bokng-input-toggle {
   margin: 0px;
   padding: 0px;
+}
+
+.booking-options {
+  height: 100px;
 }

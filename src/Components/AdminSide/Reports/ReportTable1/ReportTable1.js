@@ -1,12 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import "./styles.css";
-import LeftArrowP from "../../../../../Assets/LeftArrowP.png";
-import RightArrowP from "../../../../../Assets/RightArrowP.png";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from 'react-router';
-import API from "../../../../../Utils/Utils";
+import API from "../../../../Utils/Utils";
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
@@ -28,11 +26,17 @@ import { BorderBottom } from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Link, useParams } from 'react-router-dom';
-import AddIcon from '@material-ui/icons/Add';
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 
 
 
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+    border: "none"
+  },
+});
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -126,8 +130,8 @@ TablePaginationActions.propTypes = {
 
 //   ################# MAIN-TABLE FUNCTION ###################
 
-const BookingTable = () => {
-
+const ReportTable = () => {
+  const classes = useStyles();
   const [bookingOf, setBookingOf] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(8);
@@ -136,6 +140,65 @@ const BookingTable = () => {
   const history = useHistory();
 
   const { id } = useParams();
+
+
+// ################### STATIC DATA ####################
+
+
+const ROWS = [{
+  id: 1,
+  name: "GoaTrip",
+  date: "21-04-2021",
+  members: 10,
+  amount: 20000,
+  actions:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>  
+},
+{
+  id: 2,
+  name: "GoaTrip",
+  date: "21-04-2021",
+  members: 10,
+  amount: 20000,
+  actions:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>  
+},
+{
+  id: 3,
+
+  name: "GoaTrip",
+  date: "21-04-2021",
+  members: 10,
+  amount: 20000,
+  actions:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>  
+},
+{
+  id: 4,
+  name: "GoaTrip",
+  date: "21-04-2021",
+  members: 10,
+  amount: 20000,
+  actions:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>  
+},
+{
+  id: 5,
+  name: "GoaTrip",
+  date: "21-04-2021",
+  members: 10,
+  amount: 20000,
+  actions:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>  
+},
+{
+  id: 6,
+  name: "GoaTrip",
+  date: "21-04-2021",
+  members: 10,
+  amount: 20000,
+  actions:<div className="d-tble-icons"><span  className="view-icon"><VisibilityIcon/></span> &nbsp;<span className="edit-icon"><EditIcon/></span> &nbsp;<span className="delete-icon"><DeleteIcon/></span></div>  
+},
+
+
+
+]
+
 
 
   // ################## EVENT HANDLERS ######################
@@ -253,102 +316,52 @@ const BookingTable = () => {
   return (
     <Fragment>
       <div className="container-fluid pm-table-search">
-        <div className="row pm-table-row-1">
-          <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
-            <h6>All</h6>
-            <div className="all-highlight">
-
-            </div>
+        <div className="row pm-table-row-1 r-tble-rw1">
+          <div className="col-lg-11 col-md-11 col-sm-12 r-tble-rw1-col-only">
+            <IconButton className="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><FilterListIcon/></IconButton>
+            <ul class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item">Monthly</a></li>
+                <li><a class="dropdown-item">Weekly</a></li>
+            </ul>
           </div>
-          <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search">
-            <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text" onChange={(e) => { search(e.target.value) }} />
-              <SearchIcon /></span>
-          </div>
-          <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
-            <h6>Sort By <ArrowDropDownIcon /></h6>
-          </div>
-          <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-            <Link to="/bookings/add"><button className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD BOOKING</span></button></Link>
-          </div>
-
+          <p className="ad-rw1-col-2-p">Reports</p>
+          <TableContainer component={Paper} >
+      <Table  aria-label="simple table">
+        <TableHead className={classes.head}>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell align="center">Trip</TableCell>
+            <TableCell align="center">Total Number Of Members</TableCell>
+            <TableCell align="center">Date</TableCell>
+            <TableCell align="center">Total Income</TableCell>
+            <TableCell align="center">Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody >
+          {ROWS.map((row) => (
+            <TableRow key={row.name}>
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.members}</TableCell>
+              <TableCell align="center">{row.date}</TableCell>
+              <TableCell align="center">{row.amount}</TableCell>
+              <TableCell align="center">{row.actions}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </div>
 
       </div>
       <div className="row pm-table-row-2">
-        <TableContainer className="container paper-container-p-table">
-          <Table aria-label="custom pagination table">
-            <TableHead className="table-head-pm">
-              <TableRow>
-                <StyledTableCell align="center">ID</StyledTableCell>
-                <StyledTableCell align="center">User</StyledTableCell>
-                <StyledTableCell align="center">Package</StyledTableCell>
-                <StyledTableCell align="center">Payment_Mode</StyledTableCell>
-                <StyledTableCell align="center">Price</StyledTableCell>
-                <StyledTableCell align="center">Status</StyledTableCell>
-                <StyledTableCell align="center">Actions</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {(rowsPerPage > 0
-                ? bookingOf.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                : bookingOf
-              ).map((item, index) => (
-                <TableRow className="table-details-pm" key={index}>
-                  <TableCell style={{ width: 160 }} align="center">
-                    {item._id}
-                  </TableCell>
-                  <TableCell style={{ width: 160 }} align="center">
-                    {item.user}
-                  </TableCell>
-                  <TableCell style={{ width: 160 }} align="center">
-                    {item.package}
-                  </TableCell>
-                  <TableCell style={{ width: 160 }} align="center">
-                    {item.payment_mode}
-                  </TableCell>
-                  <TableCell style={{ width: 160 }} align="center">
-                    {item.price}
-                  </TableCell>
-                  <TableCell style={{ width: 160 }} align="center">
-                    {item.status}
-                  </TableCell>
-                  <TableCell style={{ width: 160 }} align="center">
-                    <div className="d-tble-icons"><Link to={`/bookings/view/${item._id}`}><span className="view-icon"><VisibilityIcon /></span></Link> &nbsp;<Link className="edit-icon-link-pm" to={`/bookings/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon /></span> </Link> &nbsp;<span onClick={(id) => deleteBooking(item._id)} className="delete-icon"><DeleteIcon /></span></div>
-                  </TableCell>
-                </TableRow>
-              ))}
-
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-            <TableFooter className="p-table-footer">
-              <TableRow>
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                  colSpan={12}
-                  count={bookingOf.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  SelectProps={{
-                    inputProps: { 'aria-label': 'rows per page' },
-                    native: true,
-                  }}
-                  onChangePage={handleChangePage}
-                  onChangeRowsPerPage={handleChangeRowsPerPage}
-                  ActionsComponent={TablePaginationActions}
-                />
-              </TableRow>
-            </TableFooter>
-          </Table>
-        </TableContainer>
-
+        
       </div>
     </Fragment>
 
   )
 }
 
-export default BookingTable
+export default ReportTable;

@@ -1,6 +1,4 @@
 const HOST = "http://139.59.4.68:8001";
-
-
 const ADMIN_HOST = HOST + "/admin";
 const PACKAGES_HOST = HOST + "/package";
 const USER_HOST = HOST + "/user";
@@ -53,7 +51,7 @@ const API = {
 
         ADD_BOOKING: BOOKINGS_HOST + "/addBooking",
         LIST_BOOKINGS: BOOKINGS_HOST + "/listBooking",
-        SEARCH_BOOKING: BOOKINGS_HOST + "/getBooking",
+        GET_BOOKING: BOOKINGS_HOST + "/getBooking",
         UPDATE_BOOKING: BOOKINGS_HOST + "/updateBooking",
         DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking"
 
