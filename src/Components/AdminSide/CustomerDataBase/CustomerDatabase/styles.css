@@ -37,6 +37,12 @@
   margin-left: 4rem !important;
 }
 
+.cdb-table-row {
+  margin-top: 1rem;
+  background: none !important;
+  padding-top: 2rem;
+}
+
 .d-row-2-sbrw-2-btn-1 {
   border: 1px solid gray;
   background: none;

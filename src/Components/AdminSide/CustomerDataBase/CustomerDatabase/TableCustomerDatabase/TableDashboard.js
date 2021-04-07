@@ -267,8 +267,8 @@ const TableUsersManager = () => {
 
     return (
         <Fragment>
-            <div className="container-fluid pm-table-search">
-                <div className="row pm-table-row-1">
+            <div className="container-fluid pm-table-search cdb-search">
+                <div className="row pm-table-row-1 cdb-row-table-top">
                     <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
                         <h6>All</h6>
                         <div className="all-highlight">
@@ -289,9 +289,9 @@ const TableUsersManager = () => {
                 </div>
 
             </div>
-            <div className="row pm-table-row-2">
-                <TableContainer className="container paper-container-p-table">
-                    <Table aria-label="custom pagination table">
+            <div className="row pm-table-row-2 ">
+                <TableContainer className="container paper-container-p-table ">
+                    <Table aria-label="custom pagination table ">
                         <TableHead className="table-head-pm">
                             <TableRow>
                                 <StyledTableCell align="center">ID</StyledTableCell>

@@ -11,6 +11,7 @@ import UploadImage from '../UploadImage/UploadImage';
 
 
 
+
 const AddPackage = () => {
 
     const[name, setName] = useState('');
@@ -263,7 +264,7 @@ const AddPackage = () => {
                         <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
                             <div className="col cpr-rw3-col-2-sub-row-1-col-only">
                             <h6>Tags</h6>
-                            <input className="cpr-inputs" name="tags" value={tags} placeholder="tags" type="text" onChange={(e) => {setTags(e.target.value)}} />
+                            <input className="cpr-inputs" name="tags" value={tags} placeholder="tags" type="text" onChange={(e) => {setTags(e.target.value)}}/>
                             </div>
                         </div>
 

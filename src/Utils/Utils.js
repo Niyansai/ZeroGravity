@@ -6,6 +6,8 @@ const PACKAGES_HOST = HOST + "/package";
 const USER_HOST = HOST + "/user";
 const STORAGE_HOST = HOST + "/storage";
 const BLOG_HOST = HOST + "/blog";
+const BOOKINGS_HOST = HOST + "/booking";
+
 
 
 const API = {
@@ -36,9 +38,15 @@ const API = {
     ADD_PACKAGE_IMG: PACKAGES_HOST + "/addPackageImage",
     SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackageById",
     UPDATE_PACKAGE: PACKAGES_HOST + "/updatePackage",
-    DELETE_PACKAGE: PACKAGES_HOST + "/deletePackage"
+    DELETE_PACKAGE: PACKAGES_HOST + "/deletePackage",
 
+ // ############### BOOKINGS ##################
 
+        ADD_BOOKING: BOOKINGS_HOST + "/addBooking",
+        LIST_BOOKINGS: BOOKINGS_HOST + "/listBooking",
+        SEARCH_BOOKING: BOOKINGS_HOST + "/getBooking",
+        UPDATE_BOOKING: BOOKINGS_HOST + "/updateBooking",
+        DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking"
 
 
 }

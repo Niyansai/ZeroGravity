@@ -46,23 +46,6 @@ const Bookings = () => {
                     </div>
                 </div>
                 <div className="col-lg-10 col-md-10 col-sm-12 ad-rw2-col-2">
-                    <div className="row ad-rw2-col-2-row-1">
-                        <div className="col-lg-2 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
-                            <h6>New</h6>
-                        </div>
-                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-2">
-                            <h6>Previous</h6>
-                        </div>
-                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3">
-                            <h6>Sort By <ArrowDropDownIcon /></h6>
-                        </div>
-                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4 b-add-bkng">
-                            <Link to="/bookings/add"><button className="btn-delete-adb pm-add-btn"> <AddIcon /><span>ADD BOOKING</span></button> </Link>
-                        </div>
-                        <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-                            <button className="btn-delete-adb"> <DeleteIcon /> Cancel Booking</button>
-                        </div>
-                    </div>
 
                     <div className="row ad-rw2-col-2-row-2">
 

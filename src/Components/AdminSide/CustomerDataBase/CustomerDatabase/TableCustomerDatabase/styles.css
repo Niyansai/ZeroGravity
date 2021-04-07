@@ -25,3 +25,15 @@
 .d-tble-icons > span > .MuiSvgIcon-root {
   font-size: 18px;
 }
+
+.cdb-row-table-top {
+  margin-top: 1rem;
+}
+
+.cdb-search {
+  background: none;
+}
+
+.cdb-table-container {
+  background: none;
+}

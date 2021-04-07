@@ -62,6 +62,7 @@ const EditUser = () => {
         }
 
         user.id = id;
+        user.avatar = img;
 
         axios.post(API.UPDATE_USER,
             user, {
