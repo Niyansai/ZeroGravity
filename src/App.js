@@ -22,6 +22,8 @@ import EditBooking from './Components/AdminSide/Bookings/EditBooking/EditBooking
 import AddBooking from './Components/AdminSide/Bookings/AddBooking/AddBooking';
 import EditPackages from './Components/AdminSide/Packages/EditPackages/EditPackages';
 import AddBlog from './Components/AdminSide/Blog/AddBlog/AddBlog';
+import EditBlog from './Components/AdminSide/Blog/EditBlog/EditBlog';
+import ViewBlog from './Components/AdminSide/Blog/ViewBlog/ViewBlog';
 import Inquiry from './Components/AdminSide/Inquiry/Inquiry/Inquiry';
 import AddInquiry from './Components/AdminSide/Inquiry/AddInquiry/AddInquiry';
 import EditInquiry from './Components/AdminSide/Inquiry/EditInquiry/EditInquiry';
@@ -87,8 +89,8 @@ const App = ({ selected }) => {
         <Switch>
           <Route path={`${match.url}`} exact={true} component={BlogPage} />
           <Route path={`${match.url}/add`} exact={true} component={AddBlog} />
-          {/* <Route path={`${match.url}/view/:id`} exact={true} component={ViewUser} />
-          <Route path={`${match.url}/edit/:id`} exact={true} component={EditUser} /> */}
+          <Route path={`${match.url}/view/:id`} exact={true} component={ViewBlog} />
+          <Route path={`${match.url}/edit/:id`} exact={true} component={EditBlog} />
         </Switch>
       </Fragment>
     );
