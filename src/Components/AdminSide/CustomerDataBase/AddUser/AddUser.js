@@ -7,7 +7,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory } from 'react-router';
 import API from '../../../../Utils/Utils';
 import axios from 'axios';
-import { logout } from '../../../../Utils/SessionUtil';
+
 
 const AddPackage = () => {
 
@@ -26,6 +26,15 @@ const AddPackage = () => {
   const user = { name, role, active, username, password, mobile, city, dob, gender, avatar };
 
   const history = useHistory();
+
+  const AdminLogOut = () => {
+    const token = sessionStorage.removeItem("token");
+
+if (token == null) {
+  history.push("/home");
+  return;
+}
+}
 
   const handleMoveback = () => {
     history.push('/customerdatabase')
@@ -135,7 +144,7 @@ const AddPackage = () => {
 
         <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
           <Avatar src={RealProfilePic} />
-          <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span onClick={ (e) => {logout(history)}}><small>Logout</small></span></p>
+          <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span style={{ cursor: "pointer"}} onClick={AdminLogOut}><small>Logout</small></span></p>
         </div>
 
       </div>
