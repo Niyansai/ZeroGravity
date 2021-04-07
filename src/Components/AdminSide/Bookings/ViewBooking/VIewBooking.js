@@ -6,6 +6,7 @@ import RealProfilePic from "../../../../Assets/ProfileReal.jpeg";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory, useParams } from 'react-router-dom';
 import API from '../../../../Utils/Utils';
+import {logout} from '../../../../Utils/SessionUtil';
 import axios from 'axios';
 
 
@@ -71,7 +72,7 @@ const ViewBooking = () => {
 
                 <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
                     <Avatar src={RealProfilePic} />
-                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}>{sessionStorage.getItem("user")}<br /><span><small>Logout</small></span></p>
+                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={() => {logout(history)}}> Logout </small></span></p>
 
                 </div>
 
