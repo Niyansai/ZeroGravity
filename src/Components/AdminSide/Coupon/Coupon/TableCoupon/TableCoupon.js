@@ -32,8 +32,6 @@ import AddIcon from '@material-ui/icons/Add';
 
 
 
-
-
 const useStyles1 = makeStyles((theme) => ({
     root: {
         flexShrink: 0,
@@ -126,26 +124,26 @@ TablePaginationActions.propTypes = {
 
 //   ################# MAIN-TABLE FUNCTION ###################
 
-const TableInquiry = () => {
+const TableCoupon = () => {
 
-    const [inquiries, setInquiries] = useState([]);
+    const [coupons, setCoupons] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(8);
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, inquiries.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, coupons.length - page * rowsPerPage);
 
     const history = useHistory();
 
     // ################## EVENT HANDLERS ######################
 
 
-    const addInquiry = () => {
-        history.push('/inquiry/add')
+    const addCoupon = () => {
+        history.push('/coupons/add')
     }
 
 
-    const toViewInquiry = () => {
+    const toViewCoupons = () => {
 
-        history.push('/inquiry/view')
+        history.push('/coupons/view')
 
     }
 
@@ -164,7 +162,7 @@ const TableInquiry = () => {
 
 
     useEffect(() => {
-        loadInquiries();
+        loadCoupons();
     }, [])
 
 
@@ -179,17 +177,16 @@ const TableInquiry = () => {
         }
 
         // token exists 
-        axios.get(API.LIST_INQUIRIES, {
+        axios.get(API.LIST_COUPON, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
             .then((response) => {
-                setInquiries(response.data.data.filter((item, index) => {
-                    return (item.name.startsWith(key) ||
-                        item.mobile.startsWith(key) ||
-                        item.email.startsWith(key) || 
-                        item.message.startsWith(key));
+                setCoupons(response.data.data.filter((item, index) => {
+                    return (item.expired.toString().startsWith(key) ||
+                        item.code.startsWith(key) ||
+                        item.discount.toString().startsWith(key));
                 }));
             })
             .catch((err) => {
@@ -198,20 +195,20 @@ const TableInquiry = () => {
     }
 
 
-    const loadInquiries = async () => {
+    const loadCoupons = async () => {
         const token = sessionStorage.getItem("token");
         if (token == null) {
             history.push("/home");
             return;
         }
 
-        await axios.get(API.LIST_INQUIRIES, {
+        await axios.get(API.LIST_COUPON, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
             .then((response) => {
-                setInquiries(response.data.data.reverse());
+                setCoupons(response.data.data.reverse());
             })
             .catch((err) => {
                 console.log(err)
@@ -222,7 +219,7 @@ const TableInquiry = () => {
     // ######################## DELETE PACKAGE FUNCTION #########################
 
 
-    const deletePackage = async (id) => {
+    const deleteCoupon = async (id) => {
         const token = sessionStorage.getItem("token");
 
         if (token == null) {
@@ -234,9 +231,9 @@ const TableInquiry = () => {
             'Authorization': 'Bearer ' + token
         }
 
-        inquiries.id = id;
+        coupons.id = id;
 
-        await axios.get(API.DELETE_INQUIRY, {
+        await axios.get(API.DELETE_COUPON, {
             headers: headers,
             params: {
                 id: id
@@ -244,9 +241,9 @@ const TableInquiry = () => {
         }
         )
             .then((resp) => {
-                if ('data' in resp.data && resp.data.status === 1){
+                if ('data' in resp.data && resp.data.status === 1) {
                     alert(resp.data.message);
-                    loadInquiries();
+                    loadCoupons();
                 }
             })
             .catch((err) => {
@@ -276,7 +273,7 @@ const TableInquiry = () => {
                         <h6>Sort By <ArrowDropDownIcon /></h6>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-                        <Link to="/inquiry/add"><button onClick={addInquiry} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD INQUIRY</span></button></Link>
+                        <Link to="/coupons/add"><button onClick={addCoupon} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD COUPON</span></button></Link>
                     </div>
 
                 </div>
@@ -287,37 +284,33 @@ const TableInquiry = () => {
                     <Table aria-label="custom pagination table">
                         <TableHead className="table-head-pm">
                             <TableRow>
-                                <StyledTableCell align="center">ID</StyledTableCell>
-                                <StyledTableCell align="center">Name</StyledTableCell>
-                                <StyledTableCell align="center">Email</StyledTableCell>
-                                <StyledTableCell align="center">Mobile</StyledTableCell>
-                                <StyledTableCell align="center">Message</StyledTableCell>
+                                <StyledTableCell align="center">Id</StyledTableCell>
+                                <StyledTableCell align="center">Code</StyledTableCell>
+                                <StyledTableCell align="center">Discount</StyledTableCell>
+                                <StyledTableCell align="center">Expired</StyledTableCell>
                                 <StyledTableCell align="center">Actions</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {(rowsPerPage > 0
-                                ? inquiries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                : inquiries
+                                ? coupons.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                : coupons
                             ).map((item, index) => (
                                 <TableRow className="table-details-pm" key={index}>
                                     <TableCell style={{ width: 160 }} align="center">
                                         {item._id}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.name}
+                                        {item.code}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.email}
+                                        {item.discount}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.mobile}
+                                        {item.expired.toString()}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.message}
-                                    </TableCell>
-                                    <TableCell style={{ width: 160 }} align="center">
-                                        <div className="d-tble-icons"><Link to={`/inquiry/view/${item._id}`}><span className="view-icon"><VisibilityIcon /></span></Link> &nbsp;<Link className="edit-icon-link-pm" to={`/inquiry/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon /></span> </Link> &nbsp;<span onClick={(id) => deletePackage(item._id)} className="delete-icon"><DeleteIcon /></span></div>
+                                        <div className="d-tble-icons"><Link to={`/coupons/view/${item._id}`}><span className="view-icon"><VisibilityIcon /></span></Link> &nbsp;<Link className="edit-icon-link-pm" to={`/coupons/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon /></span> </Link> &nbsp;<span onClick={(id) => deleteCoupon(item._id)} className="delete-icon"><DeleteIcon /></span></div>
                                     </TableCell>
                                 </TableRow>
                             ))}
@@ -333,7 +326,7 @@ const TableInquiry = () => {
                                 <TablePagination
                                     rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                                     colSpan={12}
-                                    count={inquiries.length}
+                                    count={coupons.length}
                                     rowsPerPage={rowsPerPage}
                                     page={page}
                                     SelectProps={{
@@ -355,4 +348,4 @@ const TableInquiry = () => {
     )
 }
 
-export default TableInquiry
+export default TableCoupon

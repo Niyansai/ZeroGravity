@@ -9,14 +9,14 @@ import API from '../../../../Utils/Utils';
 import axios from 'axios';
 
 
-const ViewInquiry = () => {
+const ViewCoupon = () => {
 
     const { id } = useParams();
     const history = useHistory();
-    const [inquiry, setInquiry] = useState([]);
+    const [coupon, setCoupon] = useState([]);
 
     useEffect(() => {
-        loadInquiry();
+        loadCoupon();
     }, [])
 
 
@@ -25,7 +25,7 @@ const ViewInquiry = () => {
 
 
 
-    const loadInquiry = async () => {
+    const loadCoupon = async () => {
         const token = sessionStorage.getItem("token");
         if (token == null) {
             history.push("/");
@@ -33,7 +33,7 @@ const ViewInquiry = () => {
         }
 
         // token exists 
-        const result = await axios.get(API.GET_INQUIRY, {
+        const result = await axios.get(API.GET_COUPON, {
             headers: {
                 'Authorization': 'Bearer ' + token
             },
@@ -43,14 +43,14 @@ const ViewInquiry = () => {
         });
 
         if (result.data.data && result.data.data.length > 0) {
-            setInquiry(result.data.data[0]);
+            setCoupon(result.data.data[0]);
         }
     }
 
     // ############################# OnClick Handlers ###############################
 
     const handleMoveback = () => {
-        history.push('/inquiry')
+        history.push('/coupons')
     }
 
 
@@ -82,7 +82,7 @@ const ViewInquiry = () => {
             <div className="row cpr-rw-2">
 
                 <div className="col-lg-10 col-md-6 col-sm-6 cpr-rw-2-col-1">
-                    <h3 style={{ color: "gray" }}>View Inquiry</h3>
+                    <h3 style={{ color: "gray" }}>View Coupon</h3>
                 </div>
 
 
@@ -100,11 +100,11 @@ const ViewInquiry = () => {
                 <div className="row">
 
                     <div className="col-lg-6 col-md-6 col-sm-12 view-pack-title">
-                        <h1>INQUIRY DETAILS</h1>
+                        <h1>COUPON DETAILS</h1>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                         {
-                            Object.entries(inquiry).map(([key, val]) =>
+                            Object.entries(coupon).map(([key, val]) =>
                                 <Grid className="view-pack-key"><span className="vw-pack-key">{key}:</span>&nbsp;&nbsp;<span className="vw-pack-val">{val}</span></Grid>
 
                             )}
@@ -118,4 +118,4 @@ const ViewInquiry = () => {
     )
 }
 
-export default ViewInquiry;
+export default ViewCoupon;

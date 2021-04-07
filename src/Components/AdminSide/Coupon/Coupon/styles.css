@@ -1,0 +1,27 @@
+.pm-rp-btn {
+  font-size: 10px;
+}
+
+.pm-sortable {
+  text-align: -webkit-right;
+}
+
+.all-highlight {
+  width: 14px;
+  height: 3px;
+  background: #ff4f4f;
+  border-radius: 20px;
+}
+
+.pm-add-btn {
+  text-align-last: center;
+}
+
+.pm-search-input {
+  outline: none;
+}
+
+@media (max-width: 580px) {
+  .custom-avatar {
+  }
+}

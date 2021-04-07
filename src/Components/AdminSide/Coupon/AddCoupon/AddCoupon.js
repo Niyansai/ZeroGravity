@@ -11,21 +11,20 @@ import { ContactlessOutlined } from '@material-ui/icons';
 
 
 
-const AddInquiry = () => {
+const AddCoupon = () => {
 
     const history = useHistory();
 
-    const [inquiry, setInquiry] = useState({
-        name: "",
-        email: "",
-        mobile: "",
-        nessage: ""
+    const [coupon, setCoupon] = useState({
+        code: "",
+        discount: "",
+        expired: ""
     });
 
-    const { name, email, mobile, message } = inquiry;
+    const { code, discount, expired } = coupon;
 
     const onInputChange = e => {
-        setInquiry({ ...inquiry, [e.target.name]: e.target.value });
+        setCoupon({ ...coupon, [e.target.name]: e.target.value });
     };
 
 
@@ -46,22 +45,21 @@ const AddInquiry = () => {
             'Authorization': 'Bearer ' + token
         }
 
-        axios.post(API.ADD_INQUIRY,
-            inquiry, {
+        axios.post(API.ADD_COUPON,
+            coupon, {
             headers: headers
         }
         )
             .then((resp) => {
-                console.log(resp)
                 if ('message' in resp.data) {
                     alert(resp.data.message);
                     if (resp.data.status == 1)
-                        history.push('/inquiry');
+                        history.push('/coupons');
                 }
             })
             .catch((err) => {
                 if (err.response.status === 500) {
-                    alert("Inquiry information is already available.");
+                    alert("Coupon information is already available.");
                 }
                 if (err.response.status === 401) {
                     history.push("/home");
@@ -75,7 +73,7 @@ const AddInquiry = () => {
     // ############################# OnClick Handlers ###############################
 
     const handleMoveback = () => {
-        history.push('/inquiry')
+        history.push('/coupons')
     }
 
 
@@ -96,7 +94,7 @@ const AddInquiry = () => {
 
                 <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
                     <Avatar src={RealProfilePic} />
-                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}>Ram Singh <br /><span><small>Logout</small></span></p>
+                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small>Logout</small></span></p>
 
                 </div>
 
@@ -107,7 +105,7 @@ const AddInquiry = () => {
             <div className="row cpr-rw-2">
 
                 <div className="col-lg-10 col-md-6 col-sm-6 cpr-rw-2-col-1">
-                    <h3>New Inquiry</h3>
+                    <h3>New Coupon</h3>
                 </div>
 
 
@@ -134,10 +132,10 @@ const AddInquiry = () => {
 
                                         <div className="row cpr-rw3-col-1-sub-row-1 cpr-rw3-col-1-sub-rows-all">
                                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                                                <h6 >Name</h6>
+                                                <h6 >Code</h6>
                                                 <input className="cpr-inputs"
-                                                    name="name"
-                                                    placeholder="name"
+                                                    name="code"
+                                                    placeholder="code"
                                                     type="text"
                                                     onChange={e => onInputChange(e)} required
                                                 />
@@ -146,11 +144,11 @@ const AddInquiry = () => {
 
                                         <div className="row cpr-rw3-col-1-sub-row-2 cpr-rw3-col-1-sub-rows-all">
                                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                                                <h6>Email</h6>
+                                                <h6>Discount</h6>
                                                 <input className="cpr-inputs"
-                                                    name="email"
-                                                    placeholder="email"
-                                                    type="text"
+                                                    name="discount"
+                                                    placeholder="discount"
+                                                    type="number"
                                                     onChange={e => onInputChange(e)}
                                                 />
                                             </div>
@@ -158,27 +156,16 @@ const AddInquiry = () => {
 
                                         <div className="row cpr-rw3-col-1-sub-row-3 cpr-rw3-col-1-sub-rows-all">
                                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                                                <h6>Mobile</h6>
+                                                <h6>Expired</h6>
                                                 <input className="cpr-inputs"
-                                                    name="mobile"
-                                                    placeholder="mobile"
+                                                    name="expired"
+                                                    placeholder="true/ false"
                                                     type="text"
                                                     onChange={e => onInputChange(e)}
                                                 />
                                             </div>
                                         </div>
 
-                                        <div className="row cpr-rw3-col-1-sub-row-3 cpr-rw3-col-1-sub-rows-all">
-                                            <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                                                <h6>Message</h6>
-                                                <input className="cpr-inputs"
-                                                    name="message"
-                                                    placeholder="message"
-                                                    type="text"
-                                                    onChange={e => onInputChange(e)}
-                                                />
-                                            </div>
-                                        </div>
 
                                     </div>
 
@@ -189,14 +176,14 @@ const AddInquiry = () => {
 
                                         <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                                             <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                                                <button type="submit" className="cpr-approve-btn">Add Inquiry</button>
+                                                <button type="submit" className="cpr-approve-btn">Add Coupon</button>
                                             </div>
 
                                         </div>
 
                                         <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                                             <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                                                <button onClick={() => history.push('/inquiry')} type="cancel" className="cpr-cancel-btn">Cancel</button>
+                                                <button onClick={() => history.push('/coupons')} type="cancel" className="cpr-cancel-btn">Cancel</button>
 
                                             </div>
 
@@ -218,4 +205,4 @@ const AddInquiry = () => {
     )
 }
 
-export default AddInquiry;
+export default AddCoupon;
