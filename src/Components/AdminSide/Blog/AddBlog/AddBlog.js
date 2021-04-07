@@ -9,7 +9,7 @@ import API from '../../../../Utils/Utils';
 import axios from 'axios';
 
 
-const ViewUser = () => {
+const AddBlog = () => {
 
   const history = useHistory();
 
@@ -17,6 +17,7 @@ const ViewUser = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [img, setImg] = useState("");
 
   const blog = { title, description, photos }
 
@@ -30,7 +31,7 @@ const ViewUser = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    
+
     const token = sessionStorage.getItem("token");
     if (token == null) {
       history.push("/");
@@ -94,6 +95,7 @@ const ViewUser = () => {
       .then((response) => {
         if (response.data.status == 1) {
           addPhoto(response.data.data);
+          setImg(response.data.data);
           setLoading("File uploaded");
         }
         else {
@@ -161,7 +163,6 @@ const ViewUser = () => {
 
             <div className="col-lg-6 col-md-6 col-sm-12 view-pack-title">
               <div class="box">
-
                 <input
                   type="file"
                   name="file"
@@ -170,7 +171,7 @@ const ViewUser = () => {
                   onChange={uploadImage}
                 />
                 <p>{loading}</p>
-
+                <img style={{ width: "300px", paddingTop: "10px", paddingBottom: "10px" }} src={API.GET_IMAGE + "?image=" + img}></img>
               </div>
             </div>
 
@@ -228,4 +229,4 @@ const ViewUser = () => {
   )
 }
 
-export default ViewUser;
+export default AddBlog;
