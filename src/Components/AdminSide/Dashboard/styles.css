@@ -1,6 +1,5 @@
 .d-container {
-  padding-top: 2rem;
-  padding: 2rem;
+  margin-top: 1rem;
 }
 
 .dshbrd-logo {
@@ -13,7 +12,6 @@
 }
 
 .d-row-header-col-2 {
-  justify-content: flex-end;
   display: flex;
   margin-left: -2rem;
 }
@@ -23,7 +21,7 @@
 }
 
 .d-row-2-col-2-middle {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 .d-row-2-sbrw-1-col {

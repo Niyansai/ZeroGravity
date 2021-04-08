@@ -25,3 +25,15 @@
 .d-tble-icons > span > .MuiSvgIcon-root {
   font-size: 18px;
 }
+
+.view-icon > .MuiSvgIcon-root {
+  font-size: 15px;
+}
+
+.edit-icon-pm > .MuiSvgIcon-root {
+  font-size: 15px;
+}
+
+.delete-icon > .MuiSvgIcon-root {
+  font-size: 15px;
+}
