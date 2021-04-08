@@ -88,7 +88,7 @@ function TablePaginationActions(props) {
 
 
   return (
-    
+
     <div className={classes.root}>
       <IconButton
         onClick={handleFirstPageButtonClick}
@@ -169,28 +169,30 @@ const BookingTable = () => {
   const search = async (key) => {
     const token = sessionStorage.getItem("token");
     if (token == null) {
-        history.push("/");
-        return;
+      history.push("/");
+      return;
     }
 
     // token exists 
     axios.get(API.LIST_BOOKINGS, {
-        headers: {
-            'Authorization': 'Bearer ' + token
-        }
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
     })
-        .then((response) => {
-            setBookingOf(response.data.data.filter((item, index) => {
-                return (item.status.startsWith(key) ||
-                    item.payment_mode.startsWith(key) ||
-                    item.transaction.startsWith(key) ||
-                    item._id.startsWith(key)
-                );
-            }));
-        })
-        .catch((err) => {
-        });
-}
+      .then((response) => {
+        setBookingOf(response.data.data.filter((item, index) => {
+          return (item.status.startsWith(key) ||
+            item.payment_mode.startsWith(key) ||
+            item.transaction.startsWith(key) ||
+            item._id.startsWith(key) ||
+            item.userData[0].name.startsWith(key) ||
+            item.packageData[0].name.startsWith(key)
+          );
+        }));
+      })
+      .catch((err) => {
+      });
+  }
 
 
   const loadBooking = async () => {
