@@ -12,6 +12,7 @@ import SideBarDynamic from '../../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 const BlogPage = () => {
 
     const history = useHistory();
+    
     const AdminLogOut = () => {
         const token = sessionStorage.removeItem("token");
 

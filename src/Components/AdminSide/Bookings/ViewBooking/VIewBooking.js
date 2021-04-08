@@ -54,6 +54,16 @@ const ViewBooking = () => {
         history.push('/bookings')
     }
 
+    const AdminLogOut = () => {
+        const token = sessionStorage.removeItem("token");
+
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+    }
+
+
 
     return (
 
@@ -72,7 +82,7 @@ const ViewBooking = () => {
 
                 <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
                     <Avatar src={RealProfilePic} />
-                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={() => {logout(history)}}> Logout </small></span></p>
+                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={AdminLogOut}> Logout </small></span></p>
 
                 </div>
 

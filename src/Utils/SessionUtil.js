@@ -6,4 +6,4 @@
     his.push("/home");
   }
 
-  module.exports = { logout };
+ export { logout };
