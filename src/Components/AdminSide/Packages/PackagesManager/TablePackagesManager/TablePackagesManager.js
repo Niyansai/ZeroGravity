@@ -132,7 +132,6 @@ const TablePackagesManager = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(8);
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, packagesOf.length - page * rowsPerPage);
-  const [searchPackage, setSearchPackage] = useState([]);
 
   const history = useHistory();
 
@@ -179,28 +178,6 @@ const TablePackagesManager = () => {
 
   // ##################### LOADING FUNCTION SECTION #####################
 
-  const search = async (key) => {
-    const token = sessionStorage.getItem("token");
-    if (token == null) {
-      history.push("/home");
-      return;
-    }
-   const result = await axios.get(API.LIST_PACKAGES, {
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
-    })
-
-    const dataSearch = setSearchPackage(result.data.data)  
-
-  }
-
- 
-
-
-
-
-
 
   const loadPackage = async () => {
     const token = sessionStorage.getItem("token");
@@ -223,6 +200,33 @@ const TablePackagesManager = () => {
       });
   }
 
+
+  const search = async (key) => {
+    const token = sessionStorage.getItem("token");
+    if (token == null) {
+        history.push("/");
+        return;
+    }
+
+    // token exists 
+    axios.get(API.LIST_PACKAGES, {
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+            console.log(response.data.data)
+            setPackagesOf(response.data.data.filter((item, index) => {
+                return (item.name.startsWith(key) ||
+                    item.address.startsWith(key)      
+                    
+                );
+            }));
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
 
   // ######################## DELETE PACKAGE FUNCTION #########################
 
@@ -274,9 +278,8 @@ const TablePackagesManager = () => {
             </div>
           </div>
           <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search">
-            <span>
-          
-              </span>
+            <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text" onChange={(e) => { search(e.target.value) }} />
+              <SearchIcon /></span>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
             <h6>Sort By <ArrowDropDownIcon /></h6>
