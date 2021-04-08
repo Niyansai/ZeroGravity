@@ -46,18 +46,17 @@ const API = {
 
     ADD_PACKAGE: PACKAGES_HOST + "/addPackage",
     LIST_PACKAGES: PACKAGES_HOST + "/listPackage",
-    ADD_PACKAGE_IMG: PACKAGES_HOST + "/addPackageImage",
     SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackageById",
     UPDATE_PACKAGE: PACKAGES_HOST + "/updatePackage",
     DELETE_PACKAGE: PACKAGES_HOST + "/deletePackage",
 
- // ############### BOOKINGS ##################
+    // ############### BOOKINGS ##################
 
-        ADD_BOOKING: BOOKINGS_HOST + "/addBooking",
-        LIST_BOOKINGS: BOOKINGS_HOST + "/listBooking",
-        GET_BOOKING: BOOKINGS_HOST + "/getBooking",
-        UPDATE_BOOKING: BOOKINGS_HOST + "/updateBooking",
-        DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking"
+    ADD_BOOKING: BOOKINGS_HOST + "/addBooking",
+    LIST_BOOKINGS: BOOKINGS_HOST + "/listBooking",
+    GET_BOOKING: BOOKINGS_HOST + "/getBooking",
+    UPDATE_BOOKING: BOOKINGS_HOST + "/updateBooking",
+    DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking"
 
 
 }

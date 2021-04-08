@@ -168,7 +168,7 @@ const TablePackagesManager = () => {
 
   useEffect(() => {
     search();
-  },[])
+  }, [])
 
   useEffect(() => {
     loadPackage();
@@ -204,29 +204,31 @@ const TablePackagesManager = () => {
   const search = async (key) => {
     const token = sessionStorage.getItem("token");
     if (token == null) {
-        history.push("/");
-        return;
+      history.push("/");
+      return;
     }
 
     // token exists 
     axios.get(API.LIST_PACKAGES, {
-        headers: {
-            'Authorization': 'Bearer ' + token
-        }
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
     })
-        .then((response) => {
-            console.log(response.data.data)
-            setPackagesOf(response.data.data.filter((item, index) => {
-                return (item.name.startsWith(key) ||
-                    item.address.startsWith(key)      
-                    
-                );
-            }));
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
+      .then((response) => {
+        console.log(response.data.data)
+        setPackagesOf(response.data.data.filter((item, index) => {
+          return (item._id.toString().toLowerCase().startsWith(key) ||
+            item.name.toString().toLowerCase().startsWith(key) ||
+            item.description.toString().toLowerCase().startsWith(key) ||
+            item.starting_price.toString().toLowerCase().startsWith(key) ||
+            item.ending_price.toString().toLowerCase().startsWith(key) ||
+            item.address.toString().toLowerCase().startsWith(key));
+        }));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   // ######################## DELETE PACKAGE FUNCTION #########################
 
