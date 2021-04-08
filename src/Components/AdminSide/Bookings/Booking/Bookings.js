@@ -27,7 +27,7 @@ const Bookings = () => {
     }
 
     return (
-        <div className="container-fluid admin-dshbrd-top">
+        <div className="container-fluid admin-dshbrd-top bkng-page-top-all">
             <div className="row ad-rw-1">
                 <div className="col-lg-2 col-md-3 col-sm-12 ad-rw1-col-1">
                     <Link to="/home"> <img className="dshbr-logo" src={GravityLogo} alt="" /></Link>

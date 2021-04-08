@@ -1,4 +1,5 @@
 .d-container {
+  padding: 0 !important;
   margin-top: 1rem;
 }
 
@@ -93,7 +94,7 @@
 }
 
 .d-row-2-sbrw-4 {
-  background: #f0f0f0;
+  background: none !important;
   border-radius: 10px;
   margin-top: 10px;
 }

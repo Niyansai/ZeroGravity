@@ -1,4 +1,5 @@
 .reports-container-top {
+  margin-top: 10px;
 }
 
 .reprts-row-1 {
@@ -7,6 +8,10 @@
 
 .report-page-logo {
   height: 100px;
+}
+
+.rprts-rw-2 {
+  margin-top: 1rem;
 }
 
 .r-rw1-cl-2 {

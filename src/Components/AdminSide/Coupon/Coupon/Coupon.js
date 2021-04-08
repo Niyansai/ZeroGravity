@@ -32,6 +32,7 @@ const Coupon = () => {
                     <img className="dshbrd-logo" src={GravityLogo} alt="" />
 
                 </div>
+                
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
 
                     <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ cursor: "pointer"}} onClick={AdminLogOut}>Logout</small></span></p>

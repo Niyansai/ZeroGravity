@@ -1,10 +1,11 @@
 .admin-dshbrd-top {
-  margin-top: 2rem;
+  margin-top: 10px;
+  padding: 0;
 }
 
 .dshbr-logo {
-  height: 70px;
-  margin-left: 1rem;
+  height: 60px;
+  margin-left: 2rem;
   margin-top: 1rem;
 }
 
@@ -52,8 +53,6 @@
 /* ####################### MAIN CONTENT ############### */
 
 .ad-rw2-col-1 {
-  padding: 1rem;
-
   border-radius: 2px;
 }
 

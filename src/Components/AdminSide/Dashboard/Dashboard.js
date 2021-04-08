@@ -128,27 +128,24 @@ const Dashboard = () => {
                         </div>
 
                     </div>
-                    <div className="row d-row-2-sbrw-3">
+                    <div className="row d-row-2-sbrw-3 text-center">
 
-                        <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-1">
+                        <div className="col-lg-4 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-1">
                             <p>Todays Tasks</p>
-                            <div className="d-row-2-sbrw-3-col-1-hglht-line">
+                            {/* <div className="d-row-2-sbrw-3-col-1-hglht-line">
 
-                            </div>
+                            </div> */}
                         </div>
 
-                        <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-2">
+                        <div className="col-lg-4 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-2">
                             <p>Pending</p>
                         </div>
 
-                        <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-3">
+                        <div className="col-lg-4 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-3">
                             <p>Viewed</p>
                         </div>
 
-                        <div className="col-lg-3 col-md-4 col-sm-2 d-rw-2-sbrw3-col d-row-2-sbrw-3-col-4">
-                            <input placeholder="Search" type="text" />
-                            <SearchIcon />
-                        </div>
+                       
                     </div>
 
                     {/* ############## Table ############## */}

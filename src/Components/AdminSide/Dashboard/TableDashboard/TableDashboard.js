@@ -267,14 +267,14 @@ const TableUsersManager = () => {
         <Fragment>
             <div className="container-fluid pm-table-search cdb-search">
                 <div className="row pm-table-row-1 cdb-row-table-top">
-                    <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
+                    <div className="col-lg-6 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
                         <h6>All</h6>
                         <div className="all-highlight">
 
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search">
-                        <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text" onChange={(e) => { search(e.target.value) }} />
+                    <div className="col-lg-6 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search dshbord-table-search">
+                        <span className="search-bar-dashboard"><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text" onChange={(e) => { search(e.target.value) }} />
                             <SearchIcon /></span>
                     </div>
 
@@ -283,7 +283,7 @@ const TableUsersManager = () => {
             </div>
             <div className="row pm-table-row-2 ">
                 <TableContainer className="container paper-container-p-table ">
-                    <Table aria-label="custom pagination table ">
+                    <Table className="table-dashboard-big" aria-label="custom pagination table ">
                         <TableHead className="table-head-pm">
                             <TableRow>
                                 <StyledTableCell align="center">Name</StyledTableCell>
