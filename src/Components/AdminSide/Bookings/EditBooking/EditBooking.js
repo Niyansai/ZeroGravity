@@ -6,7 +6,6 @@ import RealProfilePic from "../../../../Assets/ProfileReal.jpeg";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory, useParams } from 'react-router';
 import API from '../../../../Utils/Utils';
-import {logout} from '../../../../Utils/SessionUtil';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -214,6 +213,14 @@ const EditBooking = () => {
     }
 
 
+    const logoutHandler = () => {
+        const token = sessionStorage.removeItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+    }
     
 
 
@@ -238,7 +245,7 @@ const EditBooking = () => {
 
                 <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
                 <Avatar src={RealProfilePic}/>
-                <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={() => {logout(history)}}> Logout </small></span></p>
+                <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={logoutHandler} > Logout </small></span></p>
 
                 </div>
 
