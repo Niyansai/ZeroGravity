@@ -1,193 +1,74 @@
-import React, { useState } from 'react';
-import "./styles.css";
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import img1 from "../../../../Assets/img1.png";
-import img2 from "../../../../Assets/img2.png";
-import img3 from "../../../../Assets/img3.png";
-import img4 from "../../../../Assets/img4.png";
-import VerticalImgBlog from "../../../../Assets/VerticalImgBlog.png";
-import { useHistory } from 'react-router';
+import React from 'react';
+import "./styles.css"
+import GravityLogo from '../../../../Assets/GravityLogo.png';
+import ProfileReal from '../../../../Assets/ProfileReal.jpeg';
+import { Avatar } from '@material-ui/core';
+import TableBlog from './TableBlog/TableBlog';
+import { Link, useHistory } from 'react-router-dom';
+import SideBarDynamic from '../../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
+
 
 
 const BlogPage = () => {
 
+    const history = useHistory();
+    const AdminLogOut = () => {
+        const token = sessionStorage.removeItem("token");
 
-
-    const history = useHistory()
-
-    const handleMoveBack = () => {
-            history.push('/dashboard')
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
     }
 
-  
-
     return (
-        <div className="container blog-main-container">
-            <div className="line-divider"> 
-                </div>
+        <div className="container-fluid d-container">
 
-            <div className="row blog-rw-1">
+            {/* ################# ROW-1 Header ################## */}
 
-                <div className="col-lg-2 col-md-2 col-sm-12 blog-rw-1-col-1">
-                    <h6>Highlights</h6>
-                    <div className="highlight-line"></div>
-                    
+            <div className="row d-row-header">
+                <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-1">
+
+                    <img className="dshbrd-logo" src={GravityLogo} alt="" />
+
                 </div>
-                <div className="col-lg-2 col-md-2 col-sm-12 blog-rw-1-col-2">
-                    <h6>New</h6>
+                <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
+
+                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={AdminLogOut}>Logout</small></span></p>
                 </div>
-                <div className="col-lg-8 col-md-2 col-sm-12 blog-rw-1-col-3">
-                    <div onClick={handleMoveBack} className="bg-black-bck-arw">
-                        <ArrowBackIosIcon />                     
+            </div>
+
+            {/* ################# ROW-2 Main Content ################## */}
+
+            <div className="row d-row-2-main">
+
+                <div className="col-lg-2 col-md-2 col-sm-12 d-row-2-col-1-sidebar">
+
+                    <div className="admin-sidebar-top">
+                        <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard" /></Link>
+                        <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
+                        {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
+                        <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
+                        <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" /></Link>
+                        <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
+                        <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
+                        <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
+                        <Link to="/blog" className="links-decoraton"><SideBarDynamic title="Blogs" selected={true}  /></Link>
+                        <button className="btn-sidebar">Logout</button>
                     </div>
-                    <p><small>Back</small></p>
-                </div>
-
-            </div>
-
-            {/* ################### ROW 2 ###################### */}
-
-            <div className="row blog-rw-2">
-
-            <div className="col-lg-4 col-md-6 col-sm-12 blog-rw2-col-mb-space blog-rw-2-col-1">
-
-            <img src={img1} className="img-fluid blg-img1" alt=""/>
-            <p className="blog-rw-2-col-2-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Denecessitatibus  eligend!<br/><br/>
-            <span style={{ color: "red"}}> <u>Read more</u></span>
-            </p>
-            
-
-            </div>
-
-            <div className="col-lg-3 col-md-6 col-sm-12 blog-rw2-col1-mb-space blog-rw-2-col-2">
-            <img src={img3} className="img-fluid blg-img2" alt=""/>
-            <p className="blog-rw-2-col-2-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Denecessitatibus el voluptatibus  eligend!</p>
-            <p style={{ color: "red", marginTop: "2rem"}}> <u>Read more</u></p>
-            </div>
-
-
-            <div className="col-lg-3 col-md-6 col-sm-12 blog-rw2-col-mb-space blog-rw-2-col-3">
-
-            <img src={img2} className="img-fluid blg-img3" alt=""/>
-            <p className="blog-rw-2-col-2-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Denecessitatibus el voluptatibus  eligend!</p>
-            <p style={{ color: "red", marginTop: "2rem"}}> <u>Read more</u></p>
-            </div>
-
-            </div>
-
-                        {/* ################### ROW 3 ###################### */}
-
-            <div className="row blog-rw-3">
-
-            <div className="col-lg-4 col-md-6 col-sm-12 blog-rw2-col-mb-space blog-rw-3-col-1">
-
-                <img src={img4} className="img-fluid blg-img4" alt=""/>
-
-                <button className="img-btn-view-all">View All</button>
 
                 </div>
 
-                <div className="col-lg-3 col-md-6 col-sm-12 blog-rw2-col-mb-space blog-rw-3-col-2">
-                <img src={img3} className="img-fluid blg-img2" alt=""/>
-                <p className="blog-rw-3-col-1-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Denecessitatibus el voluptatibus  eligend!</p>
-                <p style={{ color: "red", marginTop: "2rem"}}> <u>Read more</u></p>
+
+                {/* ############## Table ############## */}
+
+                <div className="col-lg-10 col-md-10 col-sm-12 ad-rw2-col-2">
+                    <TableBlog />
                 </div>
-
-
-                <div className="col-lg-3 col-md-6 col-sm-12 blog-rw2-col-mb-space blog-rw-3-col-3">
-
-                <img src={img2} className="img-fluid blg-img3" alt=""/>
-                <p className="blog-rw-3-col-2-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Denecessitatibus el voluptatibus  eligend!</p>
-                <p style={{ color: "red", marginTop: "2rem"}}> <u>Read more</u></p>
-                </div>
-
-
             </div>
 
-                        {/* ################### ROW 4 ###################### */}
-
-            <div className="row blog-rw-4">
-                <div className="col-lg-8 col-md-6 col-sm-12 blog-rw-4-col-1">
-                    <h5>New Blogs</h5>
-                <div className="row blog-rw-4-col-1-srw-1 blg-sbrws">
-            <div className="col-lg-9 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-1">
-
-                <p style={{fontWeight: "500"}}>Lorem ipsum, dolor sit amet consoluptatum neque similique minima! At, eligendi? Minus.</p>
-                <p style={{ color: "red", textAlign: "end", fontSize: "13px", marginBottom: "-1rem"}}> <u>Read more</u></p>
-                <span style={{fontSize:"12px", marginTop: "-1rem"}}><small>By</small> &nbsp;<b>Shelly Turner</b></span>
-
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-2">
-
-                <img className="img-fluid blg-img-lmr" src={img3} alt=""/>
-
-            </div>
-
-                </div>
-
-                <div className="row blog-rw-4-col-1-srw-2 blg-sbrws">
-            <div className="col-lg-9 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-1">
-
-                <p style={{fontWeight: "500"}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like</p>
-                <p style={{ color: "red", textAlign: "end", fontSize: "13px", marginBottom: "-1rem"}}> <u>Read more</u></p>
-                <span style={{fontSize:"12px", marginTop: "-1rem"}}><small>By</small> &nbsp;<b>Shelly Turner</b></span>
-
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-2">
-
-                <img className="img-fluid blg-img-lmr" src={img2} alt=""/>
-
-            </div>
-
-                </div>
-
-                <div className="row blog-rw-4-col-1-srw-3 blg-sbrws">
-            <div className="col-lg-9 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-1">
-
-                <p style={{fontWeight: "500"}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like.</p>
-                <p style={{ color: "red", textAlign: "end", fontSize: "13px", marginBottom: "-1rem"}}> <u>Read more</u></p>
-                <span style={{fontSize:"12px", marginTop: "-1rem"}}><small>By</small> &nbsp;<b>Shelly Turner</b></span>
-
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-2">
-
-                <img className="img-fluid blg-img-lmr" src={img3} alt=""/>
-
-            </div>
-
-                </div>
-
-                <div className="row blog-rw-4-col-1-srw-4 blg-sbrws">
-            <div className="col-lg-9 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-1">
-
-                <p style={{fontWeight: "500"}}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like
-                </p>
-                <p style={{ color: "red", textAlign: "end", fontSize: "13px", marginBottom: "-1rem"}}> <u>Read more</u></p>
-                <span style={{fontSize:"12px", marginTop: "-1rem"}}><small>By</small> &nbsp;<b>Shelly Turner</b></span>
-
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 blog-rw-4-col-1-srw-1-col-2">
-
-                <img className="img-fluid blg-img-lmr" src={img2} alt=""/>
-
-            </div>
-
-                </div>
-
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 blog-rw-4-col-2">
-
-                <img className="img-fluid blg-lst-col-vertical-img" src={VerticalImgBlog} alt=""/>
-                <button className="btn-vertical-img">View All</button>
-
-                </div>           
-
-            </div>
-
-            <div className="line-divider blg-ftr-divder"> 
-                </div>
-            
         </div>
+
     )
 }
 

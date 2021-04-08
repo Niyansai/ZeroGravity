@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import "./styles.css"
 import GravityLogo from '../../../Assets/GravityLogo.png';
 import ProfileReal from '../../../Assets/ProfileReal.jpeg';
@@ -11,12 +11,19 @@ import SideBarDynamic from '../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import API from "../../../Utils/Utils";
+import {logout} from '../../../Utils/SessionUtil';
 
 
 const Dashboard = () => {
 
     const { id } = useParams();
     const history = useHistory();
+    const [registeredUsers, setRegisteredUsers] = useState(0);
+
+
+    useEffect(() => {
+        loadUsers();
+    }, [])
 
     const AdminLogOut = () => {
         const token = sessionStorage.removeItem("token");
@@ -27,6 +34,29 @@ const Dashboard = () => {
     }
     }
 
+    const loadUsers = async () => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        await axios.get(API.LIST_USERS, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => {
+                setRegisteredUsers(response.data.data.length);
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    }
+
+    const logoutOut = () => {
+        logout(history);
+    }
 
 
     return (
@@ -42,7 +72,7 @@ const Dashboard = () => {
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
 
-                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small className='logout-dashboard' onClick={AdminLogOut} style={{ color: "#959595" }}>Logout</small></span></p>
+                <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={logoutOut}> Logout </small></span></p>
                 </div>
             </div>
 
@@ -58,6 +88,7 @@ const Dashboard = () => {
                         <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
                         {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
+                        <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" /></Link>
                         <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
                         <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
                         <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports" /></Link>
@@ -87,7 +118,7 @@ const Dashboard = () => {
 
                         <div className="col-lg-4 col-md-6 col-sm-12 d-row-2-sbrw-2-col-1">
                             <button className="d-row-2-sbrw-2-btn-1">
-                                2500
+                                { registeredUsers }
                             </button>
                         </div>
                         <div className="col-lg-8 col-md-6 col-sm-12 d-row-2-sbrw-2-col-2">
@@ -124,7 +155,7 @@ const Dashboard = () => {
 
                     <div className="row d-row-2-sbrw-4">
 
-                        <TableDashboard />
+                    <TableDashboard />
 
                     </div>
                 </div>

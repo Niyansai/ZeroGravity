@@ -30,11 +30,11 @@ const AddPackage = () => {
   const AdminLogOut = () => {
     const token = sessionStorage.removeItem("token");
 
-if (token == null) {
-  history.push("/home");
-  return;
-}
-}
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+  }
 
   const handleMoveback = () => {
     history.push('/customerdatabase')
@@ -144,7 +144,7 @@ if (token == null) {
 
         <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
           <Avatar src={RealProfilePic} />
-          <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span style={{ cursor: "pointer"}} onClick={AdminLogOut}><small>Logout</small></span></p>
+          <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span style={{ cursor: "pointer" }} onClick={AdminLogOut}><small>Logout</small></span></p>
         </div>
 
       </div>

@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import "./styles.css";
-import LeftArrowP from '../../../../Assets/LeftArrowP.png';
-import RightArrowP from "../../../../Assets/RightArrowP.png";
+import LeftArrowP from "../../../../../Assets/LeftArrowP.png";
+import RightArrowP from "../../../../../Assets/RightArrowP.png";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from 'react-router';
-import API from "../../../../Utils/Utils";
+import API from "../../../../../Utils/Utils";
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
@@ -31,11 +31,11 @@ import { Link, useParams } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
 
 
+
 const useStyles1 = makeStyles((theme) => ({
     root: {
         flexShrink: 0,
         marginLeft: theme.spacing(2.5),
-        paddingTop: "20px",
     },
 }));
 
@@ -124,29 +124,26 @@ TablePaginationActions.propTypes = {
 
 //   ################# MAIN-TABLE FUNCTION ###################
 
-const TableUsersManager = () => {
+const TableCoupon = () => {
 
-    const [users, setUsers] = useState([]);
+    const [blogs, setBlogs] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(8);
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, blogs.length - page * rowsPerPage);
 
     const history = useHistory();
-
-    const { id } = useParams();
-
 
     // ################## EVENT HANDLERS ######################
 
 
-    const addUser = () => {
-        history.push('/customerdatabase/add')
+    const addBlog = () => {
+        history.push('/blog/add')
     }
 
 
-    const toViewUsers = () => {
+    const toViewCoupons = () => {
 
-        history.push('/customerdatabase/view')
+        history.push('/blog/view')
 
     }
 
@@ -165,7 +162,7 @@ const TableUsersManager = () => {
 
 
     useEffect(() => {
-        loadUsers();
+        loadBlogs();
     }, [])
 
 
@@ -180,19 +177,16 @@ const TableUsersManager = () => {
         }
 
         // token exists 
-        axios.get(API.LIST_USERS, {
+        axios.get(API.LIST_BLOG, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
             .then((response) => {
-                console.log(response.data.data)
-                setUsers(response.data.data.filter((item, index) => {
-                    return (item.name.startsWith(key) ||
-                        item.username.startsWith(key) ||
-                        item.city.startsWith(key) ||
-                        item.mobile.startsWith(key)
-                    );
+                setBlogs(response.data.data.filter((item, index) => {
+                    return (item._id.toString().startsWith(key) ||
+                        item.title.startsWith(key) ||
+                        item.description.toString().startsWith(key));
                 }));
             })
             .catch((err) => {
@@ -201,20 +195,20 @@ const TableUsersManager = () => {
     }
 
 
-    const loadUsers = async () => {
+    const loadBlogs = async () => {
         const token = sessionStorage.getItem("token");
         if (token == null) {
             history.push("/home");
             return;
         }
 
-        await axios.get(API.LIST_USERS, {
+        await axios.get(API.LIST_BLOG, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
             .then((response) => {
-                setUsers(response.data.data.reverse());
+                setBlogs(response.data.data.reverse());
             })
             .catch((err) => {
                 console.log(err)
@@ -225,7 +219,7 @@ const TableUsersManager = () => {
     // ######################## DELETE PACKAGE FUNCTION #########################
 
 
-    const deleteUser = async (id) => {
+    const deleteBlog = async (id) => {
         const token = sessionStorage.getItem("token");
 
         if (token == null) {
@@ -237,9 +231,9 @@ const TableUsersManager = () => {
             'Authorization': 'Bearer ' + token
         }
 
-        users.id = id;
+        blogs.id = id;
 
-        await axios.get(API.DELETE_USER, {
+        await axios.get(API.DELETE_BLOG, {
             headers: headers,
             params: {
                 id: id
@@ -247,15 +241,13 @@ const TableUsersManager = () => {
         }
         )
             .then((resp) => {
-                console.log(resp)
-                if ('data' in resp.data) {
+                if ('data' in resp.data && resp.data.status === 1) {
                     alert(resp.data.message);
-                    if (resp.data.status == 1)
-                        loadUsers();
+                    loadBlogs();
                 }
             })
             .catch((err) => {
-                console.log(err)
+                alert("Something went wrong");
             })
     }
 
@@ -265,8 +257,8 @@ const TableUsersManager = () => {
 
     return (
         <Fragment>
-            <div className="container-fluid pm-table-search cdb-search">
-                <div className="row pm-table-row-1 cdb-row-table-top">
+            <div className="container-fluid pm-table-search">
+                <div className="row pm-table-row-1">
                     <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1" >
                         <h6>All</h6>
                         <div className="all-highlight">
@@ -277,46 +269,44 @@ const TableUsersManager = () => {
                         <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text" onChange={(e) => { search(e.target.value) }} />
                             <SearchIcon /></span>
                     </div>
+                    <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
+                        <h6>Sort By <ArrowDropDownIcon /></h6>
+                    </div>
+                    <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
+                        <Link to="/blog/add"><button onClick={addBlog} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD BLOG</span></button></Link>
+                    </div>
 
                 </div>
 
             </div>
-            <div className="row pm-table-row-2 ">
-                <TableContainer className="container paper-container-p-table ">
-                    <Table aria-label="custom pagination table ">
+            <div className="row pm-table-row-2">
+                <TableContainer className="container paper-container-p-table">
+                    <Table aria-label="custom pagination table">
                         <TableHead className="table-head-pm">
                             <TableRow>
-                                <StyledTableCell align="center">Name</StyledTableCell>
-                                <StyledTableCell align="center">Username</StyledTableCell>
-                                <StyledTableCell align="center">Mobile</StyledTableCell>
-                                <StyledTableCell align="center">City</StyledTableCell>
+                                <StyledTableCell align="center">Id</StyledTableCell>
+                                <StyledTableCell align="center">Title</StyledTableCell>
+                                <StyledTableCell align="center">Description</StyledTableCell>
                                 <StyledTableCell align="center">Actions</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {(rowsPerPage > 0
-                                ? users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                : users
+                                ? blogs.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                : blogs
                             ).map((item, index) => (
                                 <TableRow className="table-details-pm" key={index}>
-
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.name}
+                                        {item._id}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.username}
+                                        {item.title}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.mobile}
+                                        {item.description}
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.city}
-                                    </TableCell>
-                                    <TableCell style={{ width: 160 }} align="center">
-                                        <div className="d-table-icons">
-                                            <Link to={`/customerdatabase/view/${item.id}`}><span className="icon-svg view-icon"><VisibilityIcon /></span>
-                                            </Link> &nbsp;<Link className="edit-icon-link-pm" to={`/customerdatabase/edit/${item.id}`}><span className="icon-svg  edit-icon-pm"><EditIcon /></span>
-                                            </Link> &nbsp;<span onClick={(id) => deleteUser(item.id)} className="icon-svg  delete-icon"><DeleteIcon /></span></div>
+                                        <div className="d-tble-icons"><Link to={`/blog/view/${item._id}`}><span className="view-icon"><VisibilityIcon /></span></Link> &nbsp;<Link className="edit-icon-link-pm" to={`/blog/edit/${item._id}`}><span className="edit-icon-pm"><EditIcon /></span> </Link> &nbsp;<span onClick={(id) => deleteBlog(item._id)} className="delete-icon"><DeleteIcon /></span></div>
                                     </TableCell>
                                 </TableRow>
                             ))}
@@ -332,7 +322,7 @@ const TableUsersManager = () => {
                                 <TablePagination
                                     rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                                     colSpan={12}
-                                    count={users.length}
+                                    count={blogs.length}
                                     rowsPerPage={rowsPerPage}
                                     page={page}
                                     SelectProps={{
@@ -354,4 +344,4 @@ const TableUsersManager = () => {
     )
 }
 
-export default TableUsersManager
+export default TableCoupon

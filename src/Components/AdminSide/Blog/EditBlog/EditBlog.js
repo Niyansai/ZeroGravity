@@ -9,21 +9,38 @@ import API from '../../../../Utils/Utils';
 import axios from 'axios';
 
 
-const AddBlog = () => {
+const EditBlog = () => {
+
+  const { id } = useParams();
 
   const history = useHistory();
 
-  const [loading, setLoading] = useState([]);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [photos, setPhotos] = useState([]);
-  const [img, setImg] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [img, setAvatar] = useState(undefined);
+  const [blog, setBlog] = useState({
+    title: "",
+    description: "",
+    photos: []
+  });
 
-  const blog = { title, description, photos }
+  const { title, description, photos } = blog;
 
-  // useEffect(() => {
-  //   loadUser();
-  // }, [])
+  const onInputChange = e => {
+    setBlog({ ...blog, [e.target.name]: e.target.value });
+  };
+
+  useEffect(() => {
+    loadBlog();
+  }, []);
+
+  const AdminLogOut = () => {
+    const token = sessionStorage.removeItem("token");
+
+    if (token == null) {
+      history.push("/home");
+      return;
+    }
+  }
 
   const addPhoto = async (pic) => {
     photos.push(pic);
@@ -38,12 +55,14 @@ const AddBlog = () => {
       return;
     }
 
+    blog.id = id;
+
     const headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + token
     }
 
-    axios.post(API.ADD_BLOG,
+    axios.post(API.UPDATE_BLOG,
       blog, {
       headers: headers
     })
@@ -64,6 +83,33 @@ const AddBlog = () => {
           history.push("/home");
         }
       });
+  }
+
+  const loadBlog = async () => {
+    console.log("here")
+    const token = sessionStorage.getItem("token");
+    console.log(token)
+    if (token == null) {
+      history.push("/");
+      return;
+    }
+
+    // token exists 
+    const result = await axios.get(API.GET_BLOG, {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      params: {
+        "id": id
+      }
+    });
+
+    console.log(result.data.data)
+    if (result.data.data){
+      setBlog(result.data.data[0]);
+      if (result.data.data.photos)
+        setAvatar(result.data.data.photos[0]);
+    }
   }
 
   const uploadImage = (e) => {
@@ -95,7 +141,7 @@ const AddBlog = () => {
       .then((response) => {
         if (response.data.status == 1) {
           addPhoto(response.data.data);
-          setImg(response.data.data);
+          setAvatar(response.data.data);
           setLoading("File uploaded");
         }
         else {
@@ -131,7 +177,7 @@ const AddBlog = () => {
 
         <div className="col-lg-2 col-md-6 col-sm-12 cpr-rw1-col-2">
           <Avatar src={RealProfilePic} />
-          <p style={{ marginLeft: "1rem", fontSize: "12px" }}>Ram Singh <br /><span><small>Logout</small></span></p>
+          <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small >{AdminLogOut} </small></span></p>
 
         </div>
 
@@ -142,7 +188,7 @@ const AddBlog = () => {
       <div className="row cpr-rw-2">
 
         <div className="col-lg-10 col-md-6 col-sm-6 cpr-rw-2-col-1">
-          <h3 style={{ color: "gray" }}>Add Blog</h3>
+          <h3 style={{ color: "gray" }}>Edit Blog</h3>
         </div>
 
 
@@ -171,7 +217,15 @@ const AddBlog = () => {
                   onChange={uploadImage}
                 />
                 <p>{loading}</p>
-                <img style={{ width: "300px", paddingTop: "10px", paddingBottom: "10px" }} src={API.GET_IMAGE + "?image=" + img}></img>
+                
+                { blog.photos && blog.photos[0] && 
+                  <img style={{ width: "250px", paddingTop: "10px", paddingBottom: "10px" }} src={API.GET_IMAGE + "?image=" + blog.photos[0]}></img>
+                }
+                {
+                  img && 
+                  <img style={{ width: "250px", paddingTop: "10px", paddingBottom: "10px" }} src={API.GET_IMAGE + "?image=" + img}></img>
+                }
+              
               </div>
             </div>
 
@@ -183,9 +237,10 @@ const AddBlog = () => {
                   <h6>Title</h6>
                   <input className="form-control"
                     name="title"
+                    value={title}
                     placeholder="title for the blog"
                     type="text"
-                    onChange={(e) => { setTitle(e.target.value) }} required
+                    onChange={e => onInputChange(e)} required
                   />
                 </div>
               </div>
@@ -196,9 +251,10 @@ const AddBlog = () => {
                   <textarea className="form-control"
                     name="description"
                     rows="5"
+                    value={description}
                     placeholder="description for the blog"
                     type="text"
-                    onChange={(e) => { setDescription(e.target.value) }} required
+                    onChange={e => onInputChange(e)} required
                   />
                 </div>
               </div>
@@ -206,7 +262,7 @@ const AddBlog = () => {
 
               <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                 <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                  <button type="submit" className="cpr-approve-btn">Add Blog</button>
+                  <button type="submit" className="cpr-approve-btn">Update Blog</button>
                 </div>
 
               </div>
@@ -229,4 +285,4 @@ const AddBlog = () => {
   )
 }
 
-export default AddBlog;
+export default EditBlog;

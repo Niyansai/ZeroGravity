@@ -51,6 +51,7 @@ const Reports = () => {
                         <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard" /></Link>
                         <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
+                        <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" /></Link>
                         <Link to="/inquiry" className="links-decoraton"><SideBarDynamic title="Inquiry" /></Link>
                         <Link to="/customerdatabase" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Customer<br /><small>Database</small></p>} /></Link>
                         <Link to="/reports" className="links-decoraton"><SideBarDynamic title="Reports" selected={true}/></Link>
