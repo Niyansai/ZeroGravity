@@ -300,10 +300,10 @@ const BookingTable = () => {
                     {item._id}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="center">
-                    {item.user}
+                    {item.userData && item.userData.length > 0 && item.userData[0].name}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="center">
-                    {item.package}
+                    {item.packageData && item.packageData.length > 0 && item.packageData[0].name}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="center">
                     {item.payment_mode}

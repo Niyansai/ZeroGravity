@@ -312,7 +312,7 @@ const AddPackage = () => {
 
                     <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                       <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                        <button type="submit" className="cpr-cancel-btn">Cancel</button>
+                      <button onClick={() => history.push('/packages')} type="cancel" className="cpr-cancel-btn">Cancel</button>
                       </div>
 
                     </div>
