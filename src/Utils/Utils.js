@@ -24,6 +24,10 @@ const API = {
     UPLOAD_IMAGE: STORAGE_HOST + "/uploadImage",
 
     ADD_BLOG: BLOG_HOST + "/addBlog",
+    LIST_BLOG: BLOG_HOST + "/listBlog",
+    UPDATE_BLOG: BLOG_HOST + "/updateBlog",
+    DELETE_BLOG: BLOG_HOST + "/deleteBlog",
+    GET_BLOG: BLOG_HOST + "/getBlog",
 
     ADD_INQUIRY: ADMIN_HOST + "/addInquiry",
     DELETE_INQUIRY: ADMIN_HOST + "/deleteInquiry",
