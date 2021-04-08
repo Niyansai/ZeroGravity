@@ -7,9 +7,6 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory } from 'react-router';
 import API from '../../../../Utils/Utils';
 import axios from 'axios';
-import UploadImage from '../UploadImage/UploadImage';
-
-
 
 
 const AddPackage = () => {
@@ -22,12 +19,12 @@ const AddPackage = () => {
   const [rating, setRating] = useState('');
   const [capacity, setCapacity] = useState('');
   const [duration, setDuration] = useState('');
-  const [tags, setTags] = useState('');
-  const [transport, setTransport] = useState('');
-  const [stay, setStay] = useState('');
-  const [meal, setMeal] = useState('');
-  const [activities, setActivities] = useState('');
-  const [special, setSpecial] = useState('');
+  const [tags, setTags] = useState([]);
+  const [transport, setTransport] = useState([]);
+  const [stay, setStay] = useState([]);
+  const [meal, setMeal] = useState([]);
+  const [activities, setActivities] = useState([]);
+  const [special, setSpecial] = useState([]);
   const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState('');
   const [photos, setPhotos] = useState([]);
@@ -103,6 +100,7 @@ const AddPackage = () => {
       'Authorization': 'Bearer ' + token
     }
 
+    console.log(addPack)
     axios.post(API.ADD_PACKAGE,
       addPack, {
       headers: headers
@@ -186,35 +184,35 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-1-sub-row-1 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                         <h6 >Package Name</h6>
-                        <input className="cpr-inputs" name="name" value={name} placeholder="name" type="text" onChange={(e) => { setName(e.target.value) }} required />
+                        <input className="cpr-inputs" name="name" placeholder="name" type="text" onChange={(e) => { setName(e.target.value) }} required />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-1-sub-row-2 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                         <h6>Description</h6>
-                        <input className="cpr-inputs" name="description" value={description} placeholder="description" type="text" onChange={(e) => { setDescription(e.target.value) }} />
+                        <input className="cpr-inputs" name="description" placeholder="description" type="text" onChange={(e) => { setDescription(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-1-sub-row-3 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                         <h6>starting_price</h6>
-                        <input className="cpr-inputs" name="starting_price" value={starting_price} placeholder="starting_price" type="text" onChange={(e) => { setStarting_price(e.target.value) }} />
+                        <input className="cpr-inputs" name="starting_price" placeholder="starting_price" type="text" onChange={(e) => { setStarting_price(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-1-sub-row-4 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                         <h6>ending_price</h6>
-                        <input className="cpr-inputs" name="ending_price" value={ending_price} placeholder="ending_price" type="text" onChange={(e) => { setEnding_price(e.target.value) }} />
+                        <input className="cpr-inputs" name="ending_price" placeholder="ending_price" type="text" onChange={(e) => { setEnding_price(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-1-sub-row-5 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                         <h6>address</h6>
-                        <input className="cpr-inputs" name="address" value={address} placeholder="address" type="text" onChange={(e) => { setAddress(e.target.value) }} />
+                        <input className="cpr-inputs" name="address" placeholder="address" type="text" onChange={(e) => { setAddress(e.target.value) }} />
                       </div>
 
                     </div>
@@ -222,7 +220,7 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-1-sub-row-6 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                         <h6>rating</h6>
-                        <input className="cpr-inputs" name="rating" value={rating} placeholder="rating" type="text" onChange={(e) => { setRating(e.target.value) }} />
+                        <input className="cpr-inputs" name="rating" placeholder="rating" type="text" onChange={(e) => { setRating(e.target.value) }} />
 
                       </div>
 
@@ -237,7 +235,7 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-2-sub-row-1 cpr-rw3-col-2-sub-rows-all">
                       <div className="col">
                         <h6>special</h6>
-                        <input className="cpr-inputs" name="special" value={special} placeholder="special" type="text" onChange={(e) => { setSpecial(e.target.value) }} />
+                        <input className="cpr-inputs" name="special" placeholder="special" type="text" onChange={(e) => { setSpecial(e.target.value) }} />
                       </div>
                     </div>
 
@@ -254,21 +252,21 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-2-sub-row-3 cpr-rw3-col-2-sub-rows-all">
                       <div className="col cpr-rw3-col-2-sub-row-1-col-only">
                         <h6>capacity</h6>
-                        <input className="cpr-inputs" name="capacity" value={capacity} placeholder="capacity" type="text" onChange={(e) => { setCapacity(e.target.value) }} />
+                        <input className="cpr-inputs" name="capacity" placeholder="capacity" type="text" onChange={(e) => { setCapacity(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row  cpr-rw3-col-2-sub-row-4 cpr-rw3-col-2-sub-rows-all">
                       <div className="col cpr-rw3-col-2-sub-row-1-col-only">
                         <h6>duration</h6>
-                        <input className="cpr-inputs" name="duration" value={duration} placeholder="duration" type="text" onChange={(e) => { setDuration(e.target.value) }} />
+                        <input className="cpr-inputs" name="duration" placeholder="duration" type="text" onChange={(e) => { setDuration(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
                       <div className="col cpr-rw3-col-2-sub-row-1-col-only">
                         <h6>Tags</h6>
-                        <input className="cpr-inputs" name="tags" value={tags} placeholder="tags" type="text" onChange={(e) => { setTags(e.target.value) }} />
+                        <input className="cpr-inputs" name="tags" placeholder="tags comma separated" type="text" onChange={(e) => { if (e.target.value) setTags(e.target.value.toString().split(",")) }} />
                       </div>
                     </div>
 
@@ -278,7 +276,7 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                       <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
                         <h6>transport</h6>
-                        <input className="cpr-inputs" name="transport" value={transport} placeholder="transport" type="text" onChange={(e) => { setTransport(e.target.value) }} />
+                        <input className="cpr-inputs" name="transport" placeholder="transport comma separated" type="text" onChange={(e) => { if (e.target.value) setTransport(e.target.value.toString().split(",")) }} />
                       </div>
 
                     </div>
@@ -286,7 +284,7 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                       <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
                         <h6>stay</h6>
-                        <input className="cpr-inputs" name="stay" value={stay} placeholder="stay" type="text" onChange={(e) => { setStay(e.target.value) }} />
+                        <input className="cpr-inputs" name="stay" placeholder="stay choices comman separated" type="text" onChange={(e) => { if (e.target.value) setStay(e.target.value.toString().split(",")) }} />
                       </div>
 
                     </div>
@@ -294,16 +292,16 @@ const AddPackage = () => {
                     <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                       <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
                         <h6>meal</h6>
-                        <input className="cpr-inputs" name="meal" value={meal} placeholder="meal" type="text" onChange={(e) => { setMeal(e.target.value) }} />>
+                        <input className="cpr-inputs" name="meal" placeholder="meal options comma separated" type="text" onChange={(e) => { if (e.target.value) setMeal(e.target.value.toString().split(",")) }} />
 
-                                </div>
+                      </div>
 
                     </div>
 
                     <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                       <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
                         <h6>activites</h6>
-                        <input className="cpr-inputs" name="activities" value={activities} placeholder="activities" type="text" onChange={(e) => { setActivities(e.target.value) }} />
+                        <input className="cpr-inputs" name="activities" placeholder="activities choices comma separated" type="text" onChange={(e) => { if (e.target.value) setActivities(e.target.value.toString().split(",")) }} />
                       </div>
 
                     </div>
