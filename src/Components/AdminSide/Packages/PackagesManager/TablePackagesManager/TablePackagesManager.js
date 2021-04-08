@@ -192,11 +192,9 @@ const TablePackagesManager = () => {
       }
     })
       .then((response) => {
-        console.log(response.data.data)
         setPackagesOf(response.data.data.reverse());
       })
       .catch((err) => {
-        console.log(err)
       });
   }
 
@@ -215,7 +213,6 @@ const TablePackagesManager = () => {
       }
     })
       .then((response) => {
-        console.log(response.data.data)
         setPackagesOf(response.data.data.filter((item, index) => {
           return (item._id.toString().toLowerCase().startsWith(key) ||
             item.name.toString().toLowerCase().startsWith(key) ||
@@ -226,7 +223,6 @@ const TablePackagesManager = () => {
         }));
       })
       .catch((err) => {
-        console.log(err);
       });
   }
 

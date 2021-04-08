@@ -28,7 +28,7 @@ const EditPackage = () => {
 
     const handleMoveBack = (e) => {
 
-        history.push('/dashboard');
+        history.push('/admin');
 
     }
 

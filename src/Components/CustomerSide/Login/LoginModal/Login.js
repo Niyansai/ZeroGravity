@@ -57,16 +57,13 @@ export default function MaxWidthDialog() {
         password: password
       })
       .then((resp) => {
-        console.log(resp.data)
         if (resp.data.status == 1) {
           sessionStorage.setItem('token', resp.data.data.token);
           sessionStorage.setItem('user', resp.data.data.name);
-          history.push('/dashboard')
+          history.push('/admin')
         }
       })
       .catch((err) => {
-        console.log(err)
-        console.log(err.response)
       });
   }
 

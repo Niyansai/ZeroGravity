@@ -34,7 +34,7 @@ import EditCoupon from './Components/AdminSide/Coupon/EditCoupon/EditCoupon';
 import ViewCoupon from './Components/AdminSide/Coupon/ViewCoupon/ViewCoupon';
 import ViewBooking from './Components/AdminSide/Bookings/ViewBooking/VIewBooking';
 import Reports from './Components/AdminSide/Reports/Reports';
-
+import AdminProfile from './Components/AdminSide/AdminProfile/AdminProfile';
 
 
 const App = ({ selected }) => {
@@ -148,6 +148,11 @@ const App = ({ selected }) => {
           <Route exact path='/admin'>
             <Dashboard />
           </Route>
+
+          <Route exact path='/admin/editprofile'>
+            <AdminProfile />
+          </Route>
+
           <Route path={["/home", "/"]}  >
             <Navbar />
             <HomeAfterLogin />

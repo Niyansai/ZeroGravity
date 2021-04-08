@@ -19,6 +19,7 @@ const API = {
     UPDATE_USER: ADMIN_HOST + "/updateUser",
     UPLOAD_USER_IMAGE: ADMIN_HOST + "/uploadUserImage",
     ADD_USER: ADMIN_HOST + "/addUser",
+    GET_MY_PROFILE: USER_HOST + "/getMyProfile",
 
     GET_IMAGE: STORAGE_HOST + "/getImage",
     UPLOAD_IMAGE: STORAGE_HOST + "/uploadImage",

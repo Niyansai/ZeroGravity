@@ -86,9 +86,7 @@ const EditBlog = () => {
   }
 
   const loadBlog = async () => {
-    console.log("here")
     const token = sessionStorage.getItem("token");
-    console.log(token)
     if (token == null) {
       history.push("/");
       return;
@@ -104,7 +102,6 @@ const EditBlog = () => {
       }
     });
 
-    console.log(result.data.data)
     if (result.data.data){
       setBlog(result.data.data[0]);
       if (result.data.data.photos)
@@ -117,7 +114,6 @@ const EditBlog = () => {
     data.append('file', e.target.files[0]);
 
     if (!data) {
-      console.log("bye");
       return;
     }
 

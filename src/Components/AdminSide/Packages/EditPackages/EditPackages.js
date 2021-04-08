@@ -61,7 +61,6 @@ const EditPackages = () => {
     const submitForm = (e) => {
         e.preventDefault();
         const token = sessionStorage.getItem("token");
-        console.log("token")
         if (token == null) {
           history.push("/bookings");
           return;
@@ -115,7 +114,6 @@ const EditPackages = () => {
 
       });
       
-      console.log(result.data.data)
       setUserPackages(result.data.data)
     }
 

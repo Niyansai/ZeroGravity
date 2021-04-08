@@ -17,7 +17,6 @@ const UploadImage = () => {
         setLoading(true)
 
         const token = sessionStorage.getItem("token");
-        console.log("token")
         if (token == null) {
           history.push("/");
           return;

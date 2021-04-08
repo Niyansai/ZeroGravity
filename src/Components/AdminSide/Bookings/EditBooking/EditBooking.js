@@ -71,7 +71,6 @@ const EditBooking = () => {
     const submitForm = (e) => {
         e.preventDefault();
         const token = sessionStorage.getItem("token");
-        console.log("token")
         if (token == null) {
           history.push("/home");
           return;
@@ -89,7 +88,6 @@ const EditBooking = () => {
           headers: headers
         })
         .then((resp) => {
-            console.log(resp)
             if ('message' in resp.data) {
               alert(resp.data.message);
 
@@ -135,7 +133,6 @@ const EditBooking = () => {
             }
            
         })
-        console.log(result)
         if (result.data.data)
         setBooking(result.data.data[0])
             
@@ -159,11 +156,9 @@ const EditBooking = () => {
             }
         })
             .then((response) => {
-                console.log(response.data.data)
                 setUsers(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 
@@ -181,11 +176,9 @@ const EditBooking = () => {
           }
         })
           .then((response) => {
-            console.log(response.data.data)
             setPackagesOf(response.data.data.reverse());
           })
           .catch((err) => {
-            console.log(err)
           });
       }
     
@@ -204,11 +197,9 @@ const EditBooking = () => {
             }
         })
             .then((response) => {
-                console.log(response.data.data)
                 setCoupons(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 

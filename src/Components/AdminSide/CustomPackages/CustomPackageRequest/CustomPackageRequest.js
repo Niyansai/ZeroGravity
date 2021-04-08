@@ -11,7 +11,7 @@ const CustomPackageRequest = () => {
     const history = useHistory();
 
     const handleMoveback = () => {
-        history.push('./dashboard')
+        history.push('./admin')
     }
     
     return (

@@ -48,7 +48,6 @@ const AddPackage = () => {
     data.append('file', e.target.files[0]);
 
     if (!data) {
-      console.log("bye");
       return;
     }
 
@@ -99,13 +98,11 @@ const AddPackage = () => {
       'Authorization': 'Bearer ' + token
     }
 
-    console.log(user)
     axios.post(API.ADD_USER,
       user, {
       headers: headers
     })
       .then((resp) => {
-        console.log(resp)
         if ('message' in resp.data) {
           alert(resp.data.message);
           history.push('/customerdatabase');
@@ -115,7 +112,6 @@ const AddPackage = () => {
         }
       })
       .catch((err) => {
-        console.log(err)
         if (err.response.status === 500) {
           alert("User information is already available.");
         }

@@ -72,7 +72,6 @@ const AddBlog = () => {
     data.append('file', e.target.files[0]);
 
     if (!data) {
-      console.log("bye");
       return;
     }
 

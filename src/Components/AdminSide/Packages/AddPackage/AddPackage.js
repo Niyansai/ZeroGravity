@@ -49,7 +49,6 @@ const AddPackage = () => {
     data.append('file', e.target.files[0]);
 
     if (!data) {
-      console.log("bye");
       return;
     }
 
@@ -89,7 +88,6 @@ const AddPackage = () => {
   const submitForm = (e) => {
     e.preventDefault();
     const token = sessionStorage.getItem("token");
-    console.log("token")
     if (token == null) {
       history.push("/bookings");
       return;
@@ -100,7 +98,6 @@ const AddPackage = () => {
       'Authorization': 'Bearer ' + token
     }
 
-    console.log(addPack)
     axios.post(API.ADD_PACKAGE,
       addPack, {
       headers: headers

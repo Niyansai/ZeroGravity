@@ -57,7 +57,6 @@ const ViewPackage = () => {
 
       });
       
-      console.log(result.data.data)
       setUserPackages(result.data.data)
     }
 
