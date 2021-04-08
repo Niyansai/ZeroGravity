@@ -6,7 +6,6 @@ import RealProfilePic from "../../../../Assets/ProfileReal.jpeg";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useHistory, useParams } from 'react-router-dom';
 import API from '../../../../Utils/Utils';
-import { logout } from '../../../../Utils/SessionUtil';
 import axios from 'axios';
 
 
@@ -50,7 +49,11 @@ const ViewBlog = () => {
   }
 
   const logoutHandler = () => {
-    logout(history)
+    const token = sessionStorage.removeItem("token");
+    if (token == null) {
+      history.push("/");
+      return;
+    }
   }
 
 
