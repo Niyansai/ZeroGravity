@@ -3,8 +3,6 @@ import "./styles.css"
 import GravityLogo from '../../../Assets/GravityLogo.png';
 import ProfileReal from '../../../Assets/ProfileReal.jpeg';
 import { Avatar } from '@material-ui/core';
-import SidebarAdmin from '../SideBarAdmin/SidebarAdmin';
-import SearchIcon from '@material-ui/icons/Search';
 import TableDashboard from './TableDashboard/TableDashboard';
 import SmallTableDashboard from './TableDashboard/SmallTableDashboard/SmallTableDashboard';
 import SideBarDynamic from '../SideBarAdmin/SiderBarDynamic/SideBarDynamic';

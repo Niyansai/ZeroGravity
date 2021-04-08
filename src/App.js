@@ -145,7 +145,7 @@ const App = ({ selected }) => {
             <CustomPackages />
           </Route>
 
-          <Route exact path='/dashboard'>
+          <Route exact path='/admin'>
             <Dashboard />
           </Route>
           <Route path={["/home", "/"]}  >
