@@ -181,18 +181,48 @@ const BookingTable = () => {
     })
       .then((response) => {
         setBookingOf(response.data.data.filter((item, index) => {
-          return (item.status.startsWith(key) ||
-            item.payment_mode.startsWith(key) ||
-            item.transaction.startsWith(key) ||
-            item._id.startsWith(key) ||
-            item.userData[0].name.startsWith(key) ||
-            item.packageData[0].name.startsWith(key)
+          return (item.status.toLowerCase().startsWith(key) ||
+            item.payment_mode.toLowerCase().startsWith(key) ||
+            item.transaction.toLowerCase().startsWith(key) ||
+            item._id.toLowerCase().startsWith(key) ||
+            item.userData[0].name.toLowerCase().startsWith(key) ||
+            item.packageData[0].name.toLowerCase().startsWith(key)
           );
         }));
       })
       .catch((err) => {
       });
   }
+
+
+
+  const sort = async (key) => {
+    const token = sessionStorage.getItem("token");
+    if (token == null) {
+        history.push("/home");
+        return;
+    }
+
+    await axios.get(API.LIST_BOOKINGS, {
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+          
+          setBookingOf(response.data.data.sort((a, b) => {
+                let aa = a[key].toString().toLowerCase(),
+                    bb = b[key].toString().toLowerCase();
+
+                if (aa < bb) return -1;
+                if (bb < aa) return 1;
+                return 0;
+            }));
+        })
+        .catch((err) => {
+        });
+}
+
 
 
   const loadBooking = async () => {
@@ -269,7 +299,15 @@ const BookingTable = () => {
               <SearchIcon /></span>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
-            <h6>Sort By <ArrowDropDownIcon /></h6>
+          <select className="cpr-inputs add-booking-inputs bokng-input-toggle sort-cdb form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
+                           <option selected>Sort By</option>
+                            <option value="_id">Id</option>
+                            <option value="user">User</option>
+                            <option value="package">Package</option>
+                            <option value="price">Price</option>
+                            <option value="payment_mode">PaymentMode</option>
+                            <option value="status">Status</option>
+                        </select>
           </div>
           <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
             <Link to="/bookings/add"><button className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD BOOKING</span></button></Link>

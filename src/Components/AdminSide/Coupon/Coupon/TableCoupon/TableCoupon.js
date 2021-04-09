@@ -184,8 +184,8 @@ const TableCoupon = () => {
         })
             .then((response) => {
                 setCoupons(response.data.data.filter((item, index) => {
-                    return (item.expired.toString().startsWith(key) ||
-                        item.code.startsWith(key) ||
+                    return (item.expired.toString().startsWith(key) ||  
+                        item.code.toLowerCase().startsWith(key) ||
                         item.discount.toString().startsWith(key));
                 }));
             })
@@ -211,7 +211,37 @@ const TableCoupon = () => {
             })
             .catch((err) => {
             });
+            
     }
+
+                // ######################### SORT #######################
+
+    const sort = async (key) => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        await axios.get(API.LIST_INQUIRIES, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => {
+                setCoupons(response.data.data.sort((a, b) => {
+                    let aa = a[key].toString().toLowerCase(),
+                        bb = b[key].toString().toLowerCase();
+
+                    if (aa < bb) return -1;
+                    if (bb < aa) return 1;
+                    return 0;
+                }));
+            })
+            .catch((err) => {
+            });
+    }
+
 
 
     // ######################## DELETE PACKAGE FUNCTION #########################
@@ -268,7 +298,11 @@ const TableCoupon = () => {
                             <SearchIcon /></span>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
-                        <h6>Sort By <ArrowDropDownIcon /></h6>
+                    <select className="cpr-inputs add-booking-inputs bokng-input-toggle sort-cdb form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
+                           <option selected>Sort By</option>
+                            <option value="discount">Discount</option>
+                            <option value="code">Code</option>
+                        </select>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
                         <Link to="/coupons/add"><button onClick={addCoupon} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD COUPON</span></button></Link>

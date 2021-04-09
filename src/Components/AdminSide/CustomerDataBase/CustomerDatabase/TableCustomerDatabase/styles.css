@@ -26,11 +26,25 @@
   font-size: 18px;
 }
 
+.sort-cdb {
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  color: gray;
+}
+
+.sort-cdb:hover {
+  border: none;
+}
+.sort-cdb:focus {
+  border: none;
+}
+
 .cdb-row-table-top {
   margin-top: 1rem;
 }
 
-.cdb-search {
+.bokng-input-toggle .cdb-search {
   background: none;
 }
 

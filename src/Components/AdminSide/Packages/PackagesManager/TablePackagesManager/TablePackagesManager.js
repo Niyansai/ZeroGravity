@@ -139,17 +139,6 @@ const TablePackagesManager = () => {
   // ################## EVENT HANDLERS ######################
 
 
-  const addPackPage = () => {
-    history.push('/packages/add')
-  }
-
-
-  const toViewPackages = () => {
-
-    history.push('/packages/view')
-
-  }
-
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -164,9 +153,7 @@ const TablePackagesManager = () => {
   //   ############### USEEFFECT ###############
 
 
-  useEffect(() => {
-    search();
-  }, [])
+
 
   useEffect(() => {
     loadPackage();
@@ -190,11 +177,14 @@ const TablePackagesManager = () => {
       }
     })
       .then((response) => {
-        setPackagesOf(response.data.data.reverse());
+        console.log(response)
+        setPackagesOf(response.data.data);
       })
       .catch((err) => {
       });
   }
+
+
 
 
   const search = async (key) => {
@@ -212,7 +202,8 @@ const TablePackagesManager = () => {
     })
       .then((response) => {
         setPackagesOf(response.data.data.filter((item, index) => {
-          return (item._id.toString().toLowerCase().startsWith(key) ||
+          return (
+            item._id.toString().toLowerCase().startsWith(key) ||
             item.name.toString().toLowerCase().startsWith(key) ||
             item.description.toString().toLowerCase().startsWith(key) ||
             item.starting_price.toString().toLowerCase().startsWith(key) ||
@@ -223,6 +214,40 @@ const TablePackagesManager = () => {
       .catch((err) => {
       });
   }
+
+     // ######################## SORT PACKAGE FUNCTION #########################
+
+
+  const sort = async (key) => {
+    const token = sessionStorage.getItem("token");
+    if (token == null) {
+        history.push("/home");
+        return;
+    }
+
+    await axios.get(API.LIST_PACKAGES, {
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+        .then((response) => {
+          setPackagesOf(response.data.data.sort((a, b) => {
+                let aa = a[key].toString().toLowerCase(),
+                    bb = b[key].toString().toLowerCase();
+
+                if (aa < bb) return -1;
+                if (bb < aa) return 1;
+                return 0;
+            }));
+        })
+        .catch((err) => {
+        });
+}
+
+
+
+
+  
 
   // ######################## DELETE PACKAGE FUNCTION #########################
 
@@ -274,14 +299,20 @@ const TablePackagesManager = () => {
             </div>
           </div>
           <div className="col-lg-3 col-md-1 col-sm-6 ad-rw2-col-2-row-1-col-1 pm-table-search">
-            <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" type="text" onChange={(e) => { search(e.target.value) }} />
+            <span><input placeholder="Search with keyword or label" className="ad-rw1-col-2-input pm-search-input" name="search-option" type="text" onChange={(e) => { search(e.target.value) }} />
               <SearchIcon /></span>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
-            <h6>Sort By <ArrowDropDownIcon /></h6>
+          <select className="cpr-inputs add-booking-inputs bokng-input-toggle sort-cdb form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
+                           <option selected>Sort By</option>
+                            <option value="_id">ID</option>
+                            <option value="name">Name</option>
+                            <option value="address">Address</option>
+                            <option value="starting_price">Price</option>
+                        </select>
           </div>
           <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
-            <Link to="/packages/add"><button onClick={addPackPage} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD PACKAGE</span></button></Link>
+            <Link to="/packages/add"><button className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD PACKAGE</span></button></Link>
           </div>
 
         </div>

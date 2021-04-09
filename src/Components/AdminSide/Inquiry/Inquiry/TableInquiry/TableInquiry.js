@@ -186,10 +186,11 @@ const TableInquiry = () => {
         })
             .then((response) => {
                 setInquiries(response.data.data.filter((item, index) => {
-                    return (item.name.startsWith(key) ||
-                        item.mobile.startsWith(key) ||
-                        item.email.startsWith(key) || 
-                        item.message.startsWith(key));
+                    return (item.name.toLowerCase().startsWith(key) ||
+                        item.mobile.toLowerCase().startsWith(key) ||
+                        item.email.toLowerCase().startsWith(key) || 
+                        item.message.toLowerCase().startsWith(key)
+                        );
                 }));
             })
             .catch((err) => {
@@ -210,7 +211,36 @@ const TableInquiry = () => {
             }
         })
             .then((response) => {
-                setInquiries(response.data.data.reverse());
+                setInquiries(response.data.data);
+            })
+            .catch((err) => {
+            });
+    }
+
+
+    // ########################## SORT FUNCTION ##########################
+
+    const sort = async (key) => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        await axios.get(API.LIST_INQUIRIES, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => {
+                setInquiries(response.data.data.sort((a, b) => {
+                    let aa = a[key].toString().toLowerCase(),
+                        bb = b[key].toString().toLowerCase();
+
+                    if (aa < bb) return -1;
+                    if (bb < aa) return 1;
+                    return 0;
+                }));
             })
             .catch((err) => {
             });
@@ -271,7 +301,13 @@ const TableInquiry = () => {
                             <SearchIcon /></span>
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
-                        <h6>Sort By <ArrowDropDownIcon /></h6>
+                    <select className="cpr-inputs add-booking-inputs bokng-input-toggle sort-cdb form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
+                           <option selected>Sort By</option>
+                            <option value="_id" >Id</option>
+                            <option value="name" >Name</option>
+                            <option value="email" >email</option>
+                            <option value="mobile">Mobile</option>
+                        </select>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
                         <Link to="/inquiry/add"><button onClick={addInquiry} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD INQUIRY</span></button></Link>
