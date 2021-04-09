@@ -52,7 +52,6 @@ const AddInquiry = () => {
         }
         )
             .then((resp) => {
-                console.log(resp)
                 if ('message' in resp.data) {
                     alert(resp.data.message);
                     if (resp.data.status == 1)

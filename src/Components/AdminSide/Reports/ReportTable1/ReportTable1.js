@@ -240,13 +240,11 @@ const ROWS = [{
       }
     })
       .then((response) => {
-        console.log(response.data.data)
         setBookingOf(response.data.data.filter((item, index) => {
           return item.name.startsWith(key);
         }));
       })
       .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -264,11 +262,9 @@ const ROWS = [{
       }
     })
       .then((response) => {
-        console.log(response.data.data)
         setBookingOf(response.data.data.reverse());
       })
       .catch((err) => {
-        console.log(err)
       });
   }
 
@@ -298,7 +294,6 @@ const ROWS = [{
     }
     )
       .then((resp) => {
-        console.log(resp)
         if ('data' in resp.data && resp.data.status === 1) {
           alert(resp.data.message);
           loadBooking();

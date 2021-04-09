@@ -7,7 +7,7 @@ const SidebarAdmin = () => {
 
     return (
         <div className="admin-sidebar-top">
-           <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard"/></Link>
+           <Link to="/admin" className="links-decoraton"> <SideBarDynamic title="Dashboard"/></Link>
             <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings"/></Link>
              {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
             <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px"}}>Packages<br/><small>Manager</small></p>}/></Link>

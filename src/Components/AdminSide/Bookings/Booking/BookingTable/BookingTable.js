@@ -88,7 +88,7 @@ function TablePaginationActions(props) {
 
 
   return (
-    
+
     <div className={classes.root}>
       <IconButton
         onClick={handleFirstPageButtonClick}
@@ -169,30 +169,30 @@ const BookingTable = () => {
   const search = async (key) => {
     const token = sessionStorage.getItem("token");
     if (token == null) {
-        history.push("/");
-        return;
+      history.push("/");
+      return;
     }
 
     // token exists 
     axios.get(API.LIST_BOOKINGS, {
-        headers: {
-            'Authorization': 'Bearer ' + token
-        }
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
     })
-        .then((response) => {
-            console.log(response.data.data)
-            setBookingOf(response.data.data.filter((item, index) => {
-                return (item.status.startsWith(key) ||
-                    item.payment_mode.startsWith(key) ||
-                    item.transaction.startsWith(key) ||
-                    item._id.startsWith(key)
-                );
-            }));
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
+      .then((response) => {
+        setBookingOf(response.data.data.filter((item, index) => {
+          return (item.status.startsWith(key) ||
+            item.payment_mode.startsWith(key) ||
+            item.transaction.startsWith(key) ||
+            item._id.startsWith(key) ||
+            item.userData[0].name.startsWith(key) ||
+            item.packageData[0].name.startsWith(key)
+          );
+        }));
+      })
+      .catch((err) => {
+      });
+  }
 
 
   const loadBooking = async () => {
@@ -208,11 +208,9 @@ const BookingTable = () => {
       }
     })
       .then((response) => {
-        console.log(response.data.data)
         setBookingOf(response.data.data.reverse());
       })
       .catch((err) => {
-        console.log(err)
       });
   }
 
@@ -242,7 +240,6 @@ const BookingTable = () => {
     }
     )
       .then((resp) => {
-        console.log(resp)
         if ('data' in resp.data && resp.data.status === 1) {
           alert(resp.data.message);
           loadBooking();
@@ -305,10 +302,10 @@ const BookingTable = () => {
                     {item._id}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="center">
-                    {item.user}
+                    {item.userData && item.userData.length > 0 && item.userData[0].name}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="center">
-                    {item.package}
+                    {item.packageData && item.packageData.length > 0 && item.packageData[0].name}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="center">
                     {item.payment_mode}

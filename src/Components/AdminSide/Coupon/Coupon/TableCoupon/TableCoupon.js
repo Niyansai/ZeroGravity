@@ -190,7 +190,6 @@ const TableCoupon = () => {
                 }));
             })
             .catch((err) => {
-                console.log(err);
             });
     }
 
@@ -211,7 +210,6 @@ const TableCoupon = () => {
                 setCoupons(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 

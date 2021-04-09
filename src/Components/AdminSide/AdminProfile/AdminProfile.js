@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import "./styles.css";
-import GravityLogo from "../../../../Assets/GravityLogo.png"
+import GravityLogo from "../../../Assets/GravityLogo.png"
 import { Avatar } from '@material-ui/core';
-import RealProfilePic from "../../../../Assets/ProfileReal.jpeg";
+import RealProfilePic from "../../../Assets/ProfileReal.jpeg";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { useHistory, useParams } from 'react-router-dom';
-import API from '../../../../Utils/Utils';
+import { useHistory } from 'react-router-dom';
+import API from '../../../Utils/Utils';
 import axios from 'axios';
-import { ContactlessOutlined } from '@material-ui/icons';
 
 
-
-const EditUser = () => {
-
-    const { id } = useParams();
+const AdminProfile = () => {
 
     const history = useHistory();
 
     const [loading, setLoading] = useState(false);
     const [img, setAvatar] = useState("");
     const [user, setUser] = useState({
+        id: "",
         role: "",
         active: "",
         name: "",
@@ -32,7 +28,7 @@ const EditUser = () => {
         avatar: ""
     });
 
-    const { name, role, username, mobile, city, dob, gender, active, avatar } = user;
+    const { id, name, role, username, mobile, city, dob, gender, active } = user;
 
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -69,7 +65,6 @@ const EditUser = () => {
             'Authorization': 'Bearer ' + token
         }
 
-        user.id = id;
         user.avatar = img;
 
         axios.post(API.UPDATE_USER,
@@ -81,7 +76,7 @@ const EditUser = () => {
                 if ('message' in resp.data) {
                     alert(resp.data.message);
                     if (resp.data.status == 1)
-                        history.push('/customerdatabase');
+                        history.push('/admin');
                 }
             })
             .catch((err) => {
@@ -108,18 +103,16 @@ const EditUser = () => {
         }
 
         // token exists 
-        const result = await axios.get(API.GET_USER, {
+        const result = await axios.get(API.GET_MY_PROFILE, {
             headers: {
                 'Authorization': 'Bearer ' + token
-            },
-            params: {
-                "id": id
             }
         });
 
         setUser(result.data.data)
         if (result.data.data && result.data.data.avatar)
             setAvatar(result.data.data.avatar);
+
     }
 
 
@@ -166,7 +159,7 @@ const EditUser = () => {
     // ############################# OnClick Handlers ###############################
 
     const handleMoveback = () => {
-        history.push('/customerdatabase')
+        history.push('/admin')
     }
 
 
@@ -366,7 +359,7 @@ const EditUser = () => {
 
                                         <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                                             <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                                                <button onClick={() => history.push('/customerdatabase')} type="cancel" className="cpr-cancel-btn">Cancel</button>
+                                                <button onClick={() => history.push('/admin')} type="cancel" className="cpr-cancel-btn">Cancel</button>
 
                                             </div>
 
@@ -388,4 +381,4 @@ const EditUser = () => {
     )
 }
 
-export default EditUser;
+export default AdminProfile;

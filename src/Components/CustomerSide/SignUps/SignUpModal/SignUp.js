@@ -62,27 +62,23 @@ export default function SignUp() {
         city: city,
         dob: dob,
         gender: gender
-    }
+      }
 
     )
-    .then((resp) => {
-      console.log(resp.data)
-      if(resp.data) {
-        history.push('/home')
-      }
-    })
-    .catch((err) => {
-      console.log(err.response.status)
-      console.log(err.response.message)
-      console.log(err.response)
-    })
+      .then((resp) => {
+        if (resp.data) {
+          history.push('/home')
+        }
+      })
+      .catch((err) => {
+      })
 
   }
 
   const formSubmit = (e) => {
     signUp()
   }
-  
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -97,7 +93,7 @@ export default function SignUp() {
   };
 
   const handleFullWidthChange = (event) => {
-   
+
   };
 
   return (
@@ -113,87 +109,87 @@ export default function SignUp() {
         aria-labelledby="max-width-dialog-title"
         className="modal-size"
       >
-        
+
         <DialogContent className="modal-bg">
           <DialogContentText>
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-4 col-md-6 col-sm-12 col-left-img img-fluid">
-                        <h1><span className="title-span title-color-white">PLAN YOUR <br/></span><span className="title-span title-color-red">DREAM <br/></span><span className="title-span title-color-red">HOLIDAY <br/></span><span className="title-span title-color-white">NOW!!!</span> </h1>
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 col-right-content">
+              <div className="row">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-left-img img-fluid">
+                  <h1><span className="title-span title-color-white">PLAN YOUR <br /></span><span className="title-span title-color-red">DREAM <br /></span><span className="title-span title-color-red">HOLIDAY <br /></span><span className="title-span title-color-white">NOW!!!</span> </h1>
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12 col-right-content">
 
-                      <div className="container signup-content-cntnr">
-                      <form className="signup-col-form" onSubmit={signUp}>
+                  <div className="container signup-content-cntnr">
+                    <form className="signup-col-form" onSubmit={signUp}>
                       <div className="row signup-content-rw signup-rw-1">
-                        
+
                         <div className="col-lg-7 col-md-12 col-sm-12 signup-content-col signup-rw-1-col-1">
-                        <p>Sign Up</p>
+                          <p>Sign Up</p>
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">Username</h6>
-                          <input placeholder="Sharmz1234" value={username} onChange={(e) => setUsername(e.target.value)} type="text" className="signup-inputs"/>
+                            <h6 className="sngup-input-label">Username</h6>
+                            <input placeholder="Sharmz1234" value={username} onChange={(e) => setUsername(e.target.value)} type="text" className="signup-inputs" />
                           </div>
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">Full Name</h6>
-                          <input placeholder="Sharma Walle" value={name} onChange={(e) => setName(e.target.value)} type="text" className="signup-inputs"/>
+                            <h6 className="sngup-input-label">Full Name</h6>
+                            <input placeholder="Sharma Walle" value={name} onChange={(e) => setName(e.target.value)} type="text" className="signup-inputs" />
                           </div>
 
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">Phone Number</h6>
-                          <input placeholder="+91 97040840123" value={mobile} onChange={(e) => setMobile(e.target.value)} type="text" className="signup-inputs"/>
+                            <h6 className="sngup-input-label">Phone Number</h6>
+                            <input placeholder="+91 97040840123" value={mobile} onChange={(e) => setMobile(e.target.value)} type="text" className="signup-inputs" />
                           </div>
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">Password</h6>
-                          <input placeholder="nosey@yahoo.com" value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="signup-inputs"/>
+                            <h6 className="sngup-input-label">Password</h6>
+                            <input placeholder="nosey@yahoo.com" value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="signup-inputs" />
                           </div>
-                        
+
                         </div>
 
                         <div className="col-lg-5 col-md-12 col-sm-12 signup-content-col signup-rw-1-col-2">
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">Date Of Birth</h6>
-                          <input placeholder="Sharmz1234" value={dob} onChange={(e) => setDob(e.target.value)} type="text" className="signup-inputs input-dob"/>
+                            <h6 className="sngup-input-label">Date Of Birth</h6>
+                            <input placeholder="Sharmz1234" value={dob} onChange={(e) => setDob(e.target.value)} type="text" className="signup-inputs input-dob" />
                           </div>
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">Gender</h6>
-                          <input placeholder="Male" value={gender} onChange={(e) => setGender(e.target.value)} type="text" className="signup-inputs"/>
+                            <h6 className="sngup-input-label">Gender</h6>
+                            <input placeholder="Male" value={gender} onChange={(e) => setGender(e.target.value)} type="text" className="signup-inputs" />
                           </div>
 
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label">City</h6>
-                          <input placeholder="***************" value={city} onChange={(e) => setCity(e.target.value)} type="text" className="signup-inputs"/>
+                            <h6 className="sngup-input-label">City</h6>
+                            <input placeholder="***************" value={city} onChange={(e) => setCity(e.target.value)} type="text" className="signup-inputs" />
                           </div>
                           <div className="Input-wraper-signup">
-                          <h6 className="sngup-input-label repeat-p-input">Repeat Password</h6>
-                          <input placeholder="***************" type="password" className="signup-inputs"/>
+                            <h6 className="sngup-input-label repeat-p-input">Repeat Password</h6>
+                            <input placeholder="***************" type="password" className="signup-inputs" />
                           </div>
-                        
+
                         </div>
                       </div>
                       <div className="row signup-row-2">
 
                         <div className="col-lg-8 col-md-12 col-sm-12 signup-row-2-col-1">
 
-                          <p>*Password must be longer than 6 characters <br/><br/>Read our T&C <u>here</u></p>
+                          <p>*Password must be longer than 6 characters <br /><br />Read our T&C <u>here</u></p>
                         </div>
 
                         <div className="col-lg-4 col-md-12 col-sm-12 signup-row-2-col-2">
 
-                        <button onClick={formSubmit} className="singup-submit-btn">
-                           Confirm
+                          <button onClick={formSubmit} className="singup-submit-btn">
+                            Confirm
                          </button>
-                                  
+
                         </div>
                       </div>
-                      
-                      </form>
-                      </div>
-                        
-                    </div>
+
+                    </form>
+                  </div>
+
                 </div>
+              </div>
             </div>
           </DialogContentText>
-          
+
         </DialogContent>
       </Dialog>
     </React.Fragment>

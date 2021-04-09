@@ -48,7 +48,7 @@ const CustomerDatabase = () => {
                 <div className="col-lg-2 col-md-2 col-sm-12 d-row-2-col-1-sidebar">
 
                     <div className="admin-sidebar-top">
-                        <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard" /></Link>
+                        <Link to="/admin" className="links-decoraton"> <SideBarDynamic title="Dashboard" /></Link>
                         <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
                         <Link to="/coupons" className="links-decoraton"><SideBarDynamic title="Coupons" /></Link>

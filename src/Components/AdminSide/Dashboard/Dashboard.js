@@ -3,15 +3,13 @@ import "./styles.css"
 import GravityLogo from '../../../Assets/GravityLogo.png';
 import ProfileReal from '../../../Assets/ProfileReal.jpeg';
 import { Avatar } from '@material-ui/core';
-import SidebarAdmin from '../SideBarAdmin/SidebarAdmin';
-import SearchIcon from '@material-ui/icons/Search';
 import TableDashboard from './TableDashboard/TableDashboard';
 import SmallTableDashboard from './TableDashboard/SmallTableDashboard/SmallTableDashboard';
 import SideBarDynamic from '../SideBarAdmin/SiderBarDynamic/SideBarDynamic';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import API from "../../../Utils/Utils";
-import {logout} from '../../../Utils/SessionUtil';
+import { logout } from '../../../Utils/SessionUtil';
 
 
 const Dashboard = () => {
@@ -28,10 +26,14 @@ const Dashboard = () => {
     const AdminLogOut = () => {
         const token = sessionStorage.removeItem("token");
 
-    if (token == null) {
-      history.push("/home");
-      return;
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
     }
+
+    const editProfile = () => {
+        history.push("/admin/editprofile");
     }
 
     const loadUsers = async () => {
@@ -50,7 +52,6 @@ const Dashboard = () => {
                 setRegisteredUsers(response.data.data.length);
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 
@@ -72,7 +73,7 @@ const Dashboard = () => {
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
 
-                <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer"}} onClick={logoutOut}> Logout </small></span></p>
+                    <p style={{ marginLeft: "1rem", fontSize: "12px" }}> {sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer" }} onClick={logoutOut}> Logout </small></span></p>
                 </div>
             </div>
 
@@ -84,7 +85,7 @@ const Dashboard = () => {
 
 
                     <div className="admin-sidebar-top">
-                        <Link to="/dashboard" className="links-decoraton"> <SideBarDynamic title="Dashboard" selected={true} /></Link>
+                        <Link to="/admin" className="links-decoraton"> <SideBarDynamic title="Dashboard" selected={true} /></Link>
                         <Link to="/bookings" className="links-decoraton" > <SideBarDynamic title="Bookings" /></Link>
                         {/* <Link to="/custompackages" className="links-decoraton"><SideBarDynamic title={<p style={{lineHeight: "22px", marginBottom:"30px"}}>Custom<br/>Packages</p>}/></Link> */}
                         <Link to="/packages" className="links-decoraton"><SideBarDynamic title={<p style={{ lineHeight: "22px" }}>Packages<br /><small>Manager</small></p>} /></Link>
@@ -118,7 +119,7 @@ const Dashboard = () => {
 
                         <div className="col-lg-4 col-md-6 col-sm-12 d-row-2-sbrw-2-col-1">
                             <button className="d-row-2-sbrw-2-btn-1">
-                                { registeredUsers }
+                                {registeredUsers}
                             </button>
                         </div>
                         <div className="col-lg-8 col-md-6 col-sm-12 d-row-2-sbrw-2-col-2">
@@ -145,14 +146,14 @@ const Dashboard = () => {
                             <p>Viewed</p>
                         </div>
 
-                       
+
                     </div>
 
                     {/* ############## Table ############## */}
 
                     <div className="row d-row-2-sbrw-4">
 
-                    <TableDashboard />
+                        <TableDashboard />
 
                     </div>
                 </div>
@@ -181,10 +182,10 @@ const Dashboard = () => {
 
                             <div class="card d-row-2-c3-subrow1-col-2-card">
                                 <div class="card-body d-row-2-c3-subrow1-col-2-card-content">
-                                    <h6>Ram Singh</h6>
+                                    <h6 class="text-center">{sessionStorage.getItem("user")}</h6>
                                     <Avatar src={ProfileReal} />
                                     <p>Admin</p>
-                                    <button className="d-card-btn">Edit Profile</button>
+                                    <button className="d-card-btn" onClick={editProfile} >Edit Profile</button>
                                 </div>
                             </div>
                         </div>

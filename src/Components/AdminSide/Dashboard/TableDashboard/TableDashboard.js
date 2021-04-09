@@ -186,7 +186,6 @@ const TableUsersManager = () => {
             }
         })
             .then((response) => {
-                console.log(response.data.data)
                 setUsers(response.data.data.filter((item, index) => {
                     return (item.name.startsWith(key) ||
                         item.username.startsWith(key) ||
@@ -196,7 +195,6 @@ const TableUsersManager = () => {
                 }));
             })
             .catch((err) => {
-                console.log(err);
             });
     }
 
@@ -217,7 +215,6 @@ const TableUsersManager = () => {
                 setUsers(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 
@@ -247,7 +244,6 @@ const TableUsersManager = () => {
         }
         )
             .then((resp) => {
-                console.log(resp)
                 if ('data' in resp.data) {
                     alert(resp.data.message);
                     if (resp.data.status == 1)
@@ -255,7 +251,6 @@ const TableUsersManager = () => {
                 }
             })
             .catch((err) => {
-                console.log(err)
             })
     }
 

@@ -21,14 +21,12 @@ function App() {
   };
 
   const addContactHandler = async (contact) => {
-    console.log(contact);
     const request = {
       id: uuid(),
       ...contact,
     };
 
     const response = await api.post("/contacts", request);
-    console.log(response);
     setContacts([...contacts, response.data]);
   };
 

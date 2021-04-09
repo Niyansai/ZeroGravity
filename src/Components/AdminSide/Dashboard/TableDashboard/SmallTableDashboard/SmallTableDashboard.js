@@ -186,13 +186,11 @@ const TablePackagesManager = () => {
             }
         })
             .then((response) => {
-                console.log(response.data.data)
                 setPackagesOf(response.data.data.filter((item, index) => {
                     return item.name.startsWith(key);
                 }));
             })
             .catch((err) => {
-                console.log(err);
             });
     }
 
@@ -210,11 +208,9 @@ const TablePackagesManager = () => {
             }
         })
             .then((response) => {
-                console.log(response.data.data)
                 setPackagesOf(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 

@@ -193,7 +193,6 @@ const TableInquiry = () => {
                 }));
             })
             .catch((err) => {
-                console.log(err);
             });
     }
 
@@ -214,7 +213,6 @@ const TableInquiry = () => {
                 setInquiries(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
             });
     }
 

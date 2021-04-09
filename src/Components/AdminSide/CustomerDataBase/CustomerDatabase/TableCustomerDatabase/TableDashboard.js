@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import "./styles.css";
-import LeftArrowP from "../../../../../Assets/LeftArrowP.png";
-import RightArrowP from "../../../../../Assets/RightArrowP.png";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -17,14 +15,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableHead from '@material-ui/core/TableHead';
-import { BorderBottom } from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Link, useParams } from 'react-router-dom';
@@ -186,7 +182,6 @@ const TableUsersManager = () => {
             }
         })
             .then((response) => {
-                console.log(response.data.data)
                 setUsers(response.data.data.filter((item, index) => {
                     return (item.name.startsWith(key) ||
                         item.username.startsWith(key) ||
@@ -196,7 +191,6 @@ const TableUsersManager = () => {
                 }));
             })
             .catch((err) => {
-                console.log(err);
             });
     }
 
@@ -214,12 +208,35 @@ const TableUsersManager = () => {
             }
         })
             .then((response) => {
-                console.log(response.data)
-                console.log(response.data.data)
                 setUsers(response.data.data.reverse());
             })
             .catch((err) => {
-                console.log(err)
+            });
+    }
+
+    const sort = async (key) => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        await axios.get(API.LIST_USERS, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => {
+                setUsers(response.data.data.sort((a, b) => {
+                    let aa = a[key].toString().toLowerCase(),
+                        bb = b[key].toString().toLowerCase();
+
+                    if (aa < bb) return -1;
+                    if (bb < aa) return 1;
+                    return 0;
+                }));
+            })
+            .catch((err) => {
             });
     }
 
@@ -249,7 +266,6 @@ const TableUsersManager = () => {
         }
         )
             .then((resp) => {
-                console.log(resp)
                 if ('data' in resp.data) {
                     alert(resp.data.message);
                     if (resp.data.status == 1)
@@ -257,7 +273,6 @@ const TableUsersManager = () => {
                 }
             })
             .catch((err) => {
-                console.log(err)
             })
     }
 
@@ -281,6 +296,14 @@ const TableUsersManager = () => {
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
                         <h6>Sort By <ArrowDropDownIcon /></h6>
+                        <select className="cpr-inputs add-booking-inputs bokng-input-toggle form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
+                            <option selected> None </option>
+                            <option value="id" >Id</option>
+                            <option value="name" >Name</option>
+                            <option value="username" >Username</option>
+                            <option value="mobile">Mobile</option>
+                            <option value="city">City</option>
+                        </select>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
                         <Link to="/customerdatabase/add"><button onClick={addUser} className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD USER</span></button></Link>
