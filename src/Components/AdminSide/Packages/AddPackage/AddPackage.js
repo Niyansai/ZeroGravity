@@ -28,9 +28,9 @@ const AddPackage = () => {
   const [loading, setLoading] = useState(false);
   const [avatar, setAvatar] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [mobile, setMobile] = useState([]);
 
-
-  const addPack = { name, description, starting_price, ending_price, address, rating, capacity, duration, tags, transport, stay, meal, activities, special, photos };
+  const addPack = { name, description, starting_price, ending_price, mobile, address, rating, capacity, duration, tags, transport, stay, meal, activities, special, photos };
 
   const history = useHistory();
 
@@ -71,7 +71,7 @@ const AddPackage = () => {
       .then((response) => {
         if (response.data.data) {
           addPic(response.data.data);
-          setLoading("File uploaded");
+          setLoading(`${photos.length} File uploaded`);
         }
         else {
           setLoading("File uploading failed in loading");
@@ -175,7 +175,7 @@ const AddPackage = () => {
             <div className="col">
               <form onSubmit={e => submitForm(e)}>
                 <div className="row">
-                  <div className="col-lg-4 col-md-6 col-sm-12 cpr-rw3-col-1">
+                  <div className="col-lg-4 col-md-6 col-sm-12 cpr-rw3-col-2">
 
 
                     <div className="row cpr-rw3-col-1-sub-row-1 cpr-rw3-col-1-sub-rows-all">
@@ -194,21 +194,21 @@ const AddPackage = () => {
 
                     <div className="row cpr-rw3-col-1-sub-row-3 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                        <h6>starting_price</h6>
+                        <h6>Starting Price</h6>
                         <input className="cpr-inputs" name="starting_price" placeholder="starting_price" type="text" onChange={(e) => { setStarting_price(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-1-sub-row-4 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                        <h6>ending_price</h6>
+                        <h6>Ending Price</h6>
                         <input className="cpr-inputs" name="ending_price" placeholder="ending_price" type="text" onChange={(e) => { setEnding_price(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-1-sub-row-5 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                        <h6>address</h6>
+                        <h6>Address</h6>
                         <input className="cpr-inputs" name="address" placeholder="address" type="text" onChange={(e) => { setAddress(e.target.value) }} />
                       </div>
 
@@ -216,7 +216,7 @@ const AddPackage = () => {
 
                     <div className="row cpr-rw3-col-1-sub-row-6 cpr-rw3-col-1-sub-rows-all">
                       <div className="col cpr-rw3-col-1-sub-row-1-col-only">
-                        <h6>rating</h6>
+                        <h6>Rating</h6>
                         <input className="cpr-inputs" name="rating" placeholder="rating" type="text" onChange={(e) => { setRating(e.target.value) }} />
 
                       </div>
@@ -231,31 +231,38 @@ const AddPackage = () => {
 
                     <div className="row cpr-rw3-col-2-sub-row-1 cpr-rw3-col-2-sub-rows-all">
                       <div className="col">
-                        <h6>special</h6>
+                        <h6>Mobile</h6>
+                        <input className="cpr-inputs" name="mobile" placeholder="special" type="text" onChange={(e) => { setMobile(e.target.value) }} />
+                      </div>
+                    </div>
+
+                    <div className="row cpr-rw3-col-2-sub-row-1 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col">
+                        <h6>Specials</h6>
                         <input className="cpr-inputs" name="special" placeholder="special" type="text" onChange={(e) => { setSpecial(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-2-sub-row-2 cpr-rw3-col-2-sub-rows-all">
                       <div className="col">
-                        <h6>photos</h6>
+                        <h6>Photos</h6> 
                         <input className="cpr-inputs" name="img" placeholder="photos" type="file" onChange={uploadImage} />
+                        <p>you can upload multiple photos</p>
                         <p>{loading}</p>
-
 
                       </div>
                     </div>
 
                     <div className="row cpr-rw3-col-2-sub-row-3 cpr-rw3-col-2-sub-rows-all">
                       <div className="col cpr-rw3-col-2-sub-row-1-col-only">
-                        <h6>capacity</h6>
+                        <h6>Capacity</h6>
                         <input className="cpr-inputs" name="capacity" placeholder="capacity" type="text" onChange={(e) => { setCapacity(e.target.value) }} />
                       </div>
                     </div>
 
                     <div className="row  cpr-rw3-col-2-sub-row-4 cpr-rw3-col-2-sub-rows-all">
                       <div className="col cpr-rw3-col-2-sub-row-1-col-only">
-                        <h6>duration</h6>
+                        <h6>Duration</h6>
                         <input className="cpr-inputs" name="duration" placeholder="duration" type="text" onChange={(e) => { setDuration(e.target.value) }} />
                       </div>
                     </div>
@@ -269,50 +276,50 @@ const AddPackage = () => {
 
                   </div>
 
-                  <div className="col-lg-4 col-md-6 col-sm-12 cpr-rw3-col-3">
-                    <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
-                      <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                        <h6>transport</h6>
+                  <div className="col-lg-4 col-md-6 col-sm-12 cpr-rw3-col-2">
+                    <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col cpr-rw3-col-2-sub-row-1-col-only">
+                        <h6>Transport</h6>
                         <input className="cpr-inputs" name="transport" placeholder="transport comma separated" type="text" onChange={(e) => { if (e.target.value) setTransport(e.target.value.toString().split(",")) }} />
                       </div>
 
                     </div>
 
-                    <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
-                      <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                        <h6>stay</h6>
+                    <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col cpr-rw3-col-2-sub-row-1-col-only">
+                        <h6>Stay</h6>
                         <input className="cpr-inputs" name="stay" placeholder="stay choices comman separated" type="text" onChange={(e) => { if (e.target.value) setStay(e.target.value.toString().split(",")) }} />
                       </div>
 
                     </div>
 
-                    <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
-                      <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                        <h6>meal</h6>
+                    <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col cpr-rw3-col-2-sub-row-1-col-only">
+                        <h6>Meal</h6>
                         <input className="cpr-inputs" name="meal" placeholder="meal options comma separated" type="text" onChange={(e) => { if (e.target.value) setMeal(e.target.value.toString().split(",")) }} />
 
                       </div>
 
                     </div>
 
-                    <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
-                      <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                        <h6>activites</h6>
+                    <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col cpr-rw3-col-2-sub-row-1-col-only">
+                        <h6>Activities</h6>
                         <input className="cpr-inputs" name="activities" placeholder="activities choices comma separated" type="text" onChange={(e) => { if (e.target.value) setActivities(e.target.value.toString().split(",")) }} />
                       </div>
 
                     </div>
 
-                    <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
-                      <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
+                    <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col cpr-rw3-col-2-sub-row-1-col-only">
                         <button className="cpr-approve-btn">Approve</button>
                       </div>
 
                     </div>
 
-                    <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
-                      <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                      <button onClick={() => history.push('/packages')} type="cancel" className="cpr-cancel-btn">Cancel</button>
+                    <div className="row  cpr-rw3-col-2-sub-row-7 cpr-rw3-col-2-sub-rows-all">
+                      <div className="col cpr-rw3-col-2-sub-row-1-col-only">
+                        <button onClick={() => history.push('/packages')} type="cancel" className="cpr-cancel-btn">Cancel</button>
                       </div>
 
                     </div>
