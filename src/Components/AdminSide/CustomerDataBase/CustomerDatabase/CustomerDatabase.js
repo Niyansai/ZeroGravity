@@ -18,10 +18,10 @@ const CustomerDatabase = () => {
     const AdminLogOut = () => {
         const token = sessionStorage.removeItem("token");
 
-    if (token == null) {
-      history.push("/home");
-      return;
-    }
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
     }
 
     return (
@@ -37,7 +37,7 @@ const CustomerDatabase = () => {
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 d-row-header-col-2">
 
-                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ cursor: "pointer", color: "#959595"}} onClick={AdminLogOut}>Logout</small></span></p>
+                    <Avatar src={ProfileReal} /> <p style={{ marginLeft: "10px", fontSize: "13px" }}>Ram Singh <br /><span><small style={{ cursor: "pointer", color: "#959595" }} onClick={AdminLogOut}>Logout</small></span></p>
                 </div>
             </div>
 
@@ -62,38 +62,6 @@ const CustomerDatabase = () => {
                 </div>
 
                 <div className="col-lg-10 col-md-6 col-sm-12 d-row-2-col-2-middle">
-
-                    <div className="row d-row-2-sbrw-1">
-
-                        <div className="col-sm d-row-2-sbrw-1-col">
-                            <p>Registered <br />Users</p>
-                        </div>
-                        <div className="col-sm d-row-2-sbrw-1-col">
-                            <p>Total <br />Bookings</p>
-                        </div>
-                        <div className="col-sm d-row-2-sbrw-1-col">
-                            <p>Bookings <br />Today</p>
-                        </div>
-
-                    </div>
-
-
-                    <div className="row d-row-2-sbrw-2">
-
-                        <div className="col-lg-4 col-md-6 col-sm-12 d-row-2-sbrw-2-col-1 cd-r2-sbrw2-col-1">
-                            <button className="d-row-2-sbrw-2-btn-1 cd-btn-top-1">
-                                2500
-                            </button>
-                        </div>
-                        <div className="col-lg-8 col-md-6 col-sm-12 d-row-2-sbrw-2-col-2 cd-btn-2500-col">
-                            <button className="d-row-2-sbrw-2-btn-2 cd-btn-2500">
-                                <div>2500</div> <div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10</div>
-                            </button>
-                        </div>
-
-                    </div>
-
-                    {/* ############## Table ############## */}
 
                     <div className="row d-row-2-sbrw-4 cdb-table-row">
 
