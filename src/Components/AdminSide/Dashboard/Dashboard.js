@@ -17,13 +17,17 @@ const Dashboard = () => {
     const { id } = useParams();
     const history = useHistory();
     const [registeredUsers, setRegisteredUsers] = useState(0);
+    const [totalBookings, setTotalBookings] = useState(0);
 
 
     useEffect(() => {
         loadUsers();
+        loadBooking();
     }, [])
 
+
     const AdminLogOut = () => {
+
         const token = sessionStorage.removeItem("token");
 
         if (token == null) {
@@ -58,6 +62,27 @@ const Dashboard = () => {
     const logoutOut = () => {
         logout(history);
     }
+
+
+    const loadBooking = async () => {
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+          history.push("/home");
+          return;
+        }
+    
+        await axios.get(API.LIST_BOOKINGS, {
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        })
+          .then((response) => {
+            setTotalBookings(response.data.data.length);
+          })
+          .catch((err) => {
+          });
+      }
+    
 
 
     return (
@@ -124,7 +149,7 @@ const Dashboard = () => {
                         </div>
                         <div className="col-lg-8 col-md-6 col-sm-12 d-row-2-sbrw-2-col-2">
                             <button className="d-row-2-sbrw-2-btn-2">
-                                <div>2500</div> <div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;10</div>
+                                <div>{totalBookings}</div> <div>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;10</div>
                             </button>
                         </div>
 

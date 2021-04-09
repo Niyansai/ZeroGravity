@@ -299,15 +299,17 @@ const BookingTable = () => {
               <SearchIcon /></span>
           </div>
           <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
+           <div id="basic-ddown-change" className="d-flex">
           <select className="cpr-inputs add-booking-inputs bokng-input-toggle sort-cdb form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
                            <option selected>Sort By</option>
                             <option value="_id">Id</option>
                             <option value="user">User</option>
                             <option value="package">Package</option>
                             <option value="price">Price</option>
-                            <option value="payment_mode">PaymentMode</option>
+                            <option value="payment_mode">Price</option>
                             <option value="status">Status</option>
                         </select>
+                        </div>
           </div>
           <div className="col-lg-3 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-4">
             <Link to="/bookings/add"><button className="btn-delete-adb pm-add-btn"><AddIcon /><span>ADD BOOKING</span></button></Link>

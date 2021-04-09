@@ -39,9 +39,7 @@ const PackagesManager = ({ selected }) => {
                 <div className="col-lg-3 col-md-6 col-sm-6 ad-rw1-col-2 cp-title">
                     <p className="ad-rw1-col-2-p">Packages Manager</p>
                 </div>
-                <div className="col-lg-3 col-md-6 col-sm-6 ad-rw1-col-2 custom-search-bar">
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6 ad-rw1-col-3 custom-avatar">
+                <div className="col-lg-6 col-md-6 col-sm-6 ad-rw1-col-3 custom-avatar">
                     <Avatar src={RealProfilePic} />
                     <p>Ram Singh <br /><span><small onClick={AdminLogOut} style={{ color: "#959595", cursor: "pointer" }}>Logout</small></span></p>
                 </div>
