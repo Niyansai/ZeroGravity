@@ -1,0 +1,19 @@
+.d-sidebar-dynamic > h6 {
+  color: white;
+  line-height: 4rem;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.d-sidebar-dynamic:hover > h6 {
+  cursor: pointer;
+  background: linear-gradient(to right, #ff4f4f 4%, #ffffff 0%);
+  color: #000;
+}
+
+.sidebar_active > h6 {
+  cursor: pointer;
+  background: linear-gradient(to right, #ff4f4f 4%, #ffffff 0%);
+  color: #000;
+  border-top: 1px solid gray;
+}

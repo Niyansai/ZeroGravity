@@ -1,0 +1,23 @@
+.text-top-slidecard {
+  font-size: 12px !important;
+}
+
+.text-bottom-slidecard {
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+.slider-card-btn {
+  background: none;
+  margin-left: 10px;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  padding: 3px;
+}
+
+.slider-card {
+  box-shadow: 10px 3px 4px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}

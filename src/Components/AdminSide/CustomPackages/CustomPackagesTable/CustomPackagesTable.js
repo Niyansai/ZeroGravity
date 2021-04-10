@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./styles.css";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import RightArrowP from '../../../../Assets/RightArrowP.png';
 import LeftArrowP from "../../../../Assets/LeftArrowP.png";
@@ -30,6 +29,7 @@ const toEditBooking = () => {
 
 
     return (
+
         <div class="table-responsive">
   <table class="table table-borderless bt-table">
   <thead className="text-center thead-bt">

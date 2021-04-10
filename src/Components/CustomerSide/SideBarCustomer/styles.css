@@ -1,0 +1,29 @@
+.admin-sidebar-top {
+  text-align: center;
+  background: #001414;
+  height: 130vh;
+}
+
+.admin-sidebar-top > p {
+  color: white;
+  line-height: 4rem;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.admin-sidebar-top > p:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #ff4f4f 4%, #ffffff 0%);
+  color: #000;
+}
+
+.btn-sidebar {
+  background: none;
+  border: 1px solid #fff;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.links-decoraton {
+  text-decoration: none;
+}

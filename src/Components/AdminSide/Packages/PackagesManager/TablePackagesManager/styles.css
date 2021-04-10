@@ -47,7 +47,7 @@
 }
 
 .table-details-pm > .MuiTableCell-root {
-  font-size: 12px;
+  font-size: 12px !important;
   border: none;
 }
 

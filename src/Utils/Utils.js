@@ -10,6 +10,14 @@ const BOOKINGS_HOST = HOST + "/booking";
 
 const API = {
 
+ // ################## CUSTOMER ############################
+
+    USER_LOGIN: USER_HOST + "/login",
+    USER_REGISTER: USER_HOST + "/register",
+
+
+    // ################## ADMIN ############################
+
     LOGIN: ADMIN_HOST + "/login",
     REGISTER: ADMIN_HOST + "/register",
 

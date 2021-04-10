@@ -57,7 +57,13 @@ export default function MaxWidthDialog() {
         password: password
       })
       .then((resp) => {
-        if (resp.data.status == 1) {
+        console.log(resp.data.data.role)
+        console.log(resp.data.data.role)
+        if (resp.data.data.role === "user") {
+          sessionStorage.setItem('token', resp.data.data.token);
+          sessionStorage.setItem('user', resp.data.data.name);
+          history.push('/customer')
+        } else if (resp.data.data.role === "admin") {
           sessionStorage.setItem('token', resp.data.data.token);
           sessionStorage.setItem('user', resp.data.data.name);
           history.push('/admin')

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
@@ -35,9 +35,20 @@ import ViewCoupon from './Components/AdminSide/Coupon/ViewCoupon/ViewCoupon';
 import ViewBooking from './Components/AdminSide/Bookings/ViewBooking/VIewBooking';
 import Reports from './Components/AdminSide/Reports/Reports';
 import AdminProfile from './Components/AdminSide/AdminProfile/AdminProfile';
+import axios from 'axios';
+import NavbarCSide from './Components/CustomerSide/NavabarCSide/NavbarCSide';
+import API from './Utils/Utils';
+import DashboardCustomer from './Components/CustomerSide/DashboardCustomer/DashboardCustomer';
+import CustomerProfile from './Components/CustomerSide/CustomerProfile/CustomerProfile';
 
 
 const App = ({ selected }) => {
+
+  const[isLoggedIn, setIsLoggedIn] = useState(false)
+
+useEffect(() => {
+  setIsLoggedIn(true)
+})
 
   const Booking = ({ match }) => {
 
@@ -128,7 +139,24 @@ const App = ({ selected }) => {
   return (
     <div className="app">
       <Router>
+
+
         <Switch>
+
+      {/* ######################### CUSTOMER SIDE ################################### */}
+
+
+        <Route exact path='/customer'>
+            <NavbarCSide/>
+            <DashboardCustomer />
+          </Route>
+
+          <Route exact path='/customer/editprofile'>
+            <CustomerProfile />
+          </Route>
+
+
+            {/* ######################### ADMIN SIDE ################################### */}
 
           <Route path="/reports" component={Reports} />
           <Route path="/packages" component={Packages} />
@@ -154,10 +182,10 @@ const App = ({ selected }) => {
           </Route>
 
           <Route path={["/home", "/"]}  >
-            <Navbar />
+             <Navbar/>
             <HomeAfterLogin />
             <Footer />
-          </Route>
+          </Route> 
 
         </Switch>
       </Router>
