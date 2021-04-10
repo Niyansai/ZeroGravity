@@ -4,9 +4,11 @@ import HotelIcon from '@material-ui/icons/Hotel';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 
-const PkgSearchPreferences = () => {
+const PkgSearchPreferences = ({data}) => {
+    const { name, description, starting_price, ending_price, mobile, address, rating, capacity, duration, tags, transport, stay, meal, activities, special, photos } = data;
+
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginTop: "10px"}}>
             <div className="row">
                 <div className="col-lg-4 col-md-6 col-md-12">
                     <img className="img-fluid" style={{ height: "250px" }} src={img2} alt="" />
@@ -14,10 +16,10 @@ const PkgSearchPreferences = () => {
                 <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="row">
                         <div className="col">
-                            <h6>Gokharna Trip</h6>
+                            <h6>{data.name}</h6>
                         </div></div>
                     <div className="row"><div className="col">
-                        <p style={{ color: "gray", fontSize: "12px" }} >A great experience that takes you to the heavens of india and the roof of the world</p>
+                        <p style={{ color: "gray", fontSize: "12px" }} >{description}</p>
                     </div></div>
                     <div className="row"><div className="col">
                         <h6>4 Days / 5 Nights</h6>
