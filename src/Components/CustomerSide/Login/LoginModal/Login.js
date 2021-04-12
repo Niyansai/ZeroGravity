@@ -57,16 +57,16 @@ export default function MaxWidthDialog() {
         password: password
       })
       .then((resp) => {
-        console.log(resp.data.data.role)
-        console.log(resp.data.data.role)
-        if (resp.data.data.role === "user") {
+        if (resp.data.data) {
           sessionStorage.setItem('token', resp.data.data.token);
           sessionStorage.setItem('user', resp.data.data.name);
-          history.push('/customer')
-        } else if (resp.data.data.role === "admin") {
-          sessionStorage.setItem('token', resp.data.data.token);
-          sessionStorage.setItem('user', resp.data.data.name);
-          history.push('/admin')
+
+          if (resp.data.data.role === "user")
+            history.push("/customer");
+          else
+            history.push("/admin");
+        } else {
+          alert("Incorrect username or password");
         }
       })
       .catch((err) => {
