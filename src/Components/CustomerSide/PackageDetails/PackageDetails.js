@@ -6,7 +6,7 @@ import CarouselPkg from './CarouselPkg/CarouselPkg';
 import HotelIcon from '@material-ui/icons/Hotel';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
-import Corousel from '../Corousel/Corousel';
+import Corousel from './PkgCorousel/PkgCorousel';
 import ReviewsComponent from './ReviewsComponent/ReviewsComponent';
 import StarIcon from '@material-ui/icons/Star';
 import RatingBar from './RatingBar/RatingBar';
