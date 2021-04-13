@@ -48,7 +48,6 @@ const PackageDetails = () => {
         })
             .then((response) => {
                 if (response.data.data) {
-                    console.log(response.data.data)
                     setUserPackages(response.data.data)
                 }
             })
