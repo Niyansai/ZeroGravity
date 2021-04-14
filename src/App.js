@@ -43,15 +43,17 @@ import CustomerProfile from './Components/CustomerSide/CustomerProfile/CustomerP
 import PackageDetails from './Components/CustomerSide/PackageDetails/PackageDetails';
 import PaymentsPage from './Components/CustomerSide/PaymentsPage/PaymentsPage';
 import PackageSearch from './Components/CustomerSide/PackageSearch/PackageSearch';
-
+import CustomerBooking from './Components/CustomerSide/Booking/Bookings';
+import CustomerViewBooking from './Components/CustomerSide/Booking/ViewBooking/VIewBooking';
+import RaiseIssue from './Components/CustomerSide/RaiseIssue/RaiseIssue';
 
 const App = ({ selected }) => {
 
-  const[isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-useEffect(() => {
-  setIsLoggedIn(true)
-})
+  useEffect(() => {
+    setIsLoggedIn(true)
+  })
 
   const Booking = ({ match }) => {
 
@@ -146,44 +148,54 @@ useEffect(() => {
 
         <Switch>
 
-      {/* ######################### CUSTOMER SIDE ################################### */}
-      <Route exact path="/packagesearch" >
-      <NavbarCSide/>
-      <PackageSearch/>
-      <Footer />
-      </Route>
-      
+          {/* ######################### CUSTOMER SIDE ################################### */}
+          <Route exact path="/packagesearch" >
+            <NavbarCSide />
+            <PackageSearch />
+            <Footer />
+          </Route>
 
-      <Route exact path="/payments" >
-      <NavbarCSide/>
-      <PaymentsPage/>
-      <Footer />
-      </Route>
+          <Route exact path="/payments" >
+            <NavbarCSide />
+            <PaymentsPage />
+            <Footer />
+          </Route>
 
+          <Route exact path="/packagedetails" >
+            <NavbarCSide />
+            <PackageDetails />
+            <Footer />
+          </Route>
 
-
-      <Route exact path="/packagedetails" >
-      <NavbarCSide/>
-      <PackageDetails/>
-      <Footer />
-      </Route>
-
-        <Route exact path='/customer'>
-
-            <NavbarCSide/>
+          {/* <Route exact path='/dashboard'>
+            <NavbarCSide />
             <DashboardCustomer />
+          </Route> */}
 
+          <Route exact path='/dashboard'>
+            <NavbarCSide />
+            <CustomerBooking />
+          </Route>
+          
+          <Route exact path='/booking'>
+            <NavbarCSide />
+            <CustomerBooking />
           </Route>
 
-          <Route exact path='/customer/editprofile'>
-
-            <CustomerProfile />
-
+          <Route exact path='/dashboard/booking/view/:id'>
+            <CustomerViewBooking />
           </Route>
 
 
-            {/* ######################### ADMIN SIDE ################################### */}
-           
+          <Route exact path='/dashboard/issue'>
+            <RaiseIssue />
+          </Route>
+          
+
+
+
+          {/* ######################### ADMIN SIDE ################################### */}
+
           <Route path="/reports" component={Reports} />
           <Route path="/packages" component={Packages} />
           <Route path="/bookings" component={Booking} />
@@ -208,10 +220,10 @@ useEffect(() => {
           </Route>
 
           <Route path={["/home", "/"]}  >
-             <Navbar/>
+            <Navbar />
             <HomeAfterLogin />
             <Footer />
-          </Route> 
+          </Route>
 
         </Switch>
       </Router>

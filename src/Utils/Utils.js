@@ -65,7 +65,8 @@ const API = {
     LIST_BOOKINGS: BOOKINGS_HOST + "/listBooking",
     GET_BOOKING: BOOKINGS_HOST + "/getBooking",
     UPDATE_BOOKING: BOOKINGS_HOST + "/updateBooking",
-    DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking"
+    DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking",
+    GET_USER_BOOKING: BOOKINGS_HOST + "/getUserBooking"
 
 
 }

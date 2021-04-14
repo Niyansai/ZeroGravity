@@ -299,7 +299,7 @@ const AddBooking = () => {
                                         <div className="row cpr-rw3-col-1-sub-row-6 cpr-rw3-col-1-sub-rows-all">
                                             <div className="col cpr-rw3-col-1-sub-row-1-col-only">
                                                 <h6>Status</h6>
-                                                <select className="cpr-inputs add-booking-inputs bokng-input-toggle form-select" name="payment_mode" value={payment_mode} placeholder="Online/Offline" type="text" onChange={e => onInputChange(e)}>
+                                                <select className="cpr-inputs add-booking-inputs bokng-input-toggle form-select" name="status" value={status} type="text" onChange={e => onInputChange(e)}>
                                                     <option selected>select below options</option>
                                                     <option>Processing</option>
                                                     <option>Processed</option>
