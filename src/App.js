@@ -154,7 +154,7 @@ const App = ({ selected }) => {
             <Footer />
           </Route>
 
-          <Route exact path="/packagedetails" >
+          <Route exact path="/packagedetails/:id" >
             <NavbarCSide />
             <PackageDetails />
             <Footer />
