@@ -153,6 +153,77 @@
   justify-content: space-around;
 }
 
+.image-scroll-row {
+  margin-left: 5rem;
+  margin-top: 5rem;
+}
+
+.p-trip-img {
+  height: 300px;
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.4);
+}
+
+.img-row-p-trip {
+  margin-left: 1.5rem;
+}
+
+.hm-row-4 {
+  padding-left: 2rem;
+  margin-top: 1rem;
+}
+
+.popular-trip-container {
+  max-height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+
+.hm-row-4 {
+  --scrollbarBG: white;
+  --thumbBG: #ff4f4f;
+}
+.popular-trip-container::-webkit-scrollbar {
+  width: 8px;
+}
+.popular-trip-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.popular-trip-container::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.popular-trip-container::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.popular-category-row {
+  justify-content: right;
+  background: black;
+  margin-top: 8rem;
+}
+
+.popular-category-col {
+  height: 10vh;
+  width: 5vw;
+  margin-inline: auto;
+}
+
+.popular-category-col > h4 {
+  text-align: center;
+}
+
+.our-team-card-row {
+  background: black;
+  padding: 5rem;
+  padding-top: 7rem;
+}
+
+.extra-title-ourTeam {
+  padding: 1rem;
+}
+
 @media (max-width: 992px) {
   .col-verticle-icons {
     display: none;

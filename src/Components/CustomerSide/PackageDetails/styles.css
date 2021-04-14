@@ -1,0 +1,26 @@
+.pkg-details-container {
+  padding: 0rem 2rem 4rem 4rem;
+}
+
+.head-diveder-lin-pkg {
+  width: 92%;
+  height: 2px;
+  background: black;
+}
+
+.head-diveder-lin-pkg-row {
+  text-align: -webkit-right;
+}
+
+.pkg-heads-row {
+  padding-top: 4rem;
+  padding-left: 5rem;
+}
+
+.highlight-line-pkg {
+  background: #ff4f4f;
+  width: 20%;
+  height: 4px;
+  margin-left: 1rem;
+  border-radius: 10px;
+}

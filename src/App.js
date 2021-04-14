@@ -40,6 +40,9 @@ import NavbarCSide from './Components/CustomerSide/NavabarCSide/NavbarCSide';
 import API from './Utils/Utils';
 import DashboardCustomer from './Components/CustomerSide/DashboardCustomer/DashboardCustomer';
 import CustomerProfile from './Components/CustomerSide/CustomerProfile/CustomerProfile';
+import PackageDetails from './Components/CustomerSide/PackageDetails/PackageDetails';
+import PaymentsPage from './Components/CustomerSide/PaymentsPage/PaymentsPage';
+import PackageSearch from './Components/CustomerSide/PackageSearch/PackageSearch';
 
 
 const App = ({ selected }) => {
@@ -144,20 +147,43 @@ useEffect(() => {
         <Switch>
 
       {/* ######################### CUSTOMER SIDE ################################### */}
+      <Route exact path="/packagesearch" >
+      <NavbarCSide/>
+      <PackageSearch/>
+      <Footer />
+      </Route>
+      
 
+      <Route exact path="/payments" >
+      <NavbarCSide/>
+      <PaymentsPage/>
+      <Footer />
+      </Route>
+
+
+
+      <Route exact path="/packagedetails" >
+      <NavbarCSide/>
+      <PackageDetails/>
+      <Footer />
+      </Route>
 
         <Route exact path='/customer'>
+
             <NavbarCSide/>
             <DashboardCustomer />
+
           </Route>
 
           <Route exact path='/customer/editprofile'>
+
             <CustomerProfile />
+
           </Route>
 
 
             {/* ######################### ADMIN SIDE ################################### */}
-
+           
           <Route path="/reports" component={Reports} />
           <Route path="/packages" component={Packages} />
           <Route path="/bookings" component={Booking} />

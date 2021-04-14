@@ -12,6 +12,9 @@ import { Grid } from '@material-ui/core';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import Corousel from '../../Corousel/Corousel';
 import ScrollComponent from '../ScrollComponent/ScrollComponent';
+import PopularTripComponent from '../PopularTripComponent/PopularTripComponent';
+import OurTeamCard from '../OurTeamCard/OurTeamCard';
+import img2 from "../../../../Assets/img2.png";
 
 const HomeAfterLogin = () => {
     return (
@@ -112,15 +115,96 @@ const HomeAfterLogin = () => {
                  {/* ############################## ROW-4 ############################ */}
 
                  <div className="row hm-row-4">
+                        
+                        <div className="col-lg-8 col-md-8 col-sm-12">
+                        <div className="container popular-trip-container">
+                            <div className="row image-scroll-row">
+                                <div className="col">
+                                <h6>Popular Trips</h6>
+                              <p><small><u>View All</u></small></p>
+                                </div>
 
-                     <div className="col-lg-8 col-md-8 col-sm-12">
-                        <ScrollComponent/>
-                     </div>
-                     <div className="col-lg-4 col-md-4 col-sm-12">
+                            
+                        </div>  
 
+                        <div className="row img-row-p-trip">
+                            <div className="col ">
+                                <PopularTripComponent 
+                                img={<img className="p-trip-img" src={img2} alt=""/> }
+                                from_text="From Rs 15000"
+                                title = "Gokharna Trip"
+                                description="A great experience that takes you to the heavens of India and the roof of the world."
+                                />
+                            </div>
+                            </div>  <br/> 
+
+                            <div className="row img-row-p-trip">
+                            <div className="col ">
+                                <PopularTripComponent 
+                                img={<img className="p-trip-img" src={img2} alt=""/> }
+                                from_text="From Rs 15000"
+                                title = "Gokharna Trip"
+                                description="A great experience that takes you to the heavens of India and the roof of the world."
+                                />
+                            </div>
+                            </div>  <br/>  
+
+                            <div className="row img-row-p-trip">
+                            <div className="col ">
+                                <PopularTripComponent 
+                                img={<img className="p-trip-img" src={img2} alt=""/> }
+                                from_text="From Rs 15000"
+                                title = "Gokharna Trip"
+                                description="A great experience that takes you to the heavens of India and the roof of the world."
+                                />
+                            </div>
+                            </div>  <br/>  
+
+                            <div className="row img-row-p-trip">
+                            <div className="col ">
+                                <PopularTripComponent 
+                                img={<img className="p-trip-img" src={img2} alt=""/> }
+                                from_text="From Rs 15000"
+                                title = "Gokharna Trip"
+                                description="A great experience that takes you to the heavens of India and the roof of the world."
+                                />
+                            </div>
+                            </div>  <br/>                  
+                            </div>
                      </div>
+                     <div className="col-lg-4 col-md-4 col-sm-12 popular-category-row">
+                            <div className="popular-category-col"> 
+                                        <h4 style={{color: "white", textAlign: "center"}}>Popular<br/>Categories</h4>
+                                
+                            </div>
+                     </div>
+                     
 
                  </div>
+
+                  {/* ############################## ROW-5 ############################ */}
+                  <div className="row extra-title-ourTeam">
+                  <div  className="col"> <h5>Our Team </h5> </div>
+                  </div>
+                
+                  <div className="row hm-row-5 our-team-card-row">
+
+                      <div className="col">
+                          <OurTeamCard/>
+                      </div>
+
+                      <div className="col">
+                          <OurTeamCard/>
+                      </div>
+
+                      <div className="col">
+                          <OurTeamCard/>
+                      </div>
+
+                      <div className="col">
+                          <OurTeamCard/>
+                      </div>
+                  </div>
            
         </div>
     )

@@ -1,0 +1,11 @@
+.img-desc-p-trip {
+  margin-top: auto;
+  margin-left: -1rem;
+}
+
+.p-trip-btn {
+  background: none;
+  outline: none;
+  padding: 5px;
+  width: 100px;
+}
