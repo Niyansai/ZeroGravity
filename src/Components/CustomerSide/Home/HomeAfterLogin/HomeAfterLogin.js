@@ -38,7 +38,8 @@ const HomeAfterLogin = () => {
 
         await axios.get(API.LIST_PACKAGES)
             .then((response) => {
-                setPackages(response.data.data);
+                if (response.data.data && response.data.data.length > 0)
+                setPackages(response.data.data.slice(0, 5));
             })
             .catch((err) => {
             });
