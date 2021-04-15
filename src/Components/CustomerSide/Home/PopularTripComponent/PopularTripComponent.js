@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./styles.css"
+import API from '../../../../Utils/Utils';
+import { useHistory } from 'react-router';
 
-const PopularTripComponent = ({ img, from_text, title, description, }) => {
+const PopularTripComponent = ({ id, img, from_text, title, description, }) => {
+
+    const history = useHistory();
+    const moveToPackageDetails = () => {
+        history.push(`/packagedetails/${id}`);
+    }
+
     return (
         <div className="container">
             <div className="row ">
                 <div className="col-lg-6 col-md-12 col-sm-12">
-                {img}
+                    <img style={{ width: "100%", height: "200px" }} src={API.GET_IMAGE + "?image=" + img} />
                 </div>
                 <div className="col-lg-6 col-md-12 col-sm-12 img-desc-p-trip">
                     <div className="row">
@@ -26,16 +34,16 @@ const PopularTripComponent = ({ img, from_text, title, description, }) => {
 
                     <div className="row">
                         <div className="col">
-                        <Link to="/packagedetails"> 
-                        <button className="p-trip-btn">
-                            View More
-                            </button> 
-                        </Link>
-                            </div>
+                            <Link to="/packagedetails">
+                                <button onClick={(e) => {moveToPackageDetails()}} className="p-trip-btn">
+                                    View More
+                            </button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     )
 }
