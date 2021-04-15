@@ -46,7 +46,7 @@ const Corousel = ({ packages }) => {
       itemClass="carousel-item-padding-40-px"
     >
       
-      { packages &&
+      { packages && packages.length > 0 &&
         packages.map((item, index) => {
           return <div className="corouser-card-boxshwdw"><SmallCard id={item._id} name={item.name} img={item.photos} /></div>
         })
