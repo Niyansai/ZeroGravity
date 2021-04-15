@@ -47,7 +47,7 @@ const ViewPackage = () => {
     }
 
     // token exists 
-    const result = await axios.get(API.SEARCH_PACKAGE, {
+    const result = await axios.get(API.SEARCH_PACKAGE_BY_ID, {
       headers: {
         'Authorization': 'Bearer ' + token
       },

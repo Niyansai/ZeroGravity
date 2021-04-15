@@ -28,6 +28,7 @@ const API = {
     UPLOAD_USER_IMAGE: ADMIN_HOST + "/uploadUserImage",
     ADD_USER: ADMIN_HOST + "/addUser",
     GET_MY_PROFILE: USER_HOST + "/getMyProfile",
+    GET_USER_IMAGE: USER_HOST + "/getUserProfile",
 
     GET_IMAGE: STORAGE_HOST + "/getImage",
     UPLOAD_IMAGE: STORAGE_HOST + "/uploadImage",
@@ -55,9 +56,10 @@ const API = {
 
     ADD_PACKAGE: PACKAGES_HOST + "/addPackage",
     LIST_PACKAGES: PACKAGES_HOST + "/listPackage",
-    SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackageById",
+    SEARCH_PACKAGE_BY_ID: PACKAGES_HOST + "/searchPackageById",
     UPDATE_PACKAGE: PACKAGES_HOST + "/updatePackage",
     DELETE_PACKAGE: PACKAGES_HOST + "/deletePackage",
+    SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackage",
 
     // ############### BOOKINGS ##################
 
@@ -65,7 +67,8 @@ const API = {
     LIST_BOOKINGS: BOOKINGS_HOST + "/listBooking",
     GET_BOOKING: BOOKINGS_HOST + "/getBooking",
     UPDATE_BOOKING: BOOKINGS_HOST + "/updateBooking",
-    DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking"
+    DELETE_BOOKING: BOOKINGS_HOST + "/deleteBooking",
+    GET_USER_BOOKING: BOOKINGS_HOST + "/getUserBooking"
 
 
 }

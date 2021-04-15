@@ -25,6 +25,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Link, useParams } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
+import { Avatar } from '@material-ui/core';
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -241,7 +242,7 @@ const TableUsersManager = () => {
     }
 
 
-    
+
 
 
     // ######################## DELETE PACKAGE FUNCTION #########################
@@ -299,7 +300,7 @@ const TableUsersManager = () => {
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-12 ad-rw2-col-2-row-1-col-3 pm-sortable">
                         <select className="cpr-inputs add-booking-inputs bokng-input-toggle sort-cdb form-select" name="sort-option" type="text" onClick={(e) => { sort(e.target.value) }}>
-                           <option selected>Sort By</option>
+                            <option selected>Sort By</option>
                             <option value="id" >Id</option>
                             <option value="name" >Name</option>
                             <option value="username" >Username</option>
@@ -335,7 +336,10 @@ const TableUsersManager = () => {
                             ).map((item, index) => (
                                 <TableRow className="table-details-pm" key={index}>
                                     <TableCell style={{ width: 160 }} align="center">
-                                        {item.id}
+                                        {item.avatar &&
+                                            <img className="avatar" src={API.GET_IMAGE + "?image=" + item.avatar.toString()} />
+                                        }
+
                                     </TableCell>
                                     <TableCell style={{ width: 160 }} align="center">
                                         {item.name}

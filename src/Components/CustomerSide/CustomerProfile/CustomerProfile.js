@@ -76,7 +76,7 @@ const CustomerProfile = () => {
                 if ('message' in resp.data) {
                     alert(resp.data.message);
                     if (resp.data.status == 1)
-                        history.push('/customer');
+                        history.push('/dashboard');
                 }
             })
             .catch((err) => {
@@ -159,7 +159,7 @@ const CustomerProfile = () => {
     // ############################# OnClick Handlers ###############################
 
     const handleMoveback = () => {
-        history.push('/customer')
+        history.push('/dashboard')
     }
 
 
@@ -359,7 +359,7 @@ const CustomerProfile = () => {
 
                                         <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
                                             <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
-                                                <button onClick={() => history.push('/customer')} type="cancel" className="cpr-cancel-btn">Cancel</button>
+                                                <button onClick={() => history.push('/dashboard')} type="cancel" className="cpr-cancel-btn">Cancel</button>
 
                                             </div>
 

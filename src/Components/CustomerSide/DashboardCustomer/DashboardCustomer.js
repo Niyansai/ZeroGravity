@@ -28,7 +28,7 @@ const DashboardCustomer = () => {
 
 
     const editProfile = () => {
-        history.push("/customer/editprofile");
+        history.push("/dashboard/editprofile");
     }
 
     const loadCurrentUser = async () => {

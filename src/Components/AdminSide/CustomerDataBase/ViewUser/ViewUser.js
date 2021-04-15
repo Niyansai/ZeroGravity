@@ -102,7 +102,7 @@ const ViewUser = () => {
 
           <div className="col-lg-6 col-md-6 col-sm-12 view-pack-title">
             <h1>USER DETAILS</h1>
-            <img className="center" style={{ width: "200px", paddingTop: "10px", paddingBottom: "10px" }} src={API.GET_IMAGE + "?image=" + user.avatar}></img>
+            {/* <img className="center" style={{ width: "200px", paddingTop: "10px", paddingBottom: "10px" }} src={API.GET_IMAGE + "?image=" + user.avatar}></img> */}
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
             {
