@@ -14,6 +14,13 @@ const ViewBooking = () => {
     const { id } = useParams();
     const history = useHistory();
     const [booking, setBooking] = useState([]);
+    const [name, setName] = useState(sessionStorage.getItem("user"));
+    const [user, setId] = useState(sessionStorage.getItem("id"));
+    const [message, setMessage] = useState("");
+    const [rating, setRating] = useState(0);
+    const [packageId, setPackage] = useState("");
+
+    const review = { name, user, rating, message };
 
     useEffect(() => {
         loadBooking();
@@ -44,7 +51,46 @@ const ViewBooking = () => {
 
         if (result.data.data && result.data.data.length > 0) {
             setBooking(result.data.data[0]);
+            setPackage(result.data.data[0].package);
         }
+    }
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        const token = sessionStorage.getItem("token");
+        if (token == null) {
+            history.push("/home");
+            return;
+        }
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+
+        axios.post(API.ADD_REVIEW,
+            {
+                "id": packageId,
+                "reviews": review
+            }, {
+            headers: headers
+        })
+            .then((resp) => {
+                console.log(resp)
+                if ('message' in resp.data) {
+                    alert("Thank you for reviewing the package");
+                    history.push('/dashboard');
+                }
+                else {
+                    alert("Something went wrong");
+                }
+            })
+            .catch((err) => {
+                if (err.response && err.response.status === 401) {
+                    history.push("/home");
+                }
+            });
     }
 
     // ############################# OnClick Handlers ###############################
@@ -105,7 +151,7 @@ const ViewBooking = () => {
 
     return (
 
-        <div className="container cpr-cntnr">
+        <div className="container cpr-cntnr" style={{ marginBottom: "30px" }}>
 
 
             {/* ################ ROW-1 ################## */}
@@ -145,26 +191,70 @@ const ViewBooking = () => {
             </div>
 
             {/* ################ ROW-3 ################## */}
-            <Paper className="paper-view-pack">
-                <div className="row">
 
-                    <div className="col-lg-6 col-md-6 col-sm-12 view-pack-title">
-                        <h1>BOOKING DETAILS</h1>
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12">
-                        {
-                            Object.entries(booking).map(([key, val]) =>
-                                <Grid className="view-pack-key"><span className="vw-pack-key">{key}:</span>&nbsp;&nbsp;<span className="vw-pack-val">{val}</span></Grid>
+            <div className="row" style={{ marginTop: "20px" }}>
 
-                            )}
+                <div className="col-lg-6 col-md-6 col-sm-12 view-pack-title">
+                    <h1>BOOKING DETAILS</h1>
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12">
+                    {
+                        Object.entries(booking).map(([key, val]) =>
+                            <Grid className="view-pack-key"><span className="vw-pack-key">{key}:</span>&nbsp;&nbsp;<span className="vw-pack-val">{val}</span></Grid>
 
-                        <button onClick={(e) => { cancelBooking() }} className="cpr-approve-btn">CANCEL BOOKING</button>
-                    </div>
+                        )}
 
+                    <button onClick={(e) => { cancelBooking() }} className="cpr-approve-btn">CANCEL BOOKING</button>
                 </div>
 
+            </div>
 
-            </Paper>
+
+            <div className="row head-diveder-lin-pkg-row" style={{ marginTop: "20px" }}>
+                <div className="col">
+                    <div className="head-diveder-lin-pkg">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div className="row" style={{ marginTop: "50px" }}>
+                <h5>Submit a review </h5>
+            </div>
+
+            <div className="row" style={{ marginTop: "20px" }}>
+                <div className="col-lg-12 col-md-12 col-sm-12">
+                    <form onSubmit={e => submitForm(e)}>
+
+
+                        <div className="row cpr-rw3-col-1-sub-row-6 cpr-rw3-col-1-sub-rows-all">
+                            <div className="col cpr-rw3-col-1-sub-row-1-col-only">
+                                <h6>Rating</h6>
+                                <input className="cpr-inputs add-booking-inputs" name="rating" placeholder="Rating (1-5)" type="number" onChange={(e) => { setRating(e.target.value) }} />
+                            </div>
+                        </div>
+
+                        <div className="row cpr-rw3-col-1-sub-row-6 cpr-rw3-col-1-sub-rows-all">
+                            <div className="col cpr-rw3-col-1-sub-row-1-col-only">
+                                <h6>Message</h6>
+                                <input className="cpr-inputs add-booking-inputs" name="message" placeholder="Message" type="text" onChange={(e) => { setMessage(e.target.value) }} />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div className="row cpr-rw3-col-3-subrow-1 cpr-rw3-col-3-sub-rows-all">
+                <div className="col cpr-rw3-col-3-subrow-1-col-only col-3-sr">
+                    <button onClick={e => submitForm(e)} className="cpr-approve-btn">ADD REVIEW</button>
+                </div>
+
+            </div>
+
 
         </div>
     )
