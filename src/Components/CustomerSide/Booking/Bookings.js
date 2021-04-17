@@ -13,10 +13,6 @@ const DashboardCustomer = () => {
     const history = useHistory();
 
 
-    const editProfile = () => {
-        history.push("/dashboard/editprofile");
-    }
-
     return (
         <div className="container-fluid d-container">
 

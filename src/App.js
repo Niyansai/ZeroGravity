@@ -39,6 +39,7 @@ import PackageSearch from './Components/CustomerSide/PackageSearch/PackageSearch
 import CustomerBooking from './Components/CustomerSide/Booking/Bookings';
 import CustomerViewBooking from './Components/CustomerSide/Booking/ViewBooking/VIewBooking';
 import RaiseIssue from './Components/CustomerSide/RaiseIssue/RaiseIssue';
+import CustomerProfile from './Components/CustomerSide/CustomerProfile/CustomerProfile';
 
 const App = ({ selected }) => {
 
@@ -169,7 +170,11 @@ const App = ({ selected }) => {
             <NavbarCSide />
             <CustomerBooking />
           </Route>
-          
+
+          <Route exact path="/profile">
+            <CustomerProfile />
+          </Route>
+
           <Route exact path='/booking'>
             <NavbarCSide />
             <CustomerBooking />
@@ -183,7 +188,7 @@ const App = ({ selected }) => {
           <Route exact path='/dashboard/issue'>
             <RaiseIssue />
           </Route>
-          
+
 
 
 

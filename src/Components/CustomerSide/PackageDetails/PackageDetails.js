@@ -15,6 +15,8 @@ import PkgCorousel from './PkgCorousel/PkgCorousel';
 import API from '../../../Utils/Utils';
 import axios from 'axios';
 
+import Login from '../Login/LoginModal/Login';
+
 
 const PackageDetails = () => {
 
@@ -32,7 +34,8 @@ const PackageDetails = () => {
     const loadUserPackage = async () => {
         const token = sessionStorage.getItem("token");
         if (token == null) {
-            history.push("/");
+            alert("Please login");
+            history.push("/home");
             return;
         }
 
@@ -81,24 +84,22 @@ const PackageDetails = () => {
 
             <div className="row pkg-heads-row">
                 <div className="col-lg-2 col-md-4 col-sm-12 pkg-heads-Cols pkg-head-1">
-                    <h6>Highlights</h6>
+                    <a href="#highlights">Highlights</a>
 
                 </div>
 
                 <div className="col-lg-2 col-md-4 col-sm-12 pkg-heads-Cols pkg-head-2">
-                    <h6>Inclusions</h6>
+                    <a href="#inclusions">Inclusions</a>
 
                 </div>
 
                 <div className="col-lg-2 col-md-4 col-sm-12 pkg-heads-Cols pkg-head-3">
-                    <h6>How it works</h6>
+                    <a href="#hiw">How it works</a>
 
                 </div>
 
                 <div className="col-lg-2 col-md-4 col-sm-12 pkg-heads-Cols pkg-head-4">
-                    <h6>Itinerary</h6>
-
-
+                    <a href="#highlights">Itinerary</a>
                 </div>
 
                 <div className="col-lg-2 col-md-4 col-sm-12 pkg-heads-Cols pkg-head-5">
@@ -108,7 +109,7 @@ const PackageDetails = () => {
                 </div>
 
                 <div className="col-lg-1 col-md-4 col-sm-12 pkg-heads-Cols pkg-head-6">
-                    <h6>FAQS</h6>
+                    <a href="#faq">FAQS</a>
 
 
                 </div>
@@ -198,7 +199,7 @@ const PackageDetails = () => {
 
             {/* ############ ROW-4  ########### */}
 
-            <div style={{ marginTop: "2rem" }} className="row">
+            <div style={{ marginTop: "2rem" }} className="row" id="highlights">
                 <div className="col-lg-6 col-md-12 col-sm-12">
 
                     <div className="row" style={{ border: "2px solid black" }}>
@@ -268,7 +269,7 @@ const PackageDetails = () => {
                         </div>
                     </div>
 
-                    <div className="row">
+                    <div className="row" id="inclusions">
                         <div className="col">
                             <h6 style={{ marginTop: "1rem", marginBottom: "1rem" }}>Inclusion</h6>
                         </div>
@@ -298,7 +299,7 @@ const PackageDetails = () => {
                         }
                     </div>
 
-                    <div style={{ marginTop: "1rem", marginBottom: "1rem" }} className="row">
+                    <div style={{ marginTop: "1rem", marginBottom: "1rem" }} className="row" id="hiw">
                         <div className="col">
                             <h6>How it works</h6>
                         </div>
@@ -318,7 +319,7 @@ const PackageDetails = () => {
                             <p style={{ fontSize: "13px", marginLeft: "10px" }}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. onsectetur adipisicing quaerat itaque! Totam!</p>
                         </div></div>
 
-                    <div style={{ marginTop: "1rem", marginBottom: "1rem" }} className="row">
+                    <div style={{ marginTop: "1rem", marginBottom: "1rem" }} className="row" id="faq">
                         <div className="col">
                             <h5>FAQ's</h5>
                         </div>
