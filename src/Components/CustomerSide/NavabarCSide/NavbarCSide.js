@@ -12,6 +12,10 @@ const NavbarCSide = () => {
 
   const history = useHistory();
 
+  const profilePage = () => {
+    history.push("/profile");
+  }
+
 
   return (
     <div>
@@ -22,29 +26,29 @@ const NavbarCSide = () => {
         </button>
         <div class="collapse navbar-collapse nav-top-links nav-text-links" id="navbarNavDropdown">
           <ul class="navbar-nav mr-auto navbar-heads">
-            <Link className="nav-link-deco"> <li class="nav-item nav-items-nb">
+            <Link className="nav-link-deco" to="/home"> <li class="nav-item nav-items-nb">
               <p class="nav-link">Home</p>
             </li>  </Link>
-            <Link className="nav-link-deco"> <li class="nav-item nav-items-nb">
+            <Link className="nav-link-deco" to="/packagesearch"> <li class="nav-item nav-items-nb">
               <p class="nav-link">Packages</p>
             </li>  </Link>
-            <Link className="nav-link-deco"> <li class="nav-item nav-items-nb">
+            <Link className="nav-link-deco" to="/"> <li class="nav-item nav-items-nb">
               <p class="nav-link">Blogs</p>
             </li>  </Link>
 
-            <Link className="nav-link-deco"> <li class="nav-item nav-items-nb">
+            <Link className="nav-link-deco" to="/contact"> <li class="nav-item nav-items-nb">
               <p class="nav-link">Contact</p>
             </li>  </Link>
-            <Link className="nav-link-deco"> <li class="nav-item nav-items-nb">
+            <Link className="nav-link-deco" to="/about"> <li class="nav-item nav-items-nb">
               <p class="nav-link">About Us</p>
             </li>  </Link>
 
-            <Link className="nav-link-deco"> <li class="nav-item nav-items-nb">
+            <Link className="nav-link-deco" to="/dashboard"> <li class="nav-item nav-items-nb">
               <p class="nav-link">My Trips</p>
             </li>  </Link>
             <Link className="nav-link-deco"> <li class="nav-item nav-items-nb d-flex">
               <Avatar src={ProfileReal} />
-              <p style={{ marginLeft: "10px" }} >{sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer", color: "gray" }}>Profile</small></span></p>
+              <p onClick={profilePage} style={{ marginLeft: "10px" }} >{sessionStorage.getItem("user")} <br /><span><small style={{ cursor: "pointer", color: "gray" }}>Profile</small></span></p>
             </li>  </Link>
 
           </ul>
