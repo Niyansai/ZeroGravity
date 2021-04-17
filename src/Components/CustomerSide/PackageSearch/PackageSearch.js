@@ -38,24 +38,24 @@ const PackageSearch = () => {
         { id: 6, value: "snow", isChecked: false },
     ]);
     const [transport, setTransport] = useState([
-        { id: 1, value:"bus", isChecked: false },
-        { id: 2, value:"auto", isChecked: false },
-        { id: 3, value:"airway", isChecked: false },
-        { id: 4, value:"railway", isChecked: false },
-        { id: 5, value:"waterway", isChecked: false },
-        { id: 6, value:"boat", isChecked: false },
+        { id: 1, value: "bus", isChecked: false },
+        { id: 2, value: "auto", isChecked: false },
+        { id: 3, value: "airway", isChecked: false },
+        { id: 4, value: "railway", isChecked: false },
+        { id: 5, value: "waterway", isChecked: false },
+        { id: 6, value: "boat", isChecked: false },
     ]);
     const [special, setSpecial] = useState([
-        { id: 1, value:"wheelchair", isChecked: false },
-        { id: 2, value:"medical equipment", isChecked: false },
-        { id: 3, value:"breather", isChecked: false },
+        { id: 1, value: "wheelchair", isChecked: false },
+        { id: 2, value: "medical equipment", isChecked: false },
+        { id: 3, value: "breather", isChecked: false },
     ]);
     const [rating, setRating] = useState();
     const [stay, setStay] = useState([
-        { id: 1, value:"4 members", isChecked: false },
-        { id: 1, value:"3 members", isChecked: false },
-        { id: 1, value:"2 members", isChecked: false },
-        { id: 1, value:"2 families", isChecked: false },
+        { id: 1, value: "4 members", isChecked: false },
+        { id: 1, value: "3 members", isChecked: false },
+        { id: 1, value: "2 members", isChecked: false },
+        { id: 1, value: "2 families", isChecked: false },
     ]);
 
     const query = { name, starting_price, ending_price, meal, activities, tags, transport, special, rating, stay };
@@ -129,17 +129,12 @@ const PackageSearch = () => {
 
 
     const loadPackage = async () => {
-        const token = sessionStorage.getItem("token");
-        if (token == null) {
-            history.push("/home");
-            return;
-        }
+        // const token = sessionStorage.getItem("token");
+        // if (token == null) {
+        //     render(<Login />)
+        // }
 
-        await axios.get(API.LIST_PACKAGES, {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        })
+        await axios.get(API.LIST_PACKAGES)
             .then((response) => {
                 setPackages(response.data.data);
             })
@@ -156,17 +151,15 @@ const PackageSearch = () => {
     }
 
     const addQuery = async (val) => {
-        const token = sessionStorage.getItem("token");
+        // const token = sessionStorage.getItem("token");
 
-        if (token == null) {
-            history.push("/home");
-            return;
-        }
+        // if (token == null) {
+        //     history.push("/home");
+        //     return;
+        // }
+        setName(val);
 
         await axios.get(API.SEARCH_PACKAGE, {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            },
             params: {
                 "name": val
             }
@@ -179,11 +172,11 @@ const PackageSearch = () => {
     }
 
     const searchPackage = async () => {
-        const token = sessionStorage.getItem("token");
-        if (token == null) {
-            history.push("/home");
-            return;
-        }
+        // const token = sessionStorage.getItem("token");
+        // if (token == null) {
+        //     history.push("/home");
+        //     return;
+        // }
 
         let a = [];
         activities.map((item, k) => {
@@ -234,9 +227,6 @@ const PackageSearch = () => {
         console.log(query)
 
         await axios.get(API.SEARCH_PACKAGE, {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            },
             params: query
         })
             .then((response) => {
@@ -273,7 +263,7 @@ const PackageSearch = () => {
                     <input onChange={(e) => addQuery(e.target.value)} style={{ border: "none", outline: "none", borderBottom: "2px solid gray", marginBottom: "1rem" }} className="inputs-payment" placeholder="Search for Packages" type="text" />
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-12">
-                    <ArrowBackIcon />
+                    <ArrowBackIcon onClick={(e) => { history.push("/home") }} />
                 </div>
             </div>
 
@@ -281,9 +271,9 @@ const PackageSearch = () => {
 
             <div style={{ marginBottom: "1rem", marginTop: "20px" }} className="row">
                 <div className="col-3" style={{ marginLeft: "20px" }}>
-                    <input class="form-control m-1" name="starting_price" onChange={(e) => {setStarting(e.target.value)}} placeholder="starting price" />
-                    <input class="form-control m-1" name="ending_price" onChange={(e) => {setEnding(e.target.value)}} placeholder="ending price" />
-                    <input class="form-control m-1" name="rating" onChange={(e) => {setRating(e.target.value)}} placeholder="rating 1 to 5" />
+                    <input class="form-control m-1" name="starting_price" onChange={(e) => { setStarting(e.target.value) }} placeholder="starting price" />
+                    <input class="form-control m-1" name="ending_price" onChange={(e) => { setEnding(e.target.value) }} placeholder="ending price" />
+                    <input class="form-control m-1" name="rating" onChange={(e) => { setRating(e.target.value) }} placeholder="rating 1 to 5" />
                     <h5>Activities</h5>
                     <ul>
                         {
