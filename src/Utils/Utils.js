@@ -60,6 +60,7 @@ const API = {
     UPDATE_PACKAGE: PACKAGES_HOST + "/updatePackage",
     DELETE_PACKAGE: PACKAGES_HOST + "/deletePackage",
     SEARCH_PACKAGE: PACKAGES_HOST + "/searchPackage",
+    ADD_REVIEW: PACKAGES_HOST + "/addReview",
 
     // ############### BOOKINGS ##################
 
