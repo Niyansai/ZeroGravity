@@ -92,7 +92,7 @@ const AddBooking = () => {
             })
             .catch((err) => {
                 if (err.response.status === 500) {
-                    alert("Booking information is already available.");
+                    alert("Please check all values again!")
                 }
                 if (err.response.status === 401) {
                     history.push("/home");
