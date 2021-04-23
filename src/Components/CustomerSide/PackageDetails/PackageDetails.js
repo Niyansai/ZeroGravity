@@ -65,6 +65,10 @@ const PackageDetails = () => {
         history.push("/packagesearch");
     }
 
+    const bookPackage = () => {
+        history.push(`/payments/${id}/${userPackages.name}`);
+    }
+
     return (
 
         <div className="container-fluid pkg-details-container" >
@@ -176,7 +180,7 @@ const PackageDetails = () => {
                     </div>
                     <div className="row">
                         <div className="col-lg-2 col-md-6 col-sm-12">
-                            <button style={{ border: "none", height: "40px", padding: "5px", width: "90px", color: "white", background: "#ff4f4f" }}>Book</button>
+                            <button onClick={bookPackage} style={{ border: "none", height: "40px", padding: "5px", width: "90px", color: "white", background: "#ff4f4f" }}>Book</button>
                         </div>
                         <div className="col-lg-1 col-md-6 col-sm-12">
                             <button style={{ border: "2px solid gray", height: "40px", padding: "5px", width: "100px", background: "none" }}>Customise</button>

@@ -146,8 +146,8 @@ const PackageSearch = () => {
         history.push(`/packagedetails/${id}`)
     }
 
-    const book = (id) => {
-
+    const book = (id, name) => {
+        history.push(`/payments/${id}/${name}`)
     }
 
     const addQuery = async (val) => {
@@ -379,7 +379,7 @@ const PackageSearch = () => {
                                                     <button onClick={() => { more(val._id) }} style={{ background: "none", width: "100%", height: "40px", outline: "none", padding: "5px" }}>More</button>
                                                 </div>
                                                 <div className="col">
-                                                    <button onClick={() => { book(val._id) }} style={{ background: "#ff4f4f", width: "100%", height: "40px", border: "none", color: "white", padding: "5px", outline: "none" }}>Book</button>
+                                                    <button onClick={() => { book(val._id, val.name) }} style={{ background: "#ff4f4f", width: "100%", height: "40px", border: "none", color: "white", padding: "5px", outline: "none" }}>Book</button>
                                                 </div>
                                             </div>
                                         </div>

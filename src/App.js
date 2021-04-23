@@ -149,7 +149,7 @@ const App = ({ selected }) => {
             <Footer />
           </Route>
 
-          <Route exact path="/payments" >
+          <Route exact path="/payments/:id/:name" >
             <NavbarCSide />
             <PaymentsPage />
             <Footer />
