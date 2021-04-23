@@ -62,7 +62,6 @@ const PaymentsPage = () => {
             cvv
         ]
 
-        console.log(booking)
         axios.post(API.ADD_BOOKING,
             booking, {
             headers: headers
@@ -112,7 +111,7 @@ const PaymentsPage = () => {
                     <p style={{ color: "gray", fontSize: "16px" }}>{name}</p>
                 </div>
                 <div onClick={back} style={{ textAlign: "-webkit-right" }} className="col-lg-6 col-md-6 col-sm-12">
-                    <ArrowBackIcon  />
+                    <ArrowBackIcon />
                 </div>
 
             </div>
@@ -281,7 +280,7 @@ const PaymentsPage = () => {
                 </div>
 
                 <div className="col">
-                    <button type="submit" onClick={(e) => {submitForm(e)}} style={{ background: "#ff4f4f", border: "none", width: "70%", padding: "5px", color: "white" }}>Proceed</button>
+                    <button type="submit" onClick={(e) => { submitForm(e) }} style={{ background: "#ff4f4f", border: "none", width: "70%", padding: "5px", color: "white" }}>Proceed</button>
                 </div>
 
             </div>
