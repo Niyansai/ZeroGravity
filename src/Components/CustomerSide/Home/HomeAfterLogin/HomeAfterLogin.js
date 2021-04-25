@@ -20,11 +20,21 @@ import { Link } from 'react-router-dom';
 import Login from '../../../CustomerSide/Login/LoginModal/Login';
 import API from '../../../../Utils/Utils';
 import axios from 'axios';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
 
 const HomeAfterLogin = () => {
 
     const [packageOf, setPackages] = useState([]);
     const history = useHistory();
+
+    useEffect(() => {
+        AOS.init({
+          duration: 2000,
+          easing: 'ease'
+        });
+          }, [])
 
     useEffect(() => {
         loadPackage();
@@ -48,7 +58,7 @@ const HomeAfterLogin = () => {
     return (
         <div className="container-fluid hm-main-cntnr">
             <div className="row hm-rw-1">
-                <div className="col-lg-1 col-md-0 col-sm-0 col-verticle-icons">
+                <div data-aos="fade-down" className="col-lg-1 col-md-0 col-sm-0 col-verticle-icons">
                     <div className="hm-social-icons">
                         <InstagramIcon />
                         <FacebookIcon />
@@ -58,8 +68,8 @@ const HomeAfterLogin = () => {
                     <div class="verticalLine">
                     </div>
                 </div>
-                <div className="col-lg-11 col-md-12 col-sm-12 hm-rw1-col2-img-bg">
-                    <div className="hm-heading">
+                <div data-aos="fade-left" className="col-lg-11 col-md-12 col-sm-12 hm-rw1-col2-img-bg">
+                    <div data-aos="zoom-in" className="hm-heading">
                         <p>Welcome</p>
                         <h2>START <span style={{ color: "#ff4f4f" }}>YOUR</span><br />
                        ADVENTURE TODAY !!
@@ -85,35 +95,35 @@ const HomeAfterLogin = () => {
             <div className="row hm-rw-2">
                 <div className="col-lg-12 col-md-6 col-sm-12 hm-rw1-col">
                     <Grid container className="rw-2-grid-cntnr">
-                        <Grid className="rw2-circle-1">
+                        <Grid data-aos="fade-right" className="rw2-circle-1">
                             <div className="circle-hm-1">
                                 <DirectionsWalkIcon />
                                 <p >Solo</p>
                             </div>
 
                         </Grid>
-                        <Grid className="rw2-circle-1">
+                        <Grid data-aos="fade-right" className="rw2-circle-1">
                             <div className="circle-hm-1">
                                 <DirectionsWalkIcon />
                                 <p>Family</p>
                             </div>
 
                         </Grid>
-                        <Grid className="rw2-circle-1">
+                        <Grid data-aos="zoom-in" className="rw2-circle-1">
                             <div className="circle-hm-1">
                                 <DirectionsWalkIcon />
                                 <p>Honeymoon</p>
                             </div>
 
                         </Grid>
-                        <Grid className="rw2-circle-1">
+                        <Grid data-aos="fade-left" className="rw2-circle-1">
                             <div className="circle-hm-1">
                                 <DirectionsWalkIcon />
                                 <p>Group</p>
                             </div>
 
                         </Grid>
-                        <Grid className="rw2-circle-1">
+                        <Grid data-aos="fade-left" className="rw2-circle-1">
                             <div className="circle-hm-1">
                                 <DirectionsWalkIcon />
                                 <p>Adventure</p>
@@ -128,7 +138,7 @@ const HomeAfterLogin = () => {
 
             {/* ############################## ROW-3 ############################ */}
 
-            <div className="row">
+            <div data-aos="fade-up" className="row">
                 <div className="container">
                     <div className="row slider-row-complete">
                         <div className="col-lg-10 col-md-12 col-sm-12">
@@ -142,7 +152,7 @@ const HomeAfterLogin = () => {
 
             {/* ############################## ROW-4 ############################ */}
 
-            <div className="row hm-row-4">
+            <div data-aos="fade-up" className="row hm-row-4">
 
                 <div className="col-lg-8 col-md-8 col-sm-12">
                     <div className="container popular-trip-container">
@@ -172,7 +182,7 @@ const HomeAfterLogin = () => {
                         }
                     </div>
                 </div>
-                <div className="col-lg-4 col-md-4 col-sm-12 popular-category-row">
+                <div data-aos="fade-up" className="col-lg-4 col-md-4 col-sm-12 popular-category-row">
                     <div className="popular-category-col">
                         <h4 style={{ color: "white", textAlign: "center" }}>Popular<br />Categories</h4>
 
@@ -183,25 +193,25 @@ const HomeAfterLogin = () => {
             </div>
 
             {/* ############################## ROW-5 ############################ */}
-            <div className="row extra-title-ourTeam">
+            <div data-aos="zoom-in" className="row extra-title-ourTeam">
                 <div className="col"> <h5>Our Team </h5> </div>
             </div>
 
-            <div className="row hm-row-5 our-team-card-row">
+            <div data-aos="fade-up" className="row hm-row-5 our-team-card-row">
 
-                <div className="col">
+                <div  data-aos="fade-right" className="col">
                     <OurTeamCard />
                 </div>
 
-                <div className="col">
+                <div  data-aos="fade-right" className="col">
                     <OurTeamCard />
                 </div>
 
-                <div className="col">
+                <div  data-aos="fade-left" className="col">
                     <OurTeamCard />
                 </div>
 
-                <div className="col">
+                <div  data-aos="fade-left" className="col">
                     <OurTeamCard />
                 </div>
             </div>

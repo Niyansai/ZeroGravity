@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./styles.css";
 import GravityLogo from "../../../Assets/GravityLogo.png";
 import { Avatar } from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 import ProfileReal from "../../../Assets/ProfileReal.jpeg";
 import { Link, useHistory } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 
 const NavbarCSide = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+      easing: 'ease'
+    });
+      }, [])
 
 
   const history = useHistory();
@@ -20,12 +29,12 @@ const NavbarCSide = () => {
   return (
     <div>
       <nav class="navbar navbar-expand-lg nav-before-log-top d-flex">
-        <Link class="navbar-brand"><img class="logo-G" src={GravityLogo} alt="" /></Link>
+        <Link data-aos="fade-right" class="navbar-brand"><img class="logo-G" src={GravityLogo} alt="" /></Link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><MenuIcon /></span>
         </button>
         <div class="collapse navbar-collapse nav-top-links nav-text-links" id="navbarNavDropdown">
-          <ul class="navbar-nav mr-auto navbar-heads">
+          <ul data-aos="fade-down" class="navbar-nav mr-auto navbar-heads">
             <Link className="nav-link-deco" to="/home"> <li class="nav-item nav-items-nb">
               <p class="nav-link">Home</p>
             </li>  </Link>
@@ -54,7 +63,7 @@ const NavbarCSide = () => {
           </ul>
           <div class="form-inline my-2 my-lg-0 btn-form-nav">
 
-            <button class="nav-btn-1" type="submit">Customize your package</button>
+            <button data-aos="fade-left" class="nav-btn-1" type="submit">Customize your package</button>
           </div>
         </div>
       </nav>

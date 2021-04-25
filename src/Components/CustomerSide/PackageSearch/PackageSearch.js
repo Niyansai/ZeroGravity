@@ -8,6 +8,8 @@ import HotelIcon from '@material-ui/icons/Hotel';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import CheckBox from './Checkbox';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 
 const PackageSearch = () => {
@@ -237,13 +239,19 @@ const PackageSearch = () => {
             });
     }
 
+    useEffect(() => {
+        AOS.init({
+          duration: 3000,
+        });
+          }, [])
+
     return (
 
         <div className="container-fluid pkg-details-container" >
 
             {/* ############ LINE DIVIDER ########### */}
 
-            <div className="row head-diveder-lin-pkg-row">
+            <div data-aos="fade-right"  className="row head-diveder-lin-pkg-row">
                 <div className="col">
                     <div className="head-diveder-lin-pkg">
 
@@ -253,7 +261,7 @@ const PackageSearch = () => {
 
             {/* ############ ROW-2 ########### */}
 
-            <div style={{ marginTop: "2rem" }} className="row pkgsearch-container">
+            <div data-aos="fade-left" style={{ marginTop: "2rem" }} className="row pkgsearch-container">
                 <div className="col-lg-3 col-md-6 col-sm-12"></div>
                 <div className="col-lg-3 col-md-6 col-sm-12">
                     <h4>Your Preferences</h4>
@@ -269,7 +277,7 @@ const PackageSearch = () => {
 
             {/* ############ ROW-3 ########### */}
 
-            <div style={{ marginBottom: "1rem", marginTop: "20px" }} className="row">
+            <div data-aos="fade-up" style={{ marginBottom: "1rem", marginTop: "20px" }} className="row">
                 <div className="col-3" style={{ marginLeft: "20px" }}>
                     <input class="form-control m-1" name="starting_price" onChange={(e) => { setStarting(e.target.value) }} placeholder="starting price" />
                     <input class="form-control m-1" name="ending_price" onChange={(e) => { setEnding(e.target.value) }} placeholder="ending price" />
@@ -335,7 +343,7 @@ const PackageSearch = () => {
                             return (
                                 <div className="container-fluid" style={{ marginTop: "15px", verticalAlign: "center" }}>
                                     <div className="row">
-                                        <div className="col-lg-4 col-md-6 col-md-12">
+                                        <div data-aos="fade-up" className="col-lg-4 col-md-6 col-md-12">
                                             {
                                                 val.photos.length > 0 &&
                                                 <img className="img-fluid" style={{ height: "250px", width: "250px" }} src={API.GET_IMAGE + "?image=" + val.photos[0]} alt="" />
@@ -345,7 +353,7 @@ const PackageSearch = () => {
                                                 <img className="img-fluid" style={{ height: "250px" }} src={img} alt="" />
                                             }
                                         </div>
-                                        <div className="col-lg-4 col-md-6 col-sm-12">
+                                        <div data-aos="fade-up" className="col-lg-4 col-md-6 col-sm-12">
                                             <div className="row">
                                                 <div className="col">
                                                     <h6>{val.name}</h6>
@@ -383,7 +391,7 @@ const PackageSearch = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-lg-4 col-md-6 col-sm-12">
+                                        <div data-aos="fade-up" className="col-lg-4 col-md-6 col-sm-12">
                                             {
                                                 val.meal.length > 0 &&
                                                 <div style={{ marginTop: "1rem" }} className="row">

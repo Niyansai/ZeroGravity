@@ -26,14 +26,13 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-size: 12px;
-  font-size: 12px;
-  margin-right: end;
+  margin-right: auto;
 }
 
 .verticalLine {
   border-left: 2px solid grey;
   height: 80px;
-  margin-left: 10rem;
+  margin-left: 3.8rem;
 }
 
 .hm-rw1-col1 {

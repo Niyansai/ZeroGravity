@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./styles.css";
 import GravityLogo from "../../Assets/GravityLogo.png";
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -6,19 +6,27 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Footer = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2500,
+    });
+      }, [])
     return (
         <div className="container-fluid">
-          <div className="row ftr-rw-tp ftr-cntanr">
-              <div className="col-lg-3 col-md-4 col-sm-12 ftr-rw-tp-col-1">
+          <div data-aos="fade-up" className="row ftr-rw-tp ftr-cntanr">
+              <div data-aos="fade-right" className="col-lg-3 col-md-4 col-sm-12 ftr-rw-tp-col-1">
               <img class="logo-G-ft img-fluid" src={GravityLogo} alt=""/><br/>
               <div className="logo-img-btm">
                <div><PhoneIcon/> &nbsp; <b>+91 999678628</b></div>
                <div className="ftr-col-1-img-data"><MailOutlineIcon/> &nbsp; <b>ZeroGravityAW@gmail.com</b></div>
                </div>
                   </div>
-                  <div className="col-lg-3 col-md-4 col-sm-12 ftr-rw-tp-col-2">
+                  <div data-aos="fade-right" className="col-lg-3 col-md-4 col-sm-12 ftr-rw-tp-col-2">
                     <ul className="ftr-col-2-items">
                         <li>About Us</li>
                         <li>Team</li>
@@ -28,7 +36,7 @@ const Footer = () => {
                     </ul>                
                   </div>
 
-                  <div className="col-lg-3 col-md-4 col-sm-12 ftr-rw-tp-col-3">
+                  <div data-aos="fade-left" className="col-lg-3 col-md-4 col-sm-12 ftr-rw-tp-col-3">
                 <h6><b>Connnect With Us</b></h6>
                 <div className="social-icons">
                 <InstagramIcon/>
@@ -44,7 +52,7 @@ const Footer = () => {
                     </p>            
                   </div>
 
-                  <div className="col-lg-3 col-md-4 col-sm-12">
+                  <div data-aos="fade-left" className="col-lg-3 col-md-4 col-sm-12">
                     <div className="enquiry-btn-felx">
                         <h6><b>Inquiry</b></h6>
                         <button>Send</button>
